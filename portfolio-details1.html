@@ -1,182 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Detalles de Portafolio - Desempeño de Ventas</title>
-    <meta name="description" content="Detalles del proyecto de análisis de Desempeño de Ventas con Power BI.">
-    <meta name="keywords" content="Power BI, Desempeño de Ventas, Data Analytics, Ernesto Roldán">
+    <base target="_top">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Proyecto | Análisis de Mercado y Tendencias de Airbnb (CDMX)</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ieo: {
+                // PALETA PREMIUM DARK MODE (Teal/Cyan/Dark Green)
+                bg: '#0a0a0a',      // Fondo principal - Near Black
+                card: '#1a1a1a',    // Fondo para Tarjetas y Secciones
+                text: '#e5e7eb',    // Gray 200 (Texto Principal)
+                primary: '#0e7490', // Deep Cyan/Teal (ACENTO Principal)
+                accent: '#22d3ee',  // Bright Cyan (ACENTO Secundario)
+                dark_success: '#065f46', // Dark Green
+                dark: '#0f172a',    // Slate 900
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
 
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <style>
+      /* Base Style: Dark Mode Profesional */
+      body { background-color: #0a0a0a; color: #e5e7eb; scroll-behavior: smooth; }
+      
+      .btn-premium {
+        @apply px-5 py-2 font-bold text-white rounded-lg transition transform duration-300 shadow-lg;
+        background: linear-gradient(135deg, #0e7490, #065f46); 
+      }
+      .btn-premium:hover {
+        background: linear-gradient(135deg, #065f46, #0e7490);
+        transform: translateY(-1px);
+      }
+      
+      .premium-card {
+        @apply bg-ieo-card rounded-2xl p-6 md:p-8 border border-ieo-card transition duration-300 shadow-2xl shadow-black/30;
+      }
 
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+      /* Contenedor responsivo para el iframe de Power BI */
+      .powerbi-embed-container {
+        position: relative; 
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+        height: 0; 
+        overflow: hidden; 
+        border-radius: 1rem; 
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+      .powerbi-embed-container iframe {
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        border: 0;
+      }
 
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <link href="assets/css/main.css" rel="stylesheet">
-
+      /* Ajuste para el estilo de lista del overview */
+      .overview-list li {
+        @apply flex items-center mb-2 text-gray-400;
+      }
+      .overview-list li i {
+        @apply mr-2 text-ieo-accent;
+      }
+    </style>
 </head>
 
-<body class="portfolio-details-page">
-
-    <header id="header" class="header dark-background d-flex flex-column justify-content-center">
-        <i class="header-toggle d-xl-none bi bi-list"></i>
-
-        <div class="header-container d-flex flex-column align-items-start">
-            <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Inicio</a></li>
-                    <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Portafolio</a></li>
-                    <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Servicios</a></li>
-                    <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contacto</a></li>
-                    </ul>
+<body class="font-sans antialiased">
+    
+    <header class="bg-ieo-card/80 backdrop-blur-sm border-b border-gray-800 pt-16 pb-6 mb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm font-medium text-gray-400 mb-2" aria-label="Breadcrumb">
+                <ol class="list-none p-0 inline-flex">
+                    <li class="flex items-center">
+                        <a href="consultor_experto_dark_v5.html" class="text-gray-400 hover:text-white transition">Inicio</a>
+                        <i data-lucide="chevron-right" class="w-4 h-4 mx-2 text-gray-500"></i>
+                    </li>
+                    <li class="flex items-center">
+                        <a href="consultor_experto_dark_v5.html#portafolio" class="text-gray-400 hover:text-white transition">Portafolio</a>
+                        <i data-lucide="chevron-right" class="w-4 h-4 mx-2 text-gray-500"></i>
+                    </li>
+                    <li class="text-ieo-accent">Detalles de Airbnb</li>
+                </ol>
             </nav>
-
-            <div class="social-links text-center">
-                </div>
-
+            <h1 class="text-4xl font-extrabold text-white">Análisis de Mercado y Tendencias de Airbnb (CDMX)</h1>
         </div>
-
     </header>
 
-    <main class="main">
-
-        <div class="page-title dark-background">
-            <div class="container d-lg-flex justify-content-between align-items-center">
-                <h1 class="mb-2 mb-lg-0">Detalles del Proyecto</h1>
-                <nav class="breadcrumbs">
-                    <ol>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li class="current">Detalles del Portafolio</li>
-                    </ol>
-                </nav>
-            </div>
-        </div><section id="portfolio-details" class="portfolio-details section">
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-8">
-                        <div class="portfolio-details-slider swiper init-swiper">
-
-                            <script type="application/json" class="swiper-config">
-                                {
-                                  "loop": false,
-                                  "speed": 0,
-                                  "autoplay": false,
-                                  "slidesPerView": "auto",
-                                  "pagination": {
-                                    "el": ".swiper-pagination",
-                                    "type": "bullets",
-                                    "clickable": true
-                                  }
-                                }
-                            </script>
-
-                            <div class="swiper-wrapper align-items-center">
-
-                                <div class="swiper-slide">
-                                    <div class="powerbi-embed-container"
-                                        style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);">
-                                        <iframe
-                                            title="Sales Dashboard - Desempeño de Ventas"
-                                            width="100%"
-                                            height="100%"
-                                            src="https://app.powerbi.com/view?r=eyJrIjoiYjk2NzE2ZDItNmU1ZC00Y2E5LTkzZWQtNmYzMDc2Mjg5NjU3IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=ReportSection"
-                                            frameborder="0"
-                                            allowFullScreen="true"
-                                            style="position: absolute; top:0; left: 0; width: 100%; height: 100%; border: 0;"
-                                        ></iframe>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="swiper-pagination"></div>
-                        </div>
-                        </div>
-
-                    <div class="col-lg-4">
-                        <div class="portfolio-info" data-aos="fade-left" data-aos-delay="200">
-                            <h3>Información del proyecto</h3>
-                            <ul>
-                                <li><strong>Categoría</strong>: Análisis de Negocio</li>
-                                <li><strong>Caso de estudio</strong>: Desempeño de ventas</li>
-                                <li><strong>Periodo de estudio</strong>: 2019-2022</li>
-                                <li><strong>Link</strong>: <a href="https://app.powerbi.com/view?r=eyJrIjoiYjk2NzE2ZDItNmU1ZC00Y2E5LTkzZWQtNmYzMDc2Mjg5NjU3IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" target="_blank">Ver Reporte en Power BI</a></li>
-                            </ul>
+    <main class="main pb-24">
+        <section id="portfolio-details" class="section">
+            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-3 gap-12">
+                    
+                    <div class="lg:col-span-2">
+                        <div class="powerbi-embed-container">
+                            <iframe
+                                title="Airbnb Trend Analysis - Análisis de Precios y Ocupación"
+                                width="100%"
+                                height="100%"
+                                /* REEMPLAZAR con la URL de embed del dashboard real de Airbnb */
+                                src="https://app.powerbi.com/view?r=eyJrIjoiMzY2NjJhZGMtYjkxNC00Y2QxLWEwMDItOGQ2ZWU1MDM5ZWQ0IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" 
+                                frameborder="0"
+                                allowFullScreen="true"
+                            ></iframe>
                         </div>
                     </div>
 
-                    <div class="col-lg-12">
-                        <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-                            <h2>Project Overview</h2>
-                            <p>
-                                💼 Exploración detallada de las ventas por producto, categoría, cliente y región de una empresa mexicana. Incluye indicadores clave como:
-                            </p>
-                            <ul>
-                                <li>Beneficio 💰</li>
-                                <li>Porcentaje de margen 📈</li>
-                                <li>Variación anual 🔄</li>
-                                <li>Ventas Destacadas 💲</li>
-                                <li>Variación Anual 📉</li>
+                    <div class="lg:col-span-1">
+                        <div class="premium-card sticky top-24">
+                            <h3 class="text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Información del Proyecto</h3>
+                            <ul class="space-y-3 text-lg">
+                                <li>
+                                    <strong class="text-gray-300">Categoría:</strong> <span class="text-ieo-accent">Inteligencia de Mercado / Análisis Descriptivo</span>
+                                </li>
+                                <li>
+                                    <strong class="text-gray-300">Caso de estudio:</strong> Recuperación Turística y Estrategia de Inversión
+                                </li>
+                                <li>
+                                    <strong class="text-gray-300">Periodo:</strong> 2022-2024 (Datos de Tendencia)
+                                </li>
+                                <li>
+                                    <strong class="text-gray-300">Link:</strong> 
+                                    <a href="http://insideairbnb.com/mexico-city/" 
+                                        target="_blank" 
+                                        class="text-white hover:text-ieo-accent transition underline block mt-1">
+                                        Fuente de Datos Abiertos
+                                    </a>
+                                </li>
                             </ul>
-                            <p>
-                                En resumen, este análisis brinda una visión detallada del desempeño de ventas y beneficios en el período 2019-2022, proporcionando información esencial para aplicar determinadas estrategias de marketing en zonas clave.
-                            </p>
-                            <div class="features mt-4">
-                            </div>
                         </div>
                     </div>
+                </div>
+                
+                <div class="mt-12 lg:mt-16">
+                    <div class="premium-card">
+                        <h2 class="text-3xl font-bold text-white mb-4">Visión General del Proyecto: Inteligencia de Mercado y Tendencias (CDMX)</h2>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                            📈 Este análisis de mercado en la Ciudad de México demuestra la capacidad de **IEO Analytics** para utilizar datos abiertos y públicos para perfilar un mercado en rápida evolución. Se centra en la sólida recuperación turística de la CDMX, la cual tuvo un **crecimiento del 81% en 2022** en la afluencia de turistas, proyectando una recuperación total impulsada por la oferta de hospedaje alternativo como Airbnb.
+                        </p>
+                        
+                        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                            El dashboard transforma esta data en inteligencia competitiva, permitiendo a los inversores y gestores entender la distribución del mercado y las estrategias de valor de la competencia.
+                        </p>
 
+                        <h3 class="text-xl font-semibold text-white mb-3">Preguntas Estratégicas y KPIs Descriptivos</h3>
+                        <ul class="grid sm:grid-cols-2 gap-y-2 gap-x-8 overview-list">
+                            <li><i data-lucide="chevrons-right"></i>**Crecimiento del Turismo** y Proyección de Recuperación del 100%.</li>
+                            <li><i data-lucide="chevrons-right"></i>**Distribución de Oferta** (Airbnb por barrio y tipo de habitación).</li>
+                            <li><i data-lucide="chevrons-right"></i>**Precio Promedio** por tipo de inmueble y barrio.</li>
+                            <li><i data-lucide="chevrons-right"></i>**Análisis de Calidad** (Calificación promedio por barrio).</li>
+                        </ul>
+                        
+                        <p class="text-gray-400 text-lg leading-relaxed mt-6 italic border-l-4 border-ieo-primary pl-4">
+                            **En Resumen:** Este proyecto valida la habilidad de IEO Analytics para generar Inteligencia Competitiva en mercados fragmentados, utilizando datos abiertos para perfilar el crecimiento, la distribución geográfica de la oferta y la estrategia de precios de los competidores clave en la capital. La fuente de datos utilizada es **insideairbnb.com/mexico-city**.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="index.html#portafolio" class="btn-premium flex items-center justify-center gap-2 max-w-xs mx-auto">
+                        <i data-lucide="arrow-left" class="w-5 h-5"></i> Volver al Portafolio
+                    </a>
                 </div>
 
             </div>
+        </section>
+    </main>
 
-        </section></main>
-
-    <footer id="footer" class="footer position-relative">
-
-        <div class="container">
-            <div class="copyright text-center ">
-                <p>© <span>Copyright</span> <strong class="px-1 sitename">Portfolio</strong> <span>All Rights
-                        Reserved</span></p>
-            </div>
-            <div class="credits">
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-        </div>
-
+    <footer class="bg-black py-6 border-t border-gray-800 text-sm text-gray-500 text-center">
+        <p>&copy; 2024 IEO Analytics. Todos los derechos reservados.</p>
     </footer>
 
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    <div id="preloader"></div>
-
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/typed.js/typed.umd.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-    <script src="assets/js/main.js"></script>
-
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
-
 </html>

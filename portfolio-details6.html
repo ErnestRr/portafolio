@@ -1,198 +1,266 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Detalles de Portafolio - Adventure Works - Analisis empresarial</title>
-    <meta name="description" content="Análisis de desempeño de la fuerza de ventas médica con Power BI.">
-    <meta name="keywords" content="Power BI, Representantes Médicos, Data Analytics, Ernesto Roldán">
+    <base target="_top">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Proyecto | Datos Mundiales del COVID-19</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ieo: {
+                bg: '#0a0a0a',
+                card: '#1a1a1a',
+                text: '#e5e7eb',
+                primary: '#0e7490',
+                accent: '#22d3ee',
+                dark_success: '#065f46',
+                dark: '#0f172a',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
 
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <style>
+      body { background-color: #0a0a0a; color: #e5e7eb; scroll-behavior: smooth; }
+      
+      .btn-premium {
+        @apply px-5 py-2 font-bold text-white rounded-lg transition transform duration-300 shadow-lg;
+        background: linear-gradient(135deg, #0e7490, #065f46); 
+      }
+      .btn-premium:hover {
+        background: linear-gradient(135deg, #065f46, #0e7490);
+        transform: translateY(-1px);
+      }
+      
+      .premium-card {
+        @apply bg-ieo-card rounded-2xl p-6 md:p-8 border border-ieo-card transition duration-300 shadow-2xl shadow-black/30;
+      }
 
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+      .powerbi-embed-container {
+        position: relative; 
+        padding-bottom: 56.25%;
+        height: 0; 
+        overflow: hidden; 
+        border-radius: 1rem; 
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      }
+      .powerbi-embed-container iframe {
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        border: 0;
+      }
 
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <link href="assets/css/main.css" rel="stylesheet">
-
+      .overview-list li {
+        @apply flex items-start mb-3 text-gray-400;
+      }
+      .overview-list li i {
+        @apply mr-2 text-ieo-accent mt-1 flex-shrink-0;
+      }
+    </style>
 </head>
 
-<body class="portfolio-details-page">
+<body class="font-sans antialiased">
+    
+    <!-- Header/Breadcrumb -->
+    <header class="bg-ieo-card/80 backdrop-blur-sm border-b border-gray-800 pt-16 pb-6 mb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm font-medium text-gray-400 mb-2" aria-label="Breadcrumb">
+                <ol class="list-none p-0 inline-flex">
+                    <li class="flex items-center">
+                        <a href="index.html" class="text-gray-400 hover:text-white transition">Inicio</a>
+                        <i data-lucide="chevron-right" class="w-4 h-4 mx-2 text-gray-500"></i>
+                    </li>
+                    <li class="flex items-center">
+                        <a href="index.html#portafolio" class="text-gray-400 hover:text-white transition">Portafolio</a>
+                        <i data-lucide="chevron-right" class="w-4 h-4 mx-2 text-gray-500"></i>
+                    </li>
+                    <li class="text-ieo-accent">Datos Mundiales del COVID-19</li>
+                </ol>
+            </nav>
+            <h1 class="text-4xl font-extrabold text-white">Datos Mundiales del COVID-19</h1>
+        </div>
+    </header>
 
-    <header id="header" class="header dark-background d-flex flex-column justify-content-center">
-        <i class="header-toggle d-xl-none bi bi-list"></i>
-
-        <div class="header-container d-flex flex-column align-items-start">
-            <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Inicio</a></li>
-                    <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Portafolio</a></li>
-                    <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Servicios</a></li>
-                    <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contacto</a></li>
-                    </ul>
-            </nav>
-
-            <div class="social-links text-center">
-                </div>
-
-        </div>
-
-    </header>
-
-    <main class="main">
-
-        <div class="page-title dark-background">
-            <div class="container d-lg-flex justify-content-between align-items-center">
-                <h1 class="mb-2 mb-lg-0">Detalles del Proyecto</h1>
-                <nav class="breadcrumbs">
-                    <ol>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li class="current">Detalles del Portafolio</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-        <section id="portfolio-details" class="portfolio-details section">
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-8">
-                        <div class="portfolio-details-slider swiper init-swiper">
-
-                            <script type="application/json" class="swiper-config">
-                                {
-                                  "loop": false,
-                                  "speed": 0,
-                                  "autoplay": false,
-                                  "slidesPerView": "auto",
-                                  "pagination": {
-                                    "el": ".swiper-pagination",
-                                    "type": "bullets",
-                                    "clickable": true
-                                  }
-                                }
-                            </script>
-
-                            <div class="swiper-wrapper align-items-center">
-
-                                <div class="swiper-slide">
-                                    <div class="powerbi-embed-container"
-                                        style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);">
-                                        <iframe
-                                            title="Airbnb de Ciudad de México"
-                                            width="100%"
-                                            height="100%"
-                                            src="https://app.powerbi.com/view?r=eyJrIjoiMzY2NjJhZGMtYjkxNC00Y2QxLWEwMDItOGQ2ZWU1MDM5ZWQ0IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" 
-                                            frameborder="0"
-                                            allowFullScreen="true"
-                                            style="position: absolute; top:0; left: 0; width: 100%; height: 100%; border: 0;"
-                                        ></iframe>
-                                    </div>
-                                </div>
-                                </div>
-                            <div class="swiper-pagination"></div>
+    <main class="main pb-24">
+        <section id="portfolio-details" class="section">
+            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-3 gap-12">
+                    
+                    <!-- Columna Principal: Embed Power BI -->
+                    <div class="lg:col-span-2">
+                        <div class="powerbi-embed-container">
+                            <iframe
+                                title="Datos mundiales del COVID 19"
+                                width="100%"
+                                height="100%"
+                                src="https://app.powerbi.com/view?r=eyJrIjoiMDAyNWU4ODktZmE1NC00Mjk4LWExYTMtMWJjZWRmYmNhMDFmIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=ReportSection"
+                                frameborder="0"
+                                allowFullScreen="true"
+                            ></iframe>
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
-                        <div class="portfolio-info" data-aos="fade-left" data-aos-delay="200">
-                            <h3>Información del proyecto</h3>
-                            <ul>
-                                <li><strong>Categoría</strong>: Análisis de Negocio</li>
-                                <li><strong>Caso de estudio</strong>: Airbnb de Ciudad de México</li>
-                                <li><strong>Periodo de estudio</strong>: 2022</li>
-                                <li><strong>Link</strong>: <a href="https://app.powerbi.com/view?r=eyJrIjoiMzY2NjJhZGMtYjkxNC00Y2QxLWEwMDItOGQ2ZWU1MDM5ZWQ0IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" target="_blank">Ver Reporte en Power BI</a></li>
+                    <!-- Columna Lateral: Información del Proyecto -->
+                    <div class="lg:col-span-1">
+                        <div class="premium-card sticky top-24">
+                            <h3 class="text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Información del Proyecto</h3>
+                            <ul class="space-y-3 text-lg">
+                                <li>
+                                    <strong class="text-gray-300">Categoría:</strong> <span class="text-ieo-accent">Análisis de Salud Pública</span>
+                                </li>
+                                <li>
+                                    <strong class="text-gray-300">Caso de estudio:</strong> Datos mundiales del COVID-19
+                                </li>
+                                <li>
+                                    <strong class="text-gray-300">Periodo:</strong> Pandemia COVID-19
+                                </li>
+                                <li>
+                                    <strong class="text-gray-300">Link:</strong> 
+                                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMDAyNWU4ODktZmE1NC00Mjk4LWExYTMtMWJjZWRmYmNhMDFmIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=ReportSection" 
+                                       target="_blank" 
+                                       class="text-white hover:text-ieo-accent transition underline block mt-1">
+                                       Ver Reporte en Power BI
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
-
-                    <div class="col-lg-12">
-                        <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-                            <h2>Project Overview</h2>
-                            <p>
-                                Airbnb de Ciudad de México
-                            </p>
-                            <p>
-                                El análisis involucra:
-
-
-En 2022, la Ciudad de México vivió una sólida recuperación turística con un crecimiento del 81% en la afluencia de turistas (11,3 millones en hoteles tradicionales), comparado con el último año prepandemia (13,9 millones).
-
-
-Se proyecta una recuperación completa del 100% en años siguientes, impulsada por estancias prolongadas y oferta diversa de hospedaje, incluyendo Airbnb.
-
-
-Preguntas clave:
-
-
-¿Airbnb por barrio?
-
-¿Airbnb por tipo de habitación?
-
-Total propiedades de Airbnb en la ciudad.
-
-Precio promedio por barrio y tipo de inmueble.
-
-Personas por tipo de inmueble por barrio.
-
-Calificación promedio por barrio.
-
-
-Datos de http://insideairbnb.com/mexico-city. 📊🏙️                            <div class="features mt-4">
+                </div>
+                
+                <!-- Descripción del Proyecto -->
+                <div class="mt-12 lg:mt-16">
+                    <div class="premium-card">
+                        <h2 class="text-3xl font-bold text-white mb-4">Visión General del Proyecto</h2>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-6">
+                            🦠 En medio de la crisis del COVID-19, este análisis revela la situación global por país, con casos, recuperaciones y fallecimientos. Se calculan tasas de infección, mortalidad y recuperación, con datos acumulados desglosados para facilitar la comprensión del impacto de la pandemia.
+                        </p>
+                        
+                        <h3 class="text-xl font-semibold text-white mb-3">Fuentes de Datos</h3>
+                        <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <i data-lucide="database" class="text-ieo-accent w-6 h-6"></i>
+                                    <h4 class="text-white font-semibold">API de JHU</h4>
+                                </div>
+                                <p class="text-gray-400 text-sm">Johns Hopkins University</p>
+                            </div>
+                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <i data-lucide="globe" class="text-ieo-accent w-6 h-6"></i>
+                                    <h4 class="text-white font-semibold">Covid19api</h4>
+                                </div>
+                                <p class="text-gray-400 text-sm">API global de datos COVID</p>
+                            </div>
+                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <i data-lucide="bar-chart" class="text-ieo-accent w-6 h-6"></i>
+                                    <h4 class="text-white font-semibold">Worldometers.info</h4>
+                                </div>
+                                <p class="text-gray-400 text-sm">Estadísticas en tiempo real</p>
+                            </div>
+                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
+                                <div class="flex items-center gap-3 mb-2">
+                                    <i data-lucide="book-open" class="text-ieo-accent w-6 h-6"></i>
+                                    <h4 class="text-white font-semibold">Wikipedia</h4>
+                                </div>
+                                <p class="text-gray-400 text-sm">Información contextual</p>
                             </div>
                         </div>
-                    </div>
 
+                        <h3 class="text-xl font-semibold text-white mb-3">Preguntas Clave del Análisis</h3>
+                        <ul class="overview-list mb-6">
+                            <li>
+                                <i data-lucide="trending-up"></i>
+                                <span><strong class="text-white">¿Qué país lidera en casos, decesos y recuperaciones?</strong> ¿Y cuál tiene menor impacto?</span>
+                            </li>
+                            <li>
+                                <i data-lucide="activity"></i>
+                                <span><strong class="text-white">Tasa de contagio y mortalidad</strong> por continente y país</span>
+                            </li>
+                            <li>
+                                <i data-lucide="heart"></i>
+                                <span><strong class="text-white">Países con más recuperados</strong> y su tasa de recuperación respecto a datos acumulados</span>
+                            </li>
+                            <li>
+                                <i data-lucide="line-chart"></i>
+                                <span><strong class="text-white">Tendencia diaria de casos</strong> y tasa de mortalidad por país 📉🔬</span>
+                            </li>
+                        </ul>
+
+                        <div class="bg-gradient-to-r from-red-900/20 to-orange-900/20 p-6 rounded-xl border border-red-800/30 mb-6">
+                            <h3 class="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                                <i data-lucide="alert-circle" class="text-red-400 w-6 h-6"></i>
+                                Métricas Epidemiológicas
+                            </h3>
+                            <div class="grid sm:grid-cols-3 gap-4 text-center">
+                                <div>
+                                    <p class="text-red-400 font-bold text-2xl mb-1">Casos</p>
+                                    <p class="text-gray-400 text-sm">Confirmados globalmente</p>
+                                </div>
+                                <div>
+                                    <p class="text-orange-400 font-bold text-2xl mb-1">Fallecimientos</p>
+                                    <p class="text-gray-400 text-sm">Tasa de mortalidad</p>
+                                </div>
+                                <div>
+                                    <p class="text-green-400 font-bold text-2xl mb-1">Recuperaciones</p>
+                                    <p class="text-gray-400 text-sm">Tasa de recuperación</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
+                                <i data-lucide="map" class="text-ieo-accent w-8 h-8 mb-3"></i>
+                                <h4 class="text-white font-semibold mb-2">Análisis Geográfico</h4>
+                                <p class="text-gray-400 text-sm">Comparativa entre continentes y países</p>
+                            </div>
+                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
+                                <i data-lucide="calendar" class="text-ieo-accent w-8 h-8 mb-3"></i>
+                                <h4 class="text-white font-semibold mb-2">Evolución Temporal</h4>
+                                <p class="text-gray-400 text-sm">Tendencias diarias y acumuladas</p>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-400 text-lg leading-relaxed mt-6 italic border-l-4 border-ieo-primary pl-4">
+                            📊 Este dashboard proporciona una visión integral del impacto global de la pandemia COVID-19, permitiendo identificar patrones epidemiológicos, comparar respuestas entre países y comprender la evolución de la crisis sanitaria mundial.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Botón de retorno -->
+                <div class="text-center mt-12">
+                    <a href="index.html#portafolio" class="btn-premium flex items-center justify-center gap-2 max-w-xs mx-auto">
+                        <i data-lucide="arrow-left" class="w-5 h-5"></i> Volver al Portafolio
+                    </a>
                 </div>
 
             </div>
+        </section>
+    </main>
 
-        </section>    </main>
+    <!-- Footer Simple -->
+    <footer class="bg-black py-6 border-t border-gray-800 text-sm text-gray-500 text-center">
+        <p>&copy; 2024 IEO Analytics. Todos los derechos reservados.</p>
+    </footer>
 
-    <footer id="footer" class="footer position-relative">
-
-        <div class="container">
-            <div class="copyright text-center ">
-                <p>© <span>Copyright</span> <strong class="px-1 sitename">Portfolio</strong> <span>All Rights
-                        Reserved</span></p>
-            </div>
-            <div class="credits">
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-        </div>
-
-    </footer>
-
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    <div id="preloader"></div>
-
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/typed.js/typed.umd.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-    <script src="assets/js/main.js"></script>
-
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
-
 </html>
