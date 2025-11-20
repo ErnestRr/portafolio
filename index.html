@@ -363,14 +363,27 @@
           </div>
 
           <form id="contactForm" class="space-y-6 max-w-xl mx-auto">
-            <!-- Campos del formulario (simplificado) --><input type="text" placeholder="Nombre Completo" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-ieo-primary focus:ring-1 focus:ring-ieo-primary outline-none transition">
-            <!-- CAMBIO: Email simple --><input type="email" placeholder="Email" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-ieo-primary focus:ring-1 focus:ring-ieo-primary outline-none transition">
-            <textarea rows="3" placeholder="Asunto" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-ieo-primary focus:ring-1 focus:ring-ieo-primary outline-none transition"></textarea>
-            
-            <button type="submit" id="btnSubmit" class="w-full btn-premium text-lg">
-              Enviar Mensaje
-            </button>
-          </form>
+
+    <input type="hidden" name="_subject" value="Nuevo mensaje desde tu web IEO Analytics">
+    <input type="hidden" name="_captcha" value="false">
+
+    <input type="text" name="Nombre" placeholder="Nombre Completo" required 
+        class="w-full bg-gray-900 border border-gray-700 text-white p-3 rounded-lg focus:border-ieo-accent"/>
+
+    <input type="email" name="Correo" placeholder="Correo Electrónico" required
+        class="w-full bg-gray-900 border border-gray-700 text-white p-3 rounded-lg focus:border-ieo-accent"/>
+
+    <input type="text" name="Empresa" placeholder="Empresa (opcional)"
+        class="w-full bg-gray-900 border border-gray-700 text-white p-3 rounded-lg focus:border-ieo-accent"/>
+
+    <textarea name="Mensaje" placeholder="Cuéntame brevemente sobre tu proyecto…" rows="4" required
+        class="w-full bg-gray-900 border border-gray-700 text-white p-3 rounded-lg focus:border-ieo-accent"></textarea>
+
+    <button type="submit" class="btn-premium w-full text-lg">
+        Enviar Mensaje
+    </button>
+</form>
+
           <div id="formStatus" class="hidden mt-6 text-center text-sm p-3 rounded bg-gray-800/50 border border-gray-700"></div>
         </div>
       </div>
@@ -425,5 +438,25 @@
         }, 1500);
       });
     </script>
+
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const data = new FormData(form);
+
+    await fetch("https://formsubmit.co/ajax/h.e.rr@hotmail.com", {
+        method: "POST",
+        body: data
+    });
+
+    alert("¡Mensaje enviado!");
+
+    form.reset();
+});
+</script>
+
   </body>
 </html>
