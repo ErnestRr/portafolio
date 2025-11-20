@@ -1,501 +1,429 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Index - Portafolio</title>
-    <meta name="description" content="Portafolio de Ernesto Roldán, Power BI Developer y Data Analyst.">
-    <meta name="keywords" content="Power BI, Data Analyst, DataViz, Portafolio, Ernesto Roldán, Analista de Datos">
+    <base target="_top">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEO Analytics | Consultor BI + IA Generativa</title>
+    <!-- Tailwind CSS --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts --><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Iconos (Lucide) --><script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ieo: {
+                // PALETA PREMIUM DARK MODE (Teal/Cyan/Dark Green)
+                bg: '#0a0a0a',       // Fondo principal - Near Black
+                card: '#1a1a1a',     // Fondo para Tarjetas y Secciones
+                text: '#e5e7eb',     // Gray 200 (Texto Principal)
+                primary: '#0e7490',  // Deep Cyan/Teal (ACENTO Principal)
+                accent: '#22d3ee',   // Bright Cyan (ACENTO Secundario)
+                dark_success: '#065f46', // Dark Green para éxito y hover de botón
+                dark: '#0f172a',     // Slate 900
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
 
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <style>
+      /* Base Style: Dark Mode Profesional */
+      body { background-color: #0a0a0a; color: #e5e7eb; scroll-behavior: smooth; }
 
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+      .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 999;
+}
 
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+.whatsapp-float img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
 
-    <link href="assets/css/main.css" rel="stylesheet">
+.whatsapp-float img:hover {
+    transform: scale(1.1);
+}
 
-</head>
+      
+      /* Botón Premium */
+      .btn-premium {
+        @apply px-7 py-3 font-bold text-white rounded-lg transition transform duration-300 shadow-xl;
+        /* Degradado Teal a Dark Green/Success */
+        background: linear-gradient(135deg, #0e7490, #065f46); 
+        box-shadow: 0 10px 30px rgba(14, 116, 144, 0.4);
+      }
+      .btn-premium:hover {
+        /* Hover a Dark Green/Success a Teal */
+        background: linear-gradient(135deg, #065f46, #0e7490);
+        transform: translateY(-2px);
+      }
+      
+      /* Titulares de Alto Impacto */
+      .text-impact-gradient {
+        /* Degradado Bright Cyan a Deep Cyan */
+        background: linear-gradient(90deg, #22d3ee, #0e7490); 
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
 
-<body class="index-page">
+      /* Estilo de Tarjeta Elevada */
+      .premium-card {
+        @apply bg-ieo-card rounded-2xl p-8 border border-ieo-card hover:border-ieo-primary/50 transition duration-300 shadow-2xl shadow-black/30;
+      }
 
-    <header id="header" class="header dark-background d-flex flex-column justify-content-center">
-        <i class="header-toggle d-xl-none bi bi-list"></i>
+      /* Scrollbar */
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #0a0a0a; }
+      ::-webkit-scrollbar-thumb { background: #0e7490; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #065f46; }
+    </style>
+  </head>
+  
+<a href="https://wa.me/525513407872" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
 
-        <div class="header-container d-flex flex-column align-items-start">
-            <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Inicio</a></li>
-                    <li><a href="#portfolio"><i class="bi bi-images navicon"></i> Portafolio</a></li>
-                    <li><a href="#services"><i class="bi bi-hdd-stack navicon"></i> Servicios</a></li>
-                    <li><a href="#Contáctame"><i class="bi bi-envelope navicon"></i> Contacto</a></li>
-                </ul>
-            </nav>
+  <body class="font-sans antialiased">
 
-            <div class="social-links text-center">
+    <!-- NAVBAR --><nav class="fixed w-full z-50 bg-ieo-card/80 backdrop-blur-md border-b border-gray-800/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+          <div class="flex items-center gap-3">
+            <div class="bg-gradient-to-br from-ieo-primary to-ieo-accent p-2 rounded-lg shadow-lg">
+              <i data-lucide="brain" class="text-white w-5 h-5"></i>
+            </div>
+            <span class="text-xl font-bold text-white tracking-tight">IEO <span class="text-ieo-primary">ANALYTICS</span></span>
+          </div>
+          
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#sobre_mi" class="text-sm font-medium text-gray-400 hover:text-white transition">Sobre Mí</a>
+            <a href="#servicios" class="text-sm font-medium text-gray-400 hover:text-white transition">Servicios</a>
+            <a href="#automatizacion_ia" class="text-sm font-medium text-ieo-accent hover:text-white transition">IA & Automatización</a>
+            <a href="#portafolio" class="text-sm font-medium text-gray-400 hover:text-white transition">Portafolio</a>
+            
+            <a href="#contacto" class="btn-premium text-sm">
+              Contáctame
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 1. HERO SECTION: El Titular Estratégico (Texto actualizado) --><section class="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+          <span class="text-impact-gradient">Soluciones BI + IA</span> para empresas que necesitan
+          <br class="hidden lg:block">
+          <span class="text-ieo-accent">eficiencia, análisis y control operativo.</span>
+        </h1>
+        <p class="mt-6 max-w-3xl mx-auto text-xl text-gray-400 leading-relaxed">
+          Transformo tus datos en **acciones concretas** para <strong class="text-white">reducir gastos, aumentar la rentabilidad</strong> y optimizar la toma de decisiones estratégicas en tiempo real.
+        </p>
+        
+        <div class="mt-12 flex flex-col sm:flex-row justify-center gap-4">
+          <a href="#contacto" class="btn-premium text-lg shadow-ieo-primary/40">
+            Hablemos de tu Proyecto
+          </a>
+        </div>
+      </div>
+      
+      <!-- Fondo - Brilllos sutiles de IA/BI --><div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-ieo-primary/10 rounded-full blur-[150px]"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-ieo-accent/10 rounded-full blur-[150px]"></div>
+      </div>
+    </section>
+    
+    <!-- 2. SOBRE MÍ (Formato como en la Imagen 1) --><section id="sobre_mi" class="py-24 bg-ieo-card border-y border-gray-800">
+      <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-12">
+            <!-- TITULO como en la imagen 1 --><h2 class="text-4xl font-bold text-white">Consultor BI + IA Generativa</h2>
+            <!-- NOMBRE como en la imagen 1 --><p class="mt-2 text-ieo-primary font-semibold text-xl">Ernesto Roldán</p>
+             <div style="margin-top: 12px;">
+    <a 
+        href="https://www.linkedin.com/in/ernesto-roldan-bi-consultant/" 
+        target="_blank" 
+        style="
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            background-color: #0077b5;
+            color: white;
+            font-weight: 500;
+            font-size: 16px;
+            transition: 0.3s;
+        "
+        onmouseover="this.style.opacity='0.85'" 
+        onmouseout="this.style.opacity='1'"
+    >
+        <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" 
+            alt="LinkedIn" 
+            style="width: 22px; height: 22px; margin-right: 10px;"
+        >
+        Conóceme en LinkedIn
+    </a>
+</div>
+
+        </div>
+        
+        <div class="space-y-6 text-gray-400 text-lg leading-relaxed bg-gray-900 p-8 rounded-xl border border-gray-800">
+          <p>
+            Mi trabajo es conectar tu estrategia de negocio con la tecnología de datos. Mi enfoque se centra en la **limpieza, modelado y visualización de datos** utilizando herramientas como Power BI y DAX para crear una base sólida de Business Intelligence.
+          </p>
+          <p>
+            Adicionalmente, integro las capacidades de la **Inteligencia Artificial Generativa** en la capa de análisis para ofrecer *insights* más profundos y acelerar la toma de decisiones. Esto permite a los líderes hacer consultas a los datos en lenguaje natural y obtener resúmenes automáticos.
+          </p>
+          <p class="text-white font-semibold border-l-4 border-ieo-accent pl-4 italic">
+            "Te entrego herramientas de datos sólidas y potentes, evolucionando tus reportes de estáticos a interactivos y cognitivos, para que ganes velocidad y control sobre el rendimiento de tu negocio."
+          </p>
+        </div>
+      </div>
+      
+    </section>
+
+    <!-- 3. SERVICIOS (BI Core: El Fundamento) --><section id="servicios" class="py-24">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white">Servicios Clave de Business Intelligence</h2>
+                <p class="mt-4 text-gray-400 text-xl max-w-3xl mx-auto">
+                    La cimentación de toda decisión rentable. Datos limpios, modelos robustos.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="premium-card">
+                    <i data-lucide="database" class="w-8 h-8 text-ieo-accent mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Arquitectura de Datos</h3>
+                    <p class="text-gray-400">Diseño de modelos de datos escalables (Star Schema), implementación de Data Lakehouse y estandarización de KPIs (DAX).</p>
                 </div>
+                <div class="premium-card">
+                    <i data-lucide="trello" class="w-8 h-8 text-ieo-accent mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Visualización de Alto Impacto</h3>
+                    <p class="text-gray-400">Creación de dashboards en Power BI, enfocados en la acción, para Directivos, Finanzas, Ventas y Operaciones.</p>
+                </div>
+                <div class="premium-card">
+                    <i data-lucide="refresh-cw" class="w-8 h-8 text-ieo-accent mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Automatización de Reportes</h3>
+                    <p class="text-gray-400">Eliminación de procesos manuales. Conexión de fuentes dispares (ERP, CRM, Excel) y programación de refrescos automáticos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. EVOLUCIÓN: AUTOMATIZACIÓN E INTELIGENCIA (Restaurada y Enfocada) --><section id="automatizacion_ia" class="py-24 bg-ieo-card border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white">Evolución: Automatización y Agentes de Datos</h2>
+                <p class="mt-4 text-gray-400 text-xl max-w-3xl mx-auto">
+                    Llevamos los reportes de BI un paso más allá, conectando tus datos con flujos operativos y analíticos avanzados.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="premium-card">
+                    <i data-lucide="zap" class="w-8 h-8 text-red-500 mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Agentes Autónomos Operacionales</h3>
+                    <p class="text-gray-400">Implementación de soluciones de automatización que leen datos de BI y ejecutan acciones en sistemas operativos o plataformas de mensajería (como el **Bot de estatus de pedidos**).</p>
+                </div>
+                <div class="premium-card">
+                    <i data-lucide="speech" class="w-8 h-8 text-ieo-accent mb-4"></i>
+                    <h3 class="text-xl font-bold text-white mb-2">Análisis Cognitivo y Consulta de Lenguaje Natural</h3>
+                    <p class="text-gray-400">Integración de capacidades de IA Generativa en la capa de Power BI para que los directivos puedan consultar KPIs, obtener resúmenes de rendimiento o proyecciones usando lenguaje natural, sin necesidad de arrastrar campos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. PORTAFOLIO VISUAL (7 Máximo con Título Claro) --><section id="portafolio" class="py-24">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="mb-16">
+          <h2 class="text-4xl font-bold text-white">Portafolio Visual</h2>
+          <p class="mt-2 text-gray-400 text-xl">Ejemplos de dashboards funcionales que impulsan el rendimiento operativo.</p>
         </div>
 
-    </header>
-
-    <main class="main">
-
-        <section id="hero" class="hero section">
-
-            <div class="background-elements">
-                <div class="bg-circle circle-1"></div>
-                <div class="bg-circle circle-2"></div>
-            </div>
-
-            <div class="hero-content">
-
-                <div class="container">
-                    <div class="row align-items-center">
-
-                        <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
-                            <div class="hero-text">
-                                <h1>Ieo<span class="accent-text"> Analytics</span></h1>
-                                <h2>Ernesto Roldán</h2>
-                                <p class="lead">I'm a <span class="typed"
-                                        data-typed-items="Power BI Developer, DataViz, Data Analyst"></span></p>
-                                <p class="description">Ayudo a empresas a tomar decisiones estrategicas basadas en datos
-                                </p>
-                                <div class="hero-actions">
-                                    <a href="#portfolio" class="btn btn-primary">Ver portafolio</a>
-                                    <a href="#Contáctame" class="btn btn-outline">Contáctame</a>
-                                </div>
-
-                                <div class="social-links">
-                                    <a href=https://github.com/ErnestRr><i class="bi bi-github"></i></a>
-                                    <a href="https://www.linkedin.com/in/ernesto-roldan-bi-consultant/"><i
-                                            class="bi bi-linkedin"></i></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-                            <div class="hero-visual">
-                                <div class="profile-container">
-                                    <div class="profile-background"></div>
-                                    <img src="assets/img/profile/he.svg" alt="Ernesto Roldan" class="profile-image">
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <a href="portfolio-details9.html" class="bg-gray-900 rounded-xl overflow-hidden shadow-lg group hover:shadow-ieo-primary/30 transition-all duration-300 transform hover:-translate-y-2">
+                <div class="h-48 bg-gray-900 flex items-center justify-center border-b border-gray-800">
+                    <i data-lucide="bot" class="w-10 h-10 text-red-500 group-hover:scale-110 transition-transform"></i>
                 </div>
-            </div>
-
-        </section><section id="portfolio" class="portfolio section">
-
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Portafolio</h2>
-                <p>Aquí puedes ver una muestra de mis proyectos de análisis e ingeniería de datos.</p>
-            </div>
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-                    <div class="row">
-                        <div class="col-lg-3 filter-sidebar">
-                            <div class="filters-wrapper" data-aos="fade-right" data-aos-delay="150">
-                                <ul class="portfolio-filters isotope-filters">
-                                    <li data-filter="*" class="filter-active">Todos los proyectos</li>
-                                    <li data-filter=".filter-analisis">Análisis de Negocio</li>
-                                    <li data-filter=".filter-ingenieria">Ingeniería de Datos</li>
-                                    <li data-filter=".filter-aplicaciones">Aplicaciones de Datos</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-9">
-                            <div class="row gy-4 portfolio-container isotope-container" data-aos="fade-up"
-                                data-aos-delay="200">
-
-                                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-analisis">
-                                    <div class="portfolio-wrap">
-                                        <img src="assets/img/portfolio/PBI-1.webp.gif" class="img-fluid" alt="PBI 1 Image"
-                                            loading="lazy">
-                                        <div class="portfolio-info">
-                                            <div class="content">
-                                                <span class="category">Análisis de Negocio</span>
-                                                <h4>PBI 1: Desempeño de Ventas</h4>
-                                                <div class="portfolio-links">
-                                                    <a href="assets/img/portfolio/PBI-1.webp.gif" class="glightbox"
-                                                        title="PBI 1: Desempeño de Ventas"><i class="bi bi-plus-lg"></i></a>
-                                                    <a href="portfolio-details1.html" title="Ver Detalles"><i
-                                                            class="bi bi-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-analisis">
-                                    <div class="portfolio-wrap">
-                                        <img src="assets/img/portfolio/PBI-2.webp.gif" class="img-fluid" alt="PBI 2 Image"
-                                            loading="lazy">
-                                        <div class="portfolio-info">
-                                            <div class="content">
-                                                <span class="category">Análisis de Negocio</span>
-                                                <h4>PBI 2: Desempeño Representantes Médicos</h4>
-                                                <div class="portfolio-links">
-                                                    <a href="assets/img/portfolio/PBI-2.webp.gif" class="glightbox"
-                                                        title="PBI 2: Análisis de Utilidad"><i class="bi bi-plus-lg"></i></a>
-                                                    <a href="portfolio-details2.html" title="Ver Detalles"><i
-                                                            class="bi bi-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-analisis">
-                                    <div class="portfolio-wrap">
-                                        <img src="assets/img/portfolio/PBI-3.webp.gif" class="img-fluid" alt="PBI 3 Image"
-                                            loading="lazy">
-                                        <div class="portfolio-info">
-                                            <div class="content">
-                                                <span class="category">Análisis de Negocio</span>
-                                                <h4>PBI 3: Análisis de Ventas</h4>
-                                                <div class="portfolio-links">
-                                                    <a href="assets/img/portfolio/PBI-3.webp.gif" class="glightbox"
-                                                        title="PBI 3: Desempeño Representantes"><i class="bi bi-plus-lg"></i></a>
-                                                    <a href="portfolio-details3.html" title="Ver Detalles"><i
-                                                            class="bi bi-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-analisis">
-                                    <div class="portfolio-wrap">
-                                        <img src="assets/img/portfolio/PBI-4.webp.gif" class="img-fluid" alt="PBI 4 Image"
-                                            loading="lazy">
-                                        <div class="portfolio-info">
-                                            <div class="content">
-                                                <span class="category">Análisis de Negocio</span>
-                                                <h4>PBI 4: Ventas vs Utilidad</h4>
-                                                <div class="portfolio-links">
-                                                    <a href="assets/img/portfolio/PBI-4.webp.gif" class="glightbox"
-                                                        title="PBI 4: (Nombre del Reporte 4)"><i class="bi bi-plus-lg"></i></a>
-                                                    <a href="portfolio-details4.html" title="Ver Detalles"><i
-                                                            class="bi bi-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-analisis">
-                                    <div class="portfolio-wrap">
-                                        <img src="assets/img/portfolio/PBI-5.webp.gif" class="img-fluid" alt="PBI 5 Image"
-                                            loading="lazy">
-                                        <div class="portfolio-info">
-                                            <div class="content">
-                                                <span class="category">Análisis de Negocio</span>
-                                                <h4>PBI 5: Analisis empresarial</h4>
-                                                <div class="portfolio-links">
-                                                    <a href="assets/img/portfolio/PBI-5.webp.gif" class="glightbox"
-                                                        title="PBI 5: (Nombre del Reporte 5)"><i class="bi bi-plus-lg"></i></a>
-                                                    <a href="portfolio-details5.html" title="Ver Detalles"><i
-                                                            class="bi bi-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-analisis">
-                                    <div class="portfolio-wrap">
-                                        <img src="assets/img/portfolio/PBI-6.webp.gif" class="img-fluid" alt="PBI 6 Image"
-                                            loading="lazy">
-                                        <div class="portfolio-info">
-                                            <div class="content">
-                                                <span class="category">Análisis de Negocio</span>
-                                                <h4>PBI 6: AIRBNB en México</h4>
-                                                <div class="portfolio-links">
-                                                    <a href="assets/img/portfolio/PBI-6.webp.gif" class="glightbox"
-                                                        title="PBI 6: (Nombre del Reporte 6)"><i class="bi bi-plus-lg"></i></a>
-                                                    <a href="portfolio-details6.html" title="Ver Detalles"><i
-                                                            class="bi bi-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-analisis">
-                                    <div class="portfolio-wrap">
-                                        <img src="assets/img/portfolio/PBI-7.webp.gif" class="img-fluid" alt="PBI 7 Image"
-                                            loading="lazy">
-                                        <div class="portfolio-info">
-                                            <div class="content">
-                                                <span class="category">Análisis de Negocio</span>
-                                                <h4>PBI 7: Datos mundiales del COVID</h4>
-                                                <div class="portfolio-links">
-                                                    <a href="assets/img/portfolio/PBI-7.webp.gif" class="glightbox"
-                                                        title="PBI 7: (Nombre del Reporte 7)"><i class="bi bi-plus-lg"></i></a>
-                                                    <a href="portfolio-details7.html" title="Ver Detalles"><i
-                                                            class="bi bi-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ingenieria">
-                                    <div class="portfolio-wrap">
-                                        <img src="assets/img/portfolio/ING-8.webp.gif" class="img-fluid"
-                                            alt="Ingeniería de Datos Image" loading="lazy">
-                                        <div class="portfolio-info">
-                                            <div class="content">
-                                                <span class="category">Ingeniería de Datos</span>
-                                                <h4>Incidencia Delictiva en México</h4>
-                                                <div class="portfolio-links">
-                                                    <a href="assets/img/portfolio/ING-8.webp.gif" class="glightbox"
-                                                        title="Arquitectura Medallion con Fabric"><i class="bi bi-plus-lg"></i></a>
-                                                    <a href="portfolio-details8.html" title="Ver Detalles"><i
-                                                            class="bi bi-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-aplicaciones">
-                                    <div class="portfolio-wrap">
-                                        <img src="assets/img/portfolio/APP-1.webp.gif" class="img-fluid"
-                                            alt="Aplicaciones de Datos Image" loading="lazy">
-                                        <div class="portfolio-info">
-                                            <div class="content">
-                                                <span class="category">Aplicaciones de Datos</span>
-                                                <h4>Tickets atendidos (Power Apps + BI)</h4>
-                                                <div class="portfolio-links">
-                                                    <a href="assets/img/portfolio/APP-1.webp.gif" class="glightbox"
-                                                        title="Tickets atendidos (Power App + BI)"><i class="bi bi-plus-lg"></i></a>
-                                                    <a href="portfolio-details9.html" title="Ver Detalles"><i
-                                                            class="bi bi-arrow-right"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                <div class="p-4">
+                    <h4 class="text-lg font-bold text-white group-hover:text-ieo-accent transition">Agente IA de Estatus de Pedidos</h4>
+                    <p class="text-sm text-gray-500 mt-1">Automatización de comunicación de delivery. El bot consulta la base de datos y provee status en tiempo real.</p>
                 </div>
-
-            </div>
-
-        </section><section id="services" class="services section">
-
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Mis Servicios</h2>
-                <p>Descubre cómo puedo ayudarte a transformar tus datos en valor.</p>
-            </div>
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="service-header">
-                    <div class="row align-items-center">
-                        <div class="col-lg-12 col-md-12">
-                            <div class="service-intro">
-                                <h1 class="service-heading text-center">
-                                    <div>Transformando Datos en Oportunidades de Negocio</div>
-                                </h1>
-                            </div>
-                        </div>
-                    </div>
+            </a>
+            
+            <a href="portfolio-details2.html" class="bg-gray-900 rounded-xl overflow-hidden shadow-lg group hover:shadow-ieo-primary/30 transition-all duration-300 transform hover:-translate-y-2">
+                <div class="h-48 bg-gray-900 flex items-center justify-center border-b border-gray-800">
+                    <i data-lucide="bar-chart-3" class="w-10 h-10 text-ieo-primary group-hover:scale-110 transition-transform"></i>
                 </div>
-
-                <div class="row justify-content-center">
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                        <div class="service-card position-relative z-1">
-                            <div class="service-icon">
-                                <i class="bi bi-graph-up-arrow"></i>
-                            </div>
-                            <h3>
-                                Transformo tus <span class="text-primary">datos financieros</span>
-                            </h3>
-                            <p>
-                                Creación de dashboards interactivos y visualizaciones personalizadas en Power BI para datos
-                                financieros (compras, ventas, costos, nómina, RRHH, marketing digital).
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                        <div class="service-card position-relative z-1">
-                            <div class="service-icon">
-                                <i class="bi bi-puzzle-fill"></i>
-                            </div>
-                            <h3>
-                                Análisis <span class="text-primary">Estratégico</span> con Power BI
-                            </h3>
-                            <p>
-                                Identificar tendencias, patrones, oportunidades y riesgos, facilitando la toma de
-                                decisiones estratégicas.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                        <div class="service-card position-relative z-1">
-                            <div class="service-icon">
-                                <i class="bi bi-sliders"></i>
-                            </div>
-                            <h3>
-                                Soluciones Power BI <span class="text-primary">a Medida</span>
-                            </h3>
-                            <p>
-                                Desarrollo de soluciones integrales en Power BI, desde la conexión de fuentes de datos
-                                hasta la creación de dashboards personalizados a las necesidades específicas.
-                            </p>
-                        </div>
-                    </div>
-
+                <div class="p-4">
+                    <h4 class="text-lg font-bold text-white group-hover:text-ieo-accent transition">Reporte operativo de fuerza de Ventas</h4>
+                    <p class="text-sm text-gray-500 mt-1">Ranking, análisis por vendedor.</p>
                 </div>
-
-            </div>
-        </section><section id="Contáctame" class="contact section">
-
-            <div class="container section-title" data-aos="fade-up">
-                <h2>Contáctame</h2>
-                <p>Estaré encantado de discutir tu próximo proyecto de análisis de datos.</p>
-            </div>
-            <div class="container">
-
-                <div class="row g-4 g-lg-5">
-                    <div class="col-lg-5">
-                        <div class="info-box">
-                            <h3>Datos de contacto</h3>
-                            <p>Estoy disponible para proyectos y consultas en México y de forma remota.</p>
-
-                            <div class="info-item">
-                                <div class="icon-box">
-                                    <i class="bi bi-geo-alt"></i>
-                                </div>
-                                <div class="content">
-                                    <h4>Ubicación</h4>
-                                    <p>México</p>
-                                </div>
-                            </div>
-
-                            <div class="info-item">
-                                <div class="icon-box">
-                                    <i class="bi bi-telephone"></i>
-                                </div>
-                                <div class="content">
-                                    <h4>Teléfono</h4>
-                                    <p>+52 55 1340 7872</p>
-                                </div>
-                            </div>
-
-                            <div class="info-item">
-                                <div class="icon-box">
-                                    <i class="bi bi-whatsapp"></i>
-                                </div>
-                                <div class="content">
-                                    <h4>WhatsApp</h4>
-                                    <p><a href="https://wa.me/525513407872" target="_blank">Enviar Mensaje</a></p>
-                                </div>
-                            </div>
-                            <div class="info-item">
-                                <div class="icon-box">
-                                    <i class="bi bi-envelope"></i>
-                                </div>
-                                <div class="content">
-                                    <h4>Correo Electronico</h4>
-                                    <p>hroldan@gmail.com</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-7">
-                        <div class="contact-form">
-                            <h3>Ponte en contacto</h3>
-                            <p>Llena el formulario para iniciar una conversación.</p>
-
-                            <form action="https://formspree.io/f/mjkajgro" method="post">
-                                <div class="row gy-4">
-
-                                    <div class="col-md-6">
-                                        <input type="text" name="name" class="form-control" placeholder="Nombre"
-                                            required="">
-                                    </div>
-
-                                    <div class="col-md-6 ">
-                                        <input type="email" class="form-control" name="email"
-                                            placeholder="Correo electronico" required="">
-                                    </div>
-
-                                    <div class="col-12">
-                                        <input type="text" class="form-control" name="subject" placeholder="Asunto"
-                                            required="">
-                                    </div>
-
-                                    <div class="col-12">
-                                        <textarea class="form-control" name="message" rows="6" placeholder="Mensaje"
-                                            required=""></textarea>
-                                    </div>
-
-                                    <input type="hidden" name="_next"
-                                        value="https://tudominio.com/#Contáctame" />
-
-                                    <div class="col-12 text-center">
-                                        <div class=""></div>
-                                        <div class="error-message"></div>
-                                        <div class="Enviar mensaje"></div>
-
-                                        <button type="submit" class="btn">Enviar mensaje</button>
-                                    </div>
-
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
+            </a>
+            
+            <a href="portfolio-details3.html" class="bg-gray-900 rounded-xl overflow-hidden shadow-lg group hover:shadow-ieo-primary/30 transition-all duration-300 transform hover:-translate-y-2">
+                <div class="h-48 bg-gray-900 flex items-center justify-center border-b border-gray-800">
+                    <i data-lucide="truck" class="w-10 h-10 text-ieo-primary group-hover:scale-110 transition-transform"></i>
                 </div>
-
-            </div>
-
-        </section></main>
-
-    <footer id="footer" class="footer position-relative">
-
-        <div class="container">
-            <div class="copyright text-center ">
-                <p>© <span></span> <strong class="px-1 sitename">Ernesto Roldán</strong> <span>Todos los derechos
-                        reservados</span></p>
-            </div>
-            <div class="credits">
+                <div class="p-4">
+                    <h4 class="text-lg font-bold text-white group-hover:text-ieo-accent transition">Monitoreo de Ventas por región</h4>
+                    <p class="text-sm text-gray-500 mt-1">Ventas, contribución y desempeño.</p>
                 </div>
+            </a>
+
+            <a href="portfolio-details4.html" class="bg-gray-900 rounded-xl overflow-hidden shadow-lg group hover:shadow-ieo-primary/30 transition-all duration-300 transform hover:-translate-y-2">
+                <div class="h-48 bg-gray-900 flex items-center justify-center border-b border-gray-800">
+                    <i data-lucide="users" class="w-10 h-10 text-ieo-primary group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-bold text-white group-hover:text-ieo-accent transition">Ventas</h4>
+                    <p class="text-sm text-gray-500 mt-1">Ventas vs utilidad.</p>
+                </div>
+            </a>
+
+            <a href="portfolio-details5.html" class="bg-gray-900 rounded-xl overflow-hidden shadow-lg group hover:shadow-ieo-primary/30 transition-all duration-300 transform hover:-translate-y-2">
+                <div class="h-48 bg-gray-900 flex items-center justify-center border-b border-gray-800">
+                    <i data-lucide="target" class="w-10 h-10 text-ieo-primary group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-bold text-white group-hover:text-ieo-accent transition">Performance de Ventas (360°)</h4>
+                    <p class="text-sm text-gray-500 mt-1">Producción, compras, ventas, clientes.</p>
+                </div>
+            </a>
+
+            <a href="portfolio-details6.html" class="bg-gray-900 rounded-xl overflow-hidden shadow-lg group hover:shadow-ieo-primary/30 transition-all duration-300 transform hover:-translate-y-2">
+                <div class="h-48 bg-gray-900 flex items-center justify-center border-b border-gray-800">
+                    <i data-lucide="factory" class="w-10 h-10 text-ieo-primary group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-bold text-white group-hover:text-ieo-accent transition">Datos mundiales del COVID</h4>
+                    <p class="text-sm text-gray-500 mt-1">Análisis por región.</p>
+                </div>
+            </a>
+            
+            <a href="portfolio-details7.html" class="bg-gray-900 rounded-xl overflow-hidden shadow-lg group hover:shadow-ieo-primary/30 transition-all duration-300 transform hover:-translate-y-2">
+                <div class="h-48 bg-gray-900 flex items-center justify-center border-b border-gray-800">
+                    <i data-lucide="hand-coins" class="w-10 h-10 text-ieo-primary group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-bold text-white group-hover:text-ieo-accent transition">Arquitectura Medallion de Incidencia Delictiva (Fabric)</h4>
+                    <p class="text-sm text-gray-500 mt-1">Análisis de indicadores de bajo y alto impacto por municipio.</p>
+                </div>
+            </a>
+            
+            <a href="portfolio-details8.html" class="bg-gray-900 rounded-xl overflow-hidden shadow-lg group hover:shadow-ieo-primary/30 transition-all duration-300 transform hover:-translate-y-2">
+                <div class="h-48 bg-gray-900 flex items-center justify-center border-b border-gray-800">
+                    <i data-lucide="monitor-dot" class="w-10 h-10 text-ieo-primary group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-bold text-white group-hover:text-ieo-accent transition">Formulario CRUD + Reporte Operativo</h4>
+                    <p class="text-sm text-gray-500 mt-1">Sistema de captura + SQL + Power BI (Power Apps) en tiempo real.</p>
+                </div>
+            </a>
+
+            <a href="portfolio-details1.html" class="bg-gray-900 rounded-xl overflow-hidden shadow-lg group hover:shadow-ieo-primary/30 transition-all duration-300 transform hover:-translate-y-2">
+                <div class="h-48 bg-gray-900 flex items-center justify-center border-b border-gray-800">
+                    <i data-lucide="line-chart" class="w-10 h-10 text-ieo-primary group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="p-4">
+                    <h4 class="text-lg font-bold text-white group-hover:text-ieo-accent transition">Análisis de Mercado y Tendencias de Airbnb (CDMX)</h4>
+                    <p class="text-sm text-gray-500 mt-1">Distribución de Oferta, Airbnb por barrio y tipo de habitación.</p>
+                </div>
+            </a>
+            
         </div>
+    </div>
+</section>
 
-    </footer><a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
+    <!-- 6. CONTACTO PROFESIONAL con CTA --><section id="contacto" class="py-24 relative">
+      <div class="max-w-3xl mx-auto px-4 relative z-10">
+        <div class="bg-ieo-card rounded-2xl p-8 md:p-12 border border-ieo-primary/40 shadow-2xl shadow-ieo-primary/20">
+          <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-white">Contáctame</h2>
+            <p class="mt-4 text-gray-400 text-lg">
+                Llena el formulario para iniciar una conversación.
+            </p>
+          </div>
 
-    <div id="preloader"></div>
+          <form id="contactForm" class="space-y-6 max-w-xl mx-auto">
+            <!-- Campos del formulario (simplificado) --><input type="text" placeholder="Nombre Completo" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-ieo-primary focus:ring-1 focus:ring-ieo-primary outline-none transition">
+            <!-- CAMBIO: Email simple --><input type="email" placeholder="Email" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-ieo-primary focus:ring-1 focus:ring-ieo-primary outline-none transition">
+            <textarea rows="3" placeholder="Asunto" required class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:border-ieo-primary focus:ring-1 focus:ring-ieo-primary outline-none transition"></textarea>
+            
+            <button type="submit" id="btnSubmit" class="w-full btn-premium text-lg">
+              Enviar Mensaje
+            </button>
+          </form>
+          <div id="formStatus" class="hidden mt-6 text-center text-sm p-3 rounded bg-gray-800/50 border border-gray-700"></div>
+        </div>
+      </div>
+    </section>
 
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/typed.js/typed.umd.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <!-- FOOTER --><footer class="bg-black py-12 border-t border-gray-800 text-sm text-gray-500">
+      <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="flex items-center gap-2">
+          <div class="bg-gray-800 p-1.5 rounded">
+            <i data-lucide="brain" class="text-ieo-primary w-4 h-4"></i>
+          </div>
+          <span class="font-bold text-gray-300">IEO ANALYTICS</span>
+        </div>
+        <p>&copy; 2024 IEO Analytics. BI + IA Generativa Consultant.</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-ieo-primary transition">LinkedIn</a>
+          <a href="#" class="hover:text-ieo-primary transition">Privacidad</a>
+        </div>
+      </div>
+    </footer>
 
-    <script src="assets/js/main.js"></script>
+    <!-- SCRIPTS --><script>
+      // Inicializar Iconos
+      lucide.createIcons();
 
-</body>
-
+      // Lógica del Formulario (Simulación)
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('btnSubmit');
+        const status = document.getElementById('formStatus');
+        const originalContent = btn.innerHTML;
+        
+        btn.disabled = true;
+        btn.innerHTML = '<span class="animate-pulse">Enviando...</span>';
+        
+        // Simulación de envío exitoso
+        setTimeout(() => {
+            // Se usa el verde (#10b981) para el mensaje de éxito, que es un color universal de confirmación
+            btn.innerHTML = '¡Mensaje Recibido! ✅';
+            btn.style.background = '#10b981'; // Green color for success
+            
+            status.innerHTML = `<span class="text-green-400">Gracias. Te contactaré en breve.</span>`;
+            status.classList.remove('hidden');
+            document.getElementById('contactForm').reset();
+            
+            setTimeout(() => {
+                btn.disabled = false;
+                btn.innerHTML = originalContent;
+                btn.style.background = ''; // Reset gradient
+                status.classList.add('hidden');
+            }, 4000);
+        }, 1500);
+      });
+    </script>
+  </body>
 </html>
