@@ -147,54 +147,116 @@
     </section>
     
     <!-- 2. SOBRE MÍ (Formato como en la Imagen 1) --><section id="sobre_mi" class="py-24 bg-ieo-card border-y border-gray-800">
-      <div class="max-w-4xl mx-auto px-4">
-        <div class="text-center mb-12">
-            <!-- TITULO como en la imagen 1 --><h2 class="text-4xl font-bold text-white">Consultor BI + IA Generativa</h2>
-            <!-- NOMBRE como en la imagen 1 --><p class="mt-2 text-ieo-primary font-semibold text-xl">Ernesto Roldán</p>
-             <div style="margin-top: 12px;">
-    <a 
-        href="https://www.linkedin.com/in/ernesto-roldan-bi-consultant/" 
-        target="_blank" 
-        style="
-            display: inline-flex;
-            align-items: center;
-            padding: 10px 18px;
-            border-radius: 8px;
-            text-decoration: none;
-            background-color: #0077b5;
-            color: white;
-            font-weight: 500;
-            font-size: 16px;
-            transition: 0.3s;
-        "
-        onmouseover="this.style.opacity='0.85'" 
-        onmouseout="this.style.opacity='1'"
-    >
-        <img 
+<!-- 2. SOBRE MÍ (Formato como en la Imagen 1) -->
+<section id="sobre_mi" class="py-24 bg-ieo-card border-y border-gray-800">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <!-- TITULO -->
+      <h2 class="text-4xl font-bold text-white">Consultor BI + IA Generativa</h2>
+      <!-- NOMBRE -->
+      <p class="mt-2 text-ieo-primary font-semibold text-xl">Ernesto Roldán</p>
+      
+      <!-- BOTONES LINKEDIN Y GITHUB CENTRADOS -->
+      <div class="flex justify-center items-center gap-4 mt-6">
+        <a 
+          href="https://www.linkedin.com/in/ernesto-roldan-bi-consultant/" 
+          target="_blank" 
+          class="inline-flex items-center px-5 py-2.5 rounded-lg text-white font-medium text-sm transition hover:opacity-85"
+          style="background-color: #0077b5;"
+        >
+          <img 
             src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" 
             alt="LinkedIn" 
-            style="width: 22px; height: 22px; margin-right: 10px;"
+            class="w-5 h-5 mr-2"
+          />
+          LinkedIn
+        </a>
+        <a 
+          href="https://github.com/ErnestRr" 
+          target="_blank" 
+          class="inline-flex items-center px-5 py-2.5 rounded-lg text-white font-medium text-sm transition hover:opacity-85"
+          style="background-color: #333;"
         >
-        Conóceme en LinkedIn
-    </a>
-</div>
-
-        </div>
-        
-        <div class="space-y-6 text-gray-400 text-lg leading-relaxed bg-gray-900 p-8 rounded-xl border border-gray-800">
-          <p>
-            Mi trabajo es conectar tu estrategia de negocio con la tecnología de datos. Mi enfoque se centra en la **limpieza, modelado y visualización de datos** utilizando herramientas como Power BI y DAX para crear una base sólida de Business Intelligence.
-          </p>
-          <p>
-            Adicionalmente, integro las capacidades de la **Inteligencia Artificial Generativa** en la capa de análisis para ofrecer *insights* más profundos y acelerar la toma de decisiones. Esto permite a los líderes hacer consultas a los datos en lenguaje natural y obtener resúmenes automáticos.
-          </p>
-          <p class="text-white font-semibold border-l-4 border-ieo-accent pl-4 italic">
-            "Te entrego herramientas de datos sólidas y potentes, evolucionando tus reportes de estáticos a interactivos y cognitivos, para que ganes velocidad y control sobre el rendimiento de tu negocio."
-          </p>
-        </div>
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" 
+            alt="GitHub" 
+            class="w-5 h-5 mr-2 invert"
+          />
+          GitHub
+        </a>
       </div>
-      
-    </section>
+    </div>
+    
+    <div class="space-y-6 text-gray-400 text-lg leading-relaxed bg-gray-900 p-8 rounded-xl border border-gray-800">
+      <p>
+        Mi trabajo es conectar tu estrategia de negocio con la tecnología de datos. Mi enfoque se centra en la <strong class="text-white">limpieza, modelado y visualización de datos</strong> utilizando herramientas como Power BI y DAX para crear una base sólida de Business Intelligence.
+      </p>
+      <p>
+        Adicionalmente, integro las capacidades de la <strong class="text-white">Inteligencia Artificial Generativa</strong> en la capa de análisis para ofrecer <em>insights</em> más profundos y acelerar la toma de decisiones. Esto permite a los líderes hacer consultas a los datos en lenguaje natural y obtener resúmenes automáticos.
+      </p>
+      <p class="text-white font-semibold border-l-4 border-ieo-accent pl-4 italic">
+        "Te entrego herramientas de datos sólidas y potentes, evolucionando tus reportes de estáticos a interactivos y cognitivos, para que ganes velocidad y control sobre el rendimiento de tu negocio."
+      </p>
+    </div>
+
+    <!-- CERTIFICACIONES MICROSOFT -->
+    <div class="mt-10">
+      <h3 class="text-center text-xl font-semibold text-white mb-6">Certificaciones Microsoft</h3>
+      <div class="flex flex-wrap justify-center items-center gap-6">
+        
+        <!-- Certificación 1: PL-300 -->
+        <a 
+          href="https://learn.microsoft.com/es-mx/users/ernesto-8560/credentials/fe059356d8f88b2d" 
+          target="_blank"
+          class="group"
+        >
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 hover:border-ieo-primary transition-all duration-300 hover:shadow-lg hover:shadow-ieo-primary/20">
+            <img 
+              src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" 
+              alt="Microsoft Certified: Power BI Data Analyst Associate"
+              class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300"
+            />
+            <p class="text-xs text-gray-400 text-center mt-2 max-w-[120px]">Power BI Data Analyst Associate</p>
+          </div>
+        </a>
+
+        <!-- Certificación 2: DP-600 -->
+        <a 
+          href="https://learn.microsoft.com/es-mx/users/ernesto-8560/credentials/f7542c788e96261b" 
+          target="_blank"
+          class="group"
+        >
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 hover:border-ieo-primary transition-all duration-300 hover:shadow-lg hover:shadow-ieo-primary/20">
+            <img 
+              src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" 
+              alt="Microsoft Certified: Fabric Analytics Engineer Associate"
+              class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300"
+            />
+            <p class="text-xs text-gray-400 text-center mt-2 max-w-[120px]">Fabric Analytics Engineer Associate</p>
+          </div>
+        </a>
+
+        <!-- Certificación 3: PL-900 -->
+        <a 
+          href="https://learn.microsoft.com/es-es/users/ernesto-8560/credentials/97a024bbc243389" 
+          target="_blank"
+          class="group"
+        >
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 hover:border-ieo-primary transition-all duration-300 hover:shadow-lg hover:shadow-ieo-primary/20">
+            <img 
+              src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-fundamentals-badge.svg" 
+              alt="Microsoft Certified: Power Platform Fundamentals"
+              class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300"
+            />
+            <p class="text-xs text-gray-400 text-center mt-2 max-w-[120px]">Power Platform Fundamentals</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
 
     <!-- 3. SERVICIOS (BI Core: El Fundamento) --><section id="servicios" class="py-24">
         <div class="max-w-7xl mx-auto px-4">
