@@ -1,208 +1,313 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Detalles de Portafolio - Adventure Works - Analisis empresarial</title>
-    <meta name="description" content="Análisis de desempeño de la fuerza de ventas médica con Power BI.">
-    <meta name="keywords" content="Power BI, Representantes Médicos, Data Analytics, Ernesto Roldán">
+    <base target="_top">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Proyecto | Agente IA de Seguimiento de Pedidos</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ieo: {
+                bg: '#0a0a0a',
+                card: '#1a1a1a',
+                text: '#e5e7eb',
+                primary: '#0e7490',
+                accent: '#22d3ee',
+                dark_success: '#065f46',
+                dark: '#0f172a',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
 
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <style>
+      body { background-color: #0a0a0a; color: #e5e7eb; scroll-behavior: smooth; }
+      
+      .btn-premium {
+        @apply px-5 py-2 font-bold text-white rounded-lg transition transform duration-300 shadow-lg;
+        background: linear-gradient(135deg, #0e7490, #065f46); 
+      }
+      .btn-premium:hover {
+        background: linear-gradient(135deg, #065f46, #0e7490);
+        transform: translateY(-1px);
+      }
+      
+      .premium-card {
+        @apply bg-ieo-card rounded-2xl p-6 md:p-8 border border-ieo-card transition duration-300 shadow-2xl shadow-black/30;
+      }
 
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+      .video-container {
+        position: relative; 
+        padding-bottom: 56.25%;
+        height: 0; 
+        overflow: hidden; 
+        border-radius: 1rem; 
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        background: #1a1a1a;
+      }
+      .video-container video,
+      .video-container iframe {
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        border: 0;
+      }
 
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <link href="assets/css/main.css" rel="stylesheet">
-
+      .overview-list li {
+        @apply flex items-start mb-3 text-gray-400;
+      }
+      .overview-list li i {
+        @apply mr-2 text-ieo-accent mt-1 flex-shrink-0;
+      }
+    </style>
 </head>
 
-<body class="portfolio-details-page">
+<body class="font-sans antialiased">
+    
+    <!-- Header/Breadcrumb -->
+    <header class="bg-ieo-card/80 backdrop-blur-sm border-b border-gray-800 pt-16 pb-6 mb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="text-sm font-medium text-gray-400 mb-2" aria-label="Breadcrumb">
+                <ol class="list-none p-0 inline-flex">
+                    <li class="flex items-center">
+                        <a href="index.html" class="text-gray-400 hover:text-white transition">Inicio</a>
+                        <i data-lucide="chevron-right" class="w-4 h-4 mx-2 text-gray-500"></i>
+                    </li>
+                    <li class="flex items-center">
+                        <a href="index.html#portafolio" class="text-gray-400 hover:text-white transition">Portafolio</a>
+                        <i data-lucide="chevron-right" class="w-4 h-4 mx-2 text-gray-500"></i>
+                    </li>
+                    <li class="text-ieo-accent">Agente IA de Seguimiento de Pedidos</li>
+                </ol>
+            </nav>
+            <h1 class="text-4xl font-extrabold text-white">Agente IA de Seguimiento de Pedidos</h1>
+            <p class="text-ieo-accent text-lg mt-2">Automatización Inteligente de Agente Conversacional de Seguimiento Logístico</p>
+        </div>
+    </header>
 
-    <header id="header" class="header dark-background d-flex flex-column justify-content-center">
-        <i class="header-toggle d-xl-none bi bi-list"></i>
-
-        <div class="header-container d-flex flex-column align-items-start">
-            <nav id="navmenu" class="navmenu">
-                <ul>
-                    <li><a href="index.html#hero"><i class="bi bi-house navicon"></i>Inicio</a></li>
-                    <li><a href="index.html#portfolio"><i class="bi bi-images navicon"></i> Portafolio</a></li>
-                    <li><a href="index.html#services"><i class="bi bi-hdd-stack navicon"></i> Servicios</a></li>
-                    <li><a href="index.html#contact"><i class="bi bi-envelope navicon"></i> Contacto</a></li>
-                    </ul>
-            </nav>
-
-            <div class="social-links text-center">
-                </div>
-
-        </div>
-
-    </header>
-
-    <main class="main">
-
-        <div class="page-title dark-background">
-            <div class="container d-lg-flex justify-content-between align-items-center">
-                <h1 class="mb-2 mb-lg-0">Detalles del Proyecto</h1>
-                <nav class="breadcrumbs">
-                    <ol>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li class="current">Detalles del Portafolio</li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
-        <section id="portfolio-details" class="portfolio-details section">
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="row gy-4">
-
-                    <div class="col-lg-8">
-                        <div class="portfolio-details-slider swiper init-swiper">
-
-                            <script type="application/json" class="swiper-config">
-                                {
-                                  "loop": false,
-                                  "speed": 0,
-                                  "autoplay": false,
-                                  "slidesPerView": "auto",
-                                  "pagination": {
-                                    "el": ".swiper-pagination",
-                                    "type": "bullets",
-                                    "clickable": true
-                                  }
-                                }
-                            </script>
-
-                            <div class="swiper-wrapper align-items-center">
-
-                                <div class="swiper-slide">
-                                    <div class="powerbi-embed-container"
-                                        style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);">
-                                        <iframe
-                                            title="Mesa de soporte TI: Formulario CRUD + Reporte Operativo"
-                                            width="100%"
-                                            height="100%"
-                                            src="https://app.powerbi.com/view?r=eyJrIjoiMjY0MmY5YmUtZTcwNi00NWM3LTgyZWYtMzgwN2JiN2U1YWJhIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" 
-                                            frameborder="0"
-                                            allowFullScreen="true"
-                                            style="position: absolute; top:0; left: 0; width: 100%; height: 100%; border: 0;"
-                                        ></iframe>
-                                    </div>
-                                </div>
-                                </div>
-                            <div class="swiper-pagination"></div>
+    <main class="main pb-24">
+        <section id="portfolio-details" class="section">
+            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid lg:grid-cols-3 gap-12">
+                    
+                    <!-- Columna Principal: Demostración -->
+                    <div class="lg:col-span-2">
+                        <div class="video-container">
+                            <!-- GIF de Demostración -->
+                            <img 
+                                src="assets/video.gif" 
+                                alt="Demostración Agente IA de Seguimiento de Pedidos"
+                                class="absolute inset-0 w-full h-full object-contain bg-gray-900"
+                            />
                         </div>
                     </div>
 
-                    <div class="col-lg-4">
-                        <div class="portfolio-info" data-aos="fade-left" data-aos-delay="200">
-                            <h3>Información del proyecto</h3>
-                            <ul>
-                                <li><strong>Categoría</strong>: Análisis de Negocio</li>
-                                <li><strong>Caso de estudio</strong>: Mesa de soporte TI: Formulario CRUD + Reporte Operativo</li>
-                                <li><strong>Periodo de estudio</strong>: 2024</li>
-                                <li><strong>Link</strong>: <a href="https://app.powerbi.com/view?r=eyJrIjoiMjY0MmY5YmUtZTcwNi00NWM3LTgyZWYtMzgwN2JiN2U1YWJhIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" target="_blank">Ver Reporte en Power BI</a></li>
+                    <!-- Columna Lateral: Información del Proyecto -->
+                    <div class="lg:col-span-1">
+                        <div class="premium-card sticky top-24">
+                            <h3 class="text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Información del Proyecto</h3>
+                            <ul class="space-y-3 text-lg">
+                                <li>
+                                    <strong class="text-gray-300">Categoría:</strong> <span class="text-ieo-accent">IA Generativa Aplicada</span>
+                                </li>
+                                <li>
+                                    <strong class="text-gray-300">Caso de estudio:</strong> Empresa de envíos y logística
+                                </li>
+                                <li>
+                                    <strong class="text-gray-300">Tecnología:</strong> Google Gemini + n8n + Airtable
+                                </li>
+                                <li>
+                                    <strong class="text-gray-300">Curso:</strong> G6-IA Generativa Aplicada – Smart Data
+                                </li>
                             </ul>
                         </div>
                     </div>
-
-                    <div class="col-lg-12">
-                        <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
-                            <h2>Project Overview</h2>
-                            <p>
-                                Mesa de soporte TI: Formulario CRUD + Reporte Operativo
+                </div>
+                
+                <!-- Descripción del Proyecto -->
+                <div class="mt-12 lg:mt-16">
+                    <div class="premium-card">
+                        <h2 class="text-3xl font-bold text-white mb-4">Visión General del Proyecto</h2>
+                        
+                        <div class="bg-gradient-to-r from-red-900/20 to-orange-900/20 p-6 rounded-xl border border-red-800/30 mb-6">
+                            <h3 class="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                                <i data-lucide="alert-circle" class="text-red-400 w-6 h-6"></i>
+                                Descripción de la Problemática
+                            </h3>
+                            <p class="text-gray-400 text-lg leading-relaxed mb-4">
+                                La implementación del agente de seguimiento logístico busca <strong class="text-white">transformar la eficiencia operativa y la experiencia del cliente</strong>. El objetivo central es reducir la carga de trabajo de soporte humano al automatizar todas las consultas de rastreo, liberando a los agentes para que gestionen únicamente casos complejos de alto valor.
                             </p>
-                            <p>
-                                El análisis involucra:
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                Adicional, el servicio está vigente <strong class="text-ieo-accent">24/7</strong> con respuestas de estatus instantáneas y precisas, garantizando la eliminación de errores humanos y una escalabilidad que soporta cualquier volumen de envíos sin aumentar los costos operativos.
+                            </p>
+                        </div>
 
+                        <h3 class="text-xl font-semibold text-white mb-3">🤖 Modelo Aplicado</h3>
+                        <div class="bg-gray-900 p-6 rounded-xl border border-gray-800 mb-6">
+                            <p class="text-gray-400 text-lg leading-relaxed mb-4">
+                                El modelo implementado es un <strong class="text-white">Agente de IA basado en Herramientas (Tool-Based AI Agent)</strong>.
+                            </p>
+                            <ul class="overview-list">
+                                <li>
+                                    <i data-lucide="brain"></i>
+                                    <span>El Agente utiliza <strong class="text-white">Google Gemini</strong> como su Modelo de Lenguaje (LLM)</span>
+                                </li>
+                                <li>
+                                    <i data-lucide="wrench"></i>
+                                    <span>Su capacidad de acción reside en el uso de una <strong class="text-white">herramienta (Tool)</strong> específica que permite la recuperación de datos en tiempo real</span>
+                                </li>
+                            </ul>
+                        </div>
 
-Solución integral utilizando herramientas de bajo código de Microsoft, que no solo sirve para la gestión de tickets, sino que también puede adaptarse a áreas como ventas, desempeño de equipos, seguimiento de proyectos, etc. 🚀
+                        <h3 class="text-xl font-semibold text-white mb-3">🔄 Flujo de Trabajo (Workflow)</h3>
+                        <p class="text-gray-400 text-lg leading-relaxed mb-4">
+                            El workflow está diseñado para ser <strong class="text-white">evento-dirigido y orquestado por n8n</strong>, asegurando un ciclo de consulta eficiente:
+                        </p>
 
+                        <div class="grid sm:grid-cols-2 gap-4 mb-6">
+                            <div class="bg-gradient-to-br from-purple-900/30 to-purple-800/20 p-6 rounded-xl border border-purple-700/30">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <i data-lucide="cpu" class="text-purple-400 w-8 h-8"></i>
+                                    <h4 class="text-white font-semibold text-lg">AI Agent</h4>
+                                </div>
+                                <p class="text-gray-400 text-sm leading-relaxed">
+                                    <strong class="text-white">Núcleo de Decisión:</strong> Este nodo central procesa el input y, basándose en el LLM y las Tools disponibles, toma la decisión de ejecutar la búsqueda de un número de rastreo.
+                                </p>
+                            </div>
 
-🛠️ ¿Qué hice?
+                            <div class="bg-gradient-to-br from-blue-900/30 to-blue-800/20 p-6 rounded-xl border border-blue-700/30">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <i data-lucide="search" class="text-blue-400 w-8 h-8"></i>
+                                    <h4 class="text-white font-semibold text-lg">Search Records</h4>
+                                </div>
+                                <p class="text-gray-400 text-sm leading-relaxed">
+                                    <strong class="text-white">Herramienta API:</strong> Este nodo representa la herramienta que el Agente invoca. Es el punto donde el flujo se integra con Airtable para obtener el dato verificable (el estatus).
+                                </p>
+                            </div>
 
-✅ Formulario en Power Apps:
+                            <div class="bg-gradient-to-br from-green-900/30 to-green-800/20 p-6 rounded-xl border border-green-700/30">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <i data-lucide="database" class="text-green-400 w-8 h-8"></i>
+                                    <h4 class="text-white font-semibold text-lg">Simple Memory</h4>
+                                </div>
+                                <p class="text-gray-400 text-sm leading-relaxed">
+                                    <strong class="text-white">Persistencia de Contexto:</strong> Mantiene la información clave durante la sesión de chat, evitando la repetición de datos por parte del usuario y asegurando la coherencia conversacional.
+                                </p>
+                            </div>
 
-➕ Agregar nuevos registros (tickets, ventas, tareas, etc.).
-
-✏️ Agregar, editar o ❌ eliminar registros existentes.
-
-🔄 Sincronización automática: Todo se mantiene sincronizado en SQL.
-
-📡 Integración en tiempo real:
-
-Utilicé Direct Query en Power BI para que los datos ingresados en el formulario se reflejen al instante en un reporte interactivo llamado "Overview of Tickets".
-
-📊 Reporte en Power BI:
-
-🚦 Estado de los registros (abiertos, en progreso, cerrados).
-
-👥 Responsables y ⏱️ tiempos de resolución, etc.
-
-
-⏱️ Beneficios clave:
-
-🤖 Automatización: Elimina la intervención manual, reduciendo errores y ahorrando tiempo.
-
-⚡ Toma de decisiones ágil: Gracias a la actualización en tiempo real de los datos.
-
-
-Fuente de datos: Los datos que utilicé fueron obtenidos de Kaggle, esto garantiza que no hay problemas de confidencialidad y que los datos son 100% adaptables a las necesidades del proyecto.
-                                <div class="features mt-4">
+                            <div class="bg-gradient-to-br from-yellow-900/30 to-yellow-800/20 p-6 rounded-xl border border-yellow-700/30">
+                                <div class="flex items-center gap-3 mb-3">
+                                    <i data-lucide="settings" class="text-yellow-400 w-8 h-8"></i>
+                                    <h4 class="text-white font-semibold text-lg">Edit Fields</h4>
+                                </div>
+                                <p class="text-gray-400 text-sm leading-relaxed">
+                                    <strong class="text-white">Formato de Salida:</strong> Garantiza que la respuesta obtenida de la IA sea estructurada y se adapte al formato requerido por el canal de chat antes de su envío.
+                                </p>
                             </div>
                         </div>
-                    </div>
 
+                        <h3 class="text-xl font-semibold text-white mb-3">🎯 Beneficios Clave</h3>
+                        <div class="grid sm:grid-cols-3 gap-4 mb-6">
+                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800 text-center">
+                                <i data-lucide="clock" class="text-ieo-accent w-8 h-8 mx-auto mb-2"></i>
+                                <h4 class="text-white font-semibold mb-1">24/7</h4>
+                                <p class="text-gray-400 text-sm">Disponibilidad continua sin interrupciones</p>
+                            </div>
+                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800 text-center">
+                                <i data-lucide="zap" class="text-ieo-accent w-8 h-8 mx-auto mb-2"></i>
+                                <h4 class="text-white font-semibold mb-1">Respuestas Instantáneas</h4>
+                                <p class="text-gray-400 text-sm">Eliminación de tiempos de espera</p>
+                            </div>
+                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800 text-center">
+                                <i data-lucide="trending-up" class="text-ieo-accent w-8 h-8 mx-auto mb-2"></i>
+                                <h4 class="text-white font-semibold mb-1">Escalabilidad</h4>
+                                <p class="text-gray-400 text-sm">Sin límites de volumen de consultas</p>
+                            </div>
+                        </div>
+
+                        <h3 class="text-xl font-semibold text-white mb-3">🛠️ Stack Tecnológico</h3>
+                        <div class="grid sm:grid-cols-3 gap-4 mb-6">
+                            <div class="bg-gradient-to-br from-blue-900/30 to-blue-800/20 p-5 rounded-xl border border-blue-700/30 text-center">
+                                <i data-lucide="sparkles" class="text-blue-400 w-8 h-8 mx-auto mb-2"></i>
+                                <h4 class="text-white font-semibold">Google Gemini</h4>
+                                <p class="text-gray-400 text-sm">LLM Principal</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-purple-900/30 to-purple-800/20 p-5 rounded-xl border border-purple-700/30 text-center">
+                                <i data-lucide="git-branch" class="text-purple-400 w-8 h-8 mx-auto mb-2"></i>
+                                <h4 class="text-white font-semibold">n8n</h4>
+                                <p class="text-gray-400 text-sm">Orquestador de Workflows</p>
+                            </div>
+                            <div class="bg-gradient-to-br from-orange-900/30 to-orange-800/20 p-5 rounded-xl border border-orange-700/30 text-center">
+                                <i data-lucide="table" class="text-orange-400 w-8 h-8 mx-auto mb-2"></i>
+                                <h4 class="text-white font-semibold">Airtable</h4>
+                                <p class="text-gray-400 text-sm">Base de Datos Logística</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-ieo-primary/10 to-ieo-accent/10 p-6 rounded-xl border border-ieo-primary/30">
+                            <h3 class="text-xl font-semibold text-white mb-3 flex items-center gap-2">
+                                <i data-lucide="rocket" class="text-ieo-accent w-6 h-6"></i>
+                                Impacto del Proyecto
+                            </h3>
+                            <ul class="space-y-2 text-gray-400">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-ieo-accent">✓</span>
+                                    <span><strong class="text-white">Reducción de carga de trabajo:</strong> Agentes humanos liberados para casos complejos</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-ieo-accent">✓</span>
+                                    <span><strong class="text-white">Eliminación de errores humanos:</strong> Precisión del 100% en consultas de estatus</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-ieo-accent">✓</span>
+                                    <span><strong class="text-white">Costos operativos optimizados:</strong> Sin necesidad de aumentar personal ante mayor demanda</span>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-ieo-accent">✓</span>
+                                    <span><strong class="text-white">Mejora en experiencia del cliente:</strong> Respuestas inmediatas y precisas 24/7</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <p class="text-gray-400 text-lg leading-relaxed mt-6 italic border-l-4 border-ieo-primary pl-4">
+                            Este proyecto demuestra cómo la IA Generativa puede transformar operaciones logísticas tradicionales en sistemas automatizados, eficientes y escalables, mejorando significativamente tanto la eficiencia operativa como la satisfacción del cliente.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Botón de retorno -->
+                <div class="text-center mt-12">
+                    <a href="index.html#portafolio" class="btn-premium flex items-center justify-center gap-2 max-w-xs mx-auto">
+                        <i data-lucide="arrow-left" class="w-5 h-5"></i> Volver al Portafolio
+                    </a>
                 </div>
 
             </div>
+        </section>
+    </main>
 
-        </section>    </main>
+    <!-- Footer Simple -->
+    <footer class="bg-black py-6 border-t border-gray-800 text-sm text-gray-500 text-center">
+        <p>&copy; 2024 IEO Analytics. Todos los derechos reservados.</p>
+    </footer>
 
-    <footer id="footer" class="footer position-relative">
-
-        <div class="container">
-            <div class="copyright text-center ">
-                <p>© <span>Copyright</span> <strong class="px-1 sitename">Portfolio</strong> <span>All Rights
-                        Reserved</span></p>
-            </div>
-            <div class="credits">
-                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-            </div>
-        </div>
-
-    </footer>
-
-    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    <div id="preloader"></div>
-
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/typed.js/typed.umd.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-    <script src="assets/js/main.js"></script>
-
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
-
 </html>
