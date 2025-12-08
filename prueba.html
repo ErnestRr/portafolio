@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TSN6S3L5');</script>
+<!-- End Google Tag Manager -->
+    
+    <base target="_top">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEO Analytics | Dashboards Power BI para Pymes</title>
+    <meta name="description" content="Descubre cuánto ganas realmente con cada producto. Dashboards Power BI para restaurantes, tiendas online y pymes.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ieo: {
+                bg: '#0a0a0a',
+                card: '#1a1a1a',
+                text: '#e5e7eb',
+                primary: '#0e7490',
+                accent: '#22d3ee',
+                dark_success: '#065f46',
+                dark: '#0f172a',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      body { background-color: #0a0a0a; color: #e5e7eb; scroll-behavior: smooth; }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 999;
+      }
+
+      .whatsapp-float img {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .whatsapp-float img:hover {
+        transform: scale(1.1);
+      }
+      
+      .btn-premium {
+        @apply px-7 py-3 font-bold text-white rounded-lg transition transform duration-300 shadow-xl;
+        background: linear-gradient(135deg, #0e7490, #065f46); 
+        box-shadow: 0 10px 30px rgba(14, 116, 144, 0.4);
+      }
+      .btn-premium:hover {
+        background: linear-gradient(135deg, #065f46, #0e7490);
+        transform: translateY(-2px);
+      }
+      
+      .text-impact-gradient {
+        background: linear-gradient(90deg, #22d3ee, #0e7490); 
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .premium-card {
+        @apply bg-ieo-card rounded-2xl p-8 border border-ieo-card hover:border-ieo-primary/50 transition duration-300 shadow-2xl shadow-black/30;
+      }
+
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #0a0a0a; }
+      ::-webkit-scrollbar-thumb { background: #0e7490; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #065f46; }
+    </style>
+  </head>
+  
+<body class="font-sans antialiased">
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSN6S3L5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<a href="https://wa.me/525513407872" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+</a>
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full z-50 bg-ieo-card/80 backdrop-blur-md border-b border-gray-800/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+          <div class="flex items-center gap-3">
+            <div class="bg-gradient-to-br from-ieo-primary to-ieo-accent p-2 rounded-lg shadow-lg">
+              <i data-lucide="trending-up" class="text-white w-5 h-5"></i>
+            </div>
+            <span class="text-xl font-bold text-white tracking-tight">IEO <span class="text-ieo-primary">ANALYTICS</span></span>
+          </div>
+          
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="#sobre_mi" class="text-sm font-medium text-gray-400 hover:text-white transition">Sobre Mí</a>
+            <a href="#problema" class="text-sm font-medium text-gray-400 hover:text-white transition">El Problema</a>
+            <a href="#soluciones" class="text-sm font-medium text-gray-400 hover:text-white transition">Soluciones</a>
+            <a href="#portafolio" class="text-sm font-medium text-gray-400 hover:text-white transition">Portafolio</a>
+            
+            <a href="#contacto" class="btn-premium text-sm">
+              Contáctame
+            </a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="relative pt-32 pb-24 lg:pt-48 lg:pb-36 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 text-center relative z-10">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+          <span class="text-white">¿Vendes mucho pero</span><br>
+          <span class="text-impact-gradient">no sabes cuánto ganas</span><br>
+          <span class="text-white">con cada producto?</span>
+        </h1>
+        <p class="mt-6 max-w-3xl mx-auto text-xl text-gray-400 leading-relaxed">
+          Te creo dashboards automáticos que te muestran <strong class="text-white">exactamente dónde ganas y dónde pierdes dinero</strong>, sin hojas de Excel ni fórmulas complicadas.
+        </p>
+        
+        <div class="mt-8 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left">
+          <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+            <div class="text-red-400 text-3xl font-bold mb-2">❌</div>
+            <p class="text-gray-300">Productos "populares" que te hacen <strong class="text-white">perder dinero</strong></p>
+          </div>
+          <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+            <div class="text-yellow-400 text-3xl font-bold mb-2">⏰</div>
+            <p class="text-gray-300"><strong class="text-white">6+ horas semanales</strong> perdidas en reportes manuales</p>
+          </div>
+          <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+            <div class="text-blue-400 text-3xl font-bold mb-2">❓</div>
+            <p class="text-gray-300">Decisiones basadas en <strong class="text-white">"intuición"</strong> en vez de datos reales</p>
+          </div>
+        </div>
+        
+        <div class="mt-12">
+          <a href="#contacto" class="btn-premium text-lg shadow-ieo-primary/40 inline-block">
+            Quiero Ver Mis Números Reales
+          </a>
+          <p class="mt-4 text-sm text-gray-500">Diagnóstico gratuito de 30 minutos • Sin compromiso</p>
+        </div>
+      </div>
+      
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-10">
+        <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-ieo-primary/10 rounded-full blur-[150px]"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-ieo-accent/10 rounded-full blur-[150px]"></div>
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ (LinkedIn, GitHub, Certificaciones) -->
+<section id="sobre_mi" class="py-24 bg-ieo-card border-y border-gray-800">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-4xl font-bold text-white">Consultor BI + Automatización</h2>
+      
+      <div class="flex justify-center items-center gap-4 mt-6">
+        <a 
+          href="https://www.linkedin.com/in/ernesto-roldan-bi-consultant/" 
+          target="_blank" 
+          class="inline-flex items-center px-5 py-2.5 rounded-lg text-white font-medium text-sm transition hover:opacity-85"
+          style="background-color: #0077b5;"
+        >
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" 
+            alt="LinkedIn" 
+            class="w-5 h-5 mr-2"
+          />
+          LinkedIn
+        </a>
+        <a 
+          href="https://github.com/ErnestRr" 
+          target="_blank" 
+          class="inline-flex items-center px-5 py-2.5 rounded-lg text-white font-medium text-sm transition hover:opacity-85"
+          style="background-color: #333;"
+        >
+          <img 
+            src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" 
+            alt="GitHub" 
+            class="w-5 h-5 mr-2 invert"
+          />
+          GitHub
+        </a>
+      </div>
+    </div>
+    
+    <div class="space-y-6 text-gray-400 text-lg leading-relaxed bg-gray-900 p-8 rounded-xl border border-gray-800">
+      <p class="text-white text-xl font-semibold">
+        Te ayudo a convertir tus datos en decisiones rentables.
+      </p>
+      <p>
+        He trabajado con negocios de diferentes tamaños: desde restaurantes hasta cadenas con +5,000 puntos de venta. El problema siempre es el mismo: <span class="text-white">mucha información, poca claridad.</span>
+      </p>
+      
+      <p class="text-white font-semibold border-l-4 border-ieo-accent pl-4 italic">
+        "No te vendo tecnología complicada. Te muestro exactamente qué números ver para tomar mejores decisiones en tu negocio."
+      </p>
+      
+      <p class="text-sm text-gray-500">
+        Proyectos realizados: Sistemas de costeo para franquicias • Dashboards para 118+ sucursales • Automatización de reportes • Modelos de pronóstico de demanda
+      </p>
+    </div>
+
+    <!-- CERTIFICACIONES MICROSOFT -->
+    <div class="mt-10">
+      <h3 class="text-center text-xl font-semibold text-white mb-6">Certificaciones Microsoft</h3>
+      <div class="flex flex-wrap justify-center items-center gap-6">
+        
+        <a 
+          href="https://learn.microsoft.com/es-mx/users/ernesto-8560/credentials/fe059356d8f88b2d" 
+          target="_blank"
+          class="group"
+        >
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 hover:border-ieo-primary transition-all duration-300 hover:shadow-lg hover:shadow-ieo-primary/20">
+            <img 
+              src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" 
+              alt="Microsoft Certified: Power BI Data Analyst Associate"
+              class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300"
+            />
+            <p class="text-xs text-gray-400 text-center mt-2 max-w-[120px]">Power BI Data Analyst Associate</p>
+          </div>
+        </a>
+
+        <a 
+          href="https://learn.microsoft.com/es-mx/users/ernesto-8560/credentials/f7542c788e96261b" 
+          target="_blank"
+          class="group"
+        >
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 hover:border-ieo-primary transition-all duration-300 hover:shadow-lg hover:shadow-ieo-primary/20">
+            <img 
+              src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" 
+              alt="Microsoft Certified: Fabric Analytics Engineer Associate"
+              class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300"
+            />
+            <p class="text-xs text-gray-400 text-center mt-2 max-w-[120px]">Fabric Analytics Engineer Associate</p>
+          </div>
+        </a>
+
+        <a 
+          href="https://learn.microsoft.com/es-es/users/ernesto-8560/credentials/97a024bbc243389" 
+          target="_blank"
+          class="group"
+        >
+          <div class="bg-gray-900 border border-gray-700 rounded-xl p-4 hover:border-ieo-primary transition-all duration-300 hover:shadow-lg hover:shadow-ieo-primary/20">
+            <img 
+              src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" 
+              alt="Microsoft Certified: Microsoft Power Platform Functional Consultant"
+              class="w-16 h-16 mx-auto group-hover:scale-110 transition-transform duration-300"
+            />
+            <p class="text-xs text-gray-400 text-center mt-2 max-w-[120px]">Power Platform Functional Consultant</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <!-- EL PROBLEMA -->
+    <section id="problema" class="py-24">
+      <div class="max-w-5xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-white mb-4">Si tu negocio tiene estos problemas, necesitas esto</h2>
+          <p class="text-gray-400 text-lg">La mayoría de pymes no saben cuánto ganan realmente. Y les cuesta caro.</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div class="bg-red-500/10 border-2 border-red-500/30 p-6 rounded-xl">
+            <div class="flex items-start gap-4">
+              <div class="text-red-400 text-2xl">💸</div>
+              <div>
+                <h3 class="text-white font-bold mb-2">No sabes cuánto cuesta REALMENTE producir cada producto</h3>
+                <p class="text-gray-400 text-sm">Calculas precio de venta - costo de materia prima, pero ignoras mermas, empaques, luz, gas, mano de obra. El margen real es mucho menor de lo que crees.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-red-500/10 border-2 border-red-500/30 p-6 rounded-xl">
+            <div class="flex items-start gap-4">
+              <div class="text-red-400 text-2xl">📊</div>
+              <div>
+                <h3 class="text-white font-bold mb-2">Tus datos están dispersos en 5+ archivos de Excel</h3>
+                <p class="text-gray-400 text-sm">Ventas en un Excel, inventario en otro, compras en tu sistema de punto de venta. Nunca tienes la foto completa y actualizada.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-red-500/10 border-2 border-red-500/30 p-6 rounded-xl">
+            <div class="flex items-start gap-4">
+              <div class="text-red-400 text-2xl">⏰</div>
+              <div>
+                <h3 class="text-white font-bold mb-2">Gastas 3+ horas semanales haciendo reportes manualmente</h3>
+                <p class="text-gray-400 text-sm">Cada semana o mes repites el mismo proceso: descargar datos, copiar, pegar, hacer fórmulas. Y si algo cambia, empiezas de nuevo.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-red-500/10 border-2 border-red-500/30 p-6 rounded-xl">
+            <div class="flex items-start gap-4">
+              <div class="text-red-400 text-2xl">🎯</div>
+              <div>
+                <h3 class="text-white font-bold mb-2">Tomas decisiones de precios "porque sí"</h3>
+                <p class="text-gray-400 text-sm">Subes o bajas precios viendo la competencia o por intuición, sin saber si ese precio te deja ganancia real después de todos los costos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-12 bg-gray-900 p-8 rounded-xl border border-gray-800 text-center">
+          <p class="text-xl text-white font-bold mb-4">El resultado: Vendes mucho pero no te queda dinero</p>
+          <p class="text-gray-400">Y lo peor es que no sabes <span class="text-white">exactamente dónde se está yendo</span> tu utilidad.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- SOLUCIONES -->
+    <section id="soluciones" class="py-24 bg-ieo-card border-y border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-white">Tres Problemas. Tres Soluciones Concretas.</h2>
+                <p class="mt-4 text-gray-400 text-xl">
+                    No más adivinanzas. Solo números claros que puedes usar hoy mismo.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- SOLUCIÓN 1 -->
+                <div class="premium-card">
+                    <div class="bg-ieo-primary/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="dollar-sign" class="w-6 h-6 text-ieo-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Descubre Cuánto Ganas Realmente</h3>
+                    <p class="text-gray-500 text-sm mb-4">El problema:</p>
+                    <p class="text-gray-400 mb-6">No sabes el costo real de cada producto porque faltan gastos ocultos.</p>
+                    
+                    <p class="text-gray-500 text-sm mb-4">La solución:</p>
+                    <p class="text-gray-300 mb-6">Dashboard de <strong class="text-white">rentabilidad real por producto</strong> que incluye TODO: materia prima, mermas, empaques, costos indirectos prorrateados.</p>
+                    
+                    <div class="bg-green-500/10 border border-green-500/30 p-4 rounded-lg">
+                        <p class="text-sm text-green-400 font-semibold mb-1">Resultado típico:</p>
+                        <p class="text-sm text-gray-300">Descubres que 2-3 productos "best sellers" te están haciendo perder dinero. Los ajustas y <strong class="text-white">ganas $10K-$20K más al mes</strong> sin vender más.</p>
+                    </div>
+                    
+                    <p class="text-xs text-gray-500 mt-6">
+                        <strong class="text-white">Para quién:</strong> Restaurantes, cafeterías, negocios con inventario
+                    </p>
+                </div>
+
+                <!-- SOLUCIÓN 2 -->
+                <div class="premium-card">
+                    <div class="bg-ieo-primary/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="zap" class="w-6 h-6 text-ieo-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Elimina Reportes Manuales</h3>
+                    <p class="text-gray-500 text-sm mb-4">El problema:</p>
+                    <p class="text-gray-400 mb-6">Pierdes horas cada semana copiando datos de un lugar a otro.</p>
+                    
+                    <p class="text-gray-500 text-sm mb-4">La solución:</p>
+                    <p class="text-gray-300 mb-6">Dashboard que <strong class="text-white">se actualiza solo</strong> conectando tu punto de venta, Excel, sistema de inventario. Lo abres y ya está listo.</p>
+                    
+                    <div class="bg-green-500/10 border border-green-500/30 p-4 rounded-lg">
+                        <p class="text-sm text-green-400 font-semibold mb-1">Resultado típico:</p>
+                        <p class="text-sm text-gray-300">Recuperas <strong class="text-white">6-10 horas por semana</strong> que puedes usar para atender el negocio en vez de hacer reportes.</p>
+                    </div>
+                    
+                    <p class="text-xs text-gray-500 mt-6">
+                        <strong class="text-white">Para quién:</strong> Cualquier negocio que hace reportes periódicos
+                    </p>
+                </div>
+
+                <!-- SOLUCIÓN 3 -->
+                <div class="premium-card">
+                    <div class="bg-ieo-primary/20 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
+                        <i data-lucide="target" class="w-6 h-6 text-ieo-accent"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-white mb-3">Toma Decisiones con Datos</h3>
+                    <p class="text-gray-500 text-sm mb-4">El problema:</p>
+                    <p class="text-gray-400 mb-6">Decides precios, promociones y compras basado en intuición.</p>
+                    
+                    <p class="text-gray-500 text-sm mb-4">La solución:</p>
+                    <p class="text-gray-300 mb-6">Dashboard con tus <strong class="text-white">KPIs críticos</strong>: punto de equilibrio diario, productos más rentables, tendencias de venta, alertas de problemas.</p>
+                    
+                    <div class="bg-green-500/10 border border-green-500/30 p-4 rounded-lg">
+                        <p class="text-sm text-green-400 font-semibold mb-1">Resultado típico:</p>
+                        <p class="text-sm text-gray-300">Identificas oportunidades que no veías: clientes valiosos, horarios pico, productos complementarios. <strong class="text-white">Aumentas ticket promedio 15-25%</strong>.</p>
+                    </div>
+                    
+                    <p class="text-xs text-gray-500 mt-6">
+                        <strong class="text-white">Para quién:</strong> Dueños que quieren crecer de forma controlada
+                    </p>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <div class="bg-gradient-to-r from-ieo-primary/20 to-ieo-accent/20 border-2 border-ieo-primary/50 p-8 rounded-xl max-w-4xl mx-auto">
+                    <h3 class="text-2xl font-bold text-white mb-4">¿Necesitas algo más específico?</h3>
+                    <p class="text-gray-300 mb-6">También desarrollo: Bots de WhatsApp para consultas automáticas, sistemas de costeo para franquicias, análisis de viabilidad financiera, integración con sistemas personalizados.</p>
+                    <a href="#contacto" class="btn-premium inline-block">
+                        Platícame Tu Caso Específico
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASO DESTACADO -->
+    <section class="py-24">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-white">Caso Real: De Ventas Altas a Rentabilidad Real</h2>
+          <p class="mt-4 text-gray-400 text-xl">Cómo un negocio de alimentos incrementó rentabilidad 18% sin vender más</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-6">
+          <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+            <p class="text-sm font-semibold text-red-400 mb-2">❌ EL PROBLEMA:</p>
+            <p class="text-gray-300">Un negocio de comida tenía ventas consistentes pero la utilidad no reflejaba el volumen. Sospechaban que algunos productos "populares" no eran rentables.</p>
+          </div>
+
+          <div class="bg-gray-900 p-6 rounded-xl border border-gray-800">
+            <p class="text-sm font-semibold text-ieo-accent mb-2">🔧 LO QUE HICE:</p>
+            <ul class="text-gray-300 space-y-2 text-sm">
+              <li>• Sistema de costeo ingredient por ingredient de 12 platillos diferentes</li>
+              <li>• Cálculo de costos ocultos: mermas reales, empaques, insumos indirectos, gas</li>
+              <li>• Dashboard de rentabilidad por producto con alertas automáticas</li>
+              <li>• Modelo financiero para evaluar viabilidad de franquicia</li>
+            </ul>
+          </div>
+
+          <div class="bg-green-500/10 border-2 border-green-500/30 p-6 rounded-xl">
+            <p class="text-sm font-semibold text-green-400 mb-3">✅ RESULTADOS:</p>
+            <ul class="text-gray-300 space-y-2 text-sm">
+              <li>• Identificaron 3 combos "best sellers" con margen NEGATIVO</li>
+              <li>• Optimizaron 2 recetas sin afectar calidad percibida</li>
+              <li>• <strong class="text-white text-base">Incrementaron rentabilidad 18% sin aumentar ventas</strong></li>
+              <li>• Dashboard permitió decisiones de precio basadas en datos reales</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-12 text-center">
+          <p class="text-gray-400 mb-6">Este es solo un ejemplo. Cada negocio tiene sus propios números y problemas específicos.</p>
+          <a href="#contacto" class="btn-premium inline-block">
+            Quiero un Análisis Como Este Para Mi Negocio
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTAFOLIO -->
+<section id="portafolio" class="py-24 bg-ieo-card border-y border-gray-800">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="mb-16">
+      <h2 class="text-4xl font-bold text-white">Más Proyectos</h2>
+      <p class="mt-2 text-gray-400 text-xl">Ejemplos de dashboards y automatizaciones que generan resultados</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
