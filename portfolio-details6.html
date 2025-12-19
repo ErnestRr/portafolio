@@ -8,7 +8,6 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
     
     <script>
       tailwind.config = {
@@ -16,13 +15,12 @@
           extend: {
             colors: {
               ieo: {
-                bg: '#0a0a0a',
-                card: '#1a1a1a',
-                text: '#e5e7eb',
-                primary: '#0e7490',
-                accent: '#22d3ee',
-                dark_success: '#065f46',
-                dark: '#0f172a',
+                bg: '#0F172A',
+                card: '#1E293B',
+                text: '#E2E8F0',
+                primary: '#3B82F6',
+                accent: '#60A5FA',
+                dark_success: '#15803d',
               }
             },
             fontFamily: {
@@ -34,233 +32,203 @@
     </script>
 
     <style>
-      body { background-color: #0a0a0a; color: #e5e7eb; scroll-behavior: smooth; }
+      body { background-color: #0F172A; color: #E2E8F0; scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
       
-      .btn-premium {
-        @apply px-5 py-2 font-bold text-white rounded-lg transition transform duration-300 shadow-lg;
-        background: linear-gradient(135deg, #0e7490, #065f46); 
+      .btn-primary-dark {
+        background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
       }
-      .btn-premium:hover {
-        background: linear-gradient(135deg, #065f46, #0e7490);
-        transform: translateY(-1px);
+      .btn-primary-dark:hover {
+        background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+        box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.6);
+        transform: translateY(-2px);
       }
       
-      .premium-card {
-        @apply bg-ieo-card rounded-2xl p-6 md:p-8 border border-ieo-card transition duration-300 shadow-2xl shadow-black/30;
+      .border-gradient-dark {
+        position: relative;
+        background: #1E293B; 
+        border-radius: 1rem;
+        border: 1px solid #334155;
       }
-
-      .powerbi-embed-container {
-        position: relative; 
-        padding-bottom: 56.25%;
-        height: 0; 
-        overflow: hidden; 
-        border-radius: 1rem; 
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      .border-gradient-dark::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, #3B82F6, #60A5FA);
+        border-radius: 1rem 1rem 0 0;
       }
-      .powerbi-embed-container iframe {
-        position: absolute; 
-        top: 0; 
-        left: 0; 
-        width: 100%; 
-        height: 100%; 
-        border: 0;
-      }
-
-      .overview-list li {
-        @apply flex items-start mb-3 text-gray-400;
-      }
-      .overview-list li i {
-        @apply mr-2 text-ieo-accent mt-1 flex-shrink-0;
+      
+      .shadow-elegant-dark {
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 
+                      0 4px 6px -2px rgba(0, 0, 0, 0.2);
       }
     </style>
 </head>
 
-<body class="font-sans antialiased">
+<body class="antialiased min-h-screen">
+  
+  <header class="bg-ieo-bg sticky top-0 z-50 border-b border-slate-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold tracking-wider">
+        <a href="index.html" class="text-ieo-text">IEO <span class="text-ieo-primary">Analytics</span></a>
+      </div>
+      <a href="index.html#portafolio" 
+         class="btn-primary-dark text-white font-semibold py-2.5 px-5 rounded-lg">
+        <svg class="w-5 h-5 inline mr-2 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        Volver al Portafolio
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     
-    <!-- Header/Breadcrumb -->
-    <header class="bg-ieo-card/80 backdrop-blur-sm border-b border-gray-800 pt-16 pb-6 mb-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="text-sm font-medium text-gray-400 mb-2" aria-label="Breadcrumb">
-                <ol class="list-none p-0 inline-flex">
-                    <li class="flex items-center">
-                        <a href="index.html" class="text-gray-400 hover:text-white transition">Inicio</a>
-                        <i data-lucide="chevron-right" class="w-4 h-4 mx-2 text-gray-500"></i>
-                    </li>
-                    <li class="flex items-center">
-                        <a href="index.html#portafolio" class="text-gray-400 hover:text-white transition">Portafolio</a>
-                        <i data-lucide="chevron-right" class="w-4 h-4 mx-2 text-gray-500"></i>
-                    </li>
-                    <li class="text-ieo-accent">Datos Mundiales del COVID-19</li>
-                </ol>
-            </nav>
-            <h1 class="text-4xl font-extrabold text-white">Datos Mundiales del COVID-19</h1>
+    <div class="text-center mb-12">
+      <span class="text-ieo-primary uppercase tracking-widest text-sm font-semibold">Portafolio | BI & Analytics</span>
+      <h1 class="text-5xl font-extrabold text-ieo-text mt-2 leading-tight">
+        Datos Mundiales del <br> COVID-19
+      </h1>
+      <p class="mt-4 text-xl text-ieo-text/80 max-w-4xl mx-auto">
+        Dashboard epidemiológico global con datos de múltiples fuentes (JHU, Covid19api, Worldometers), analizando casos, recuperaciones y fallecimientos por país con tasas calculadas.
+      </p>
+    </div>
+
+    <div class="mb-16 bg-ieo-card p-4 md:p-8 rounded-2xl shadow-elegant-dark">
+      <div class="aspect-video bg-ieo-bg rounded-xl overflow-hidden border border-slate-700">
+        
+        <iframe title="Datos mundiales del COVID 19" 
+                width="100%" 
+                height="100%" 
+                src="https://app.powerbi.com/view?r=eyJrIjoiMDAyNWU4ODktZmE1NC00Mjk4LWExYTMtMWJjZWRmYmNhMDFmIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=ReportSection" 
+                frameborder="0" 
+                allowFullScreen="true"
+                class="w-full h-full">
+        </iframe>
+
+      </div>
+      <div class="mt-6 flex justify-center">
+        <a href="https://app.powerbi.com/view?r=eyJrIjoiMDAyNWU4ODktZmE1NC00Mjk4LWExYTMtMWJjZWRmYmNhMDFmIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=ReportSection" target="_blank" rel="noopener noreferrer" 
+           class="btn-primary-dark inline-flex items-center justify-center px-6 py-3 text-lg font-semibold rounded-xl text-white">
+          <svg class="w-5 h-5 mr-2 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+          Ver Reporte Interactivo
+        </a>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-12">
+      
+      <div class="lg:col-span-2 space-y-12">
+        
+        <div class="border-gradient-dark p-8 rounded-2xl shadow-elegant-dark">
+          <h2 class="text-3xl font-bold text-ieo-primary mb-4">El Reto de Negocio</h2>
+          <p class="text-lg text-ieo-text/80 leading-relaxed">
+            Durante la crisis global del COVID-19, se necesitaba una **visión integral y actualizada** del impacto de la pandemia por país, calculando tasas de infección, mortalidad y recuperación para comprender patrones epidemiológicos.
+          </p>
+          <ul class="mt-6 space-y-3 text-ieo-text/90">
+            <li class="flex items-start">
+              <svg class="w-5 h-5 mt-1 mr-2 text-ieo-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              **Datos Dispersos:** Información de múltiples fuentes sin consolidar globalmente.
+            </li>
+            <li class="flex items-start">
+              <svg class="w-5 h-5 mt-1 mr-2 text-ieo-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              **Análisis Complejo:** Necesidad de calcular tasas y comparativas entre países/continentes.
+            </li>
+          </ul>
         </div>
-    </header>
-
-    <main class="main pb-24">
-        <section id="portfolio-details" class="section">
-            <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-3 gap-12">
-                    
-                    <!-- Columna Principal: Embed Power BI -->
-                    <div class="lg:col-span-2">
-                        <div class="powerbi-embed-container">
-                            <iframe
-                                title="Datos mundiales del COVID 19"
-                                width="100%"
-                                height="100%"
-                                src="https://app.powerbi.com/view?r=eyJrIjoiMDAyNWU4ODktZmE1NC00Mjk4LWExYTMtMWJjZWRmYmNhMDFmIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=ReportSection"
-                                frameborder="0"
-                                allowFullScreen="true"
-                            ></iframe>
-                        </div>
-                    </div>
-
-                    <!-- Columna Lateral: Información del Proyecto -->
-                    <div class="lg:col-span-1">
-                        <div class="premium-card sticky top-24">
-                            <h3 class="text-2xl font-bold text-white mb-4 border-b border-gray-700 pb-2">Información del Proyecto</h3>
-                            <ul class="space-y-3 text-lg">
-                                <li>
-                                    <strong class="text-gray-300">Categoría:</strong> <span class="text-ieo-accent">Análisis de Salud Pública</span>
-                                </li>
-                                <li>
-                                    <strong class="text-gray-300">Caso de estudio:</strong> Datos mundiales del COVID-19
-                                </li>
-                                <li>
-                                    <strong class="text-gray-300">Periodo:</strong> Pandemia COVID-19
-                                </li>
-                                <li>
-                                    <strong class="text-gray-300">Link:</strong> 
-                                    <a href="https://app.powerbi.com/view?r=eyJrIjoiMDAyNWU4ODktZmE1NC00Mjk4LWExYTMtMWJjZWRmYmNhMDFmIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=ReportSection" 
-                                       target="_blank" 
-                                       class="text-white hover:text-ieo-accent transition underline block mt-1">
-                                       Ver Reporte en Power BI
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Descripción del Proyecto -->
-                <div class="mt-12 lg:mt-16">
-                    <div class="premium-card">
-                        <h2 class="text-3xl font-bold text-white mb-4">Visión General del Proyecto</h2>
-                        <p class="text-gray-400 text-lg leading-relaxed mb-6">
-                            🦠 En medio de la crisis del COVID-19, este análisis revela la situación global por país, con casos, recuperaciones y fallecimientos. Se calculan tasas de infección, mortalidad y recuperación, con datos acumulados desglosados para facilitar la comprensión del impacto de la pandemia.
-                        </p>
-                        
-                        <h3 class="text-xl font-semibold text-white mb-3">Fuentes de Datos</h3>
-                        <div class="grid sm:grid-cols-2 gap-4 mb-6">
-                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
-                                <div class="flex items-center gap-3 mb-2">
-                                    <i data-lucide="database" class="text-ieo-accent w-6 h-6"></i>
-                                    <h4 class="text-white font-semibold">API de JHU</h4>
-                                </div>
-                                <p class="text-gray-400 text-sm">Johns Hopkins University</p>
-                            </div>
-                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
-                                <div class="flex items-center gap-3 mb-2">
-                                    <i data-lucide="globe" class="text-ieo-accent w-6 h-6"></i>
-                                    <h4 class="text-white font-semibold">Covid19api</h4>
-                                </div>
-                                <p class="text-gray-400 text-sm">API global de datos COVID</p>
-                            </div>
-                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
-                                <div class="flex items-center gap-3 mb-2">
-                                    <i data-lucide="bar-chart" class="text-ieo-accent w-6 h-6"></i>
-                                    <h4 class="text-white font-semibold">Worldometers.info</h4>
-                                </div>
-                                <p class="text-gray-400 text-sm">Estadísticas en tiempo real</p>
-                            </div>
-                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
-                                <div class="flex items-center gap-3 mb-2">
-                                    <i data-lucide="book-open" class="text-ieo-accent w-6 h-6"></i>
-                                    <h4 class="text-white font-semibold">Wikipedia</h4>
-                                </div>
-                                <p class="text-gray-400 text-sm">Información contextual</p>
-                            </div>
-                        </div>
-
-                        <h3 class="text-xl font-semibold text-white mb-3">Preguntas Clave del Análisis</h3>
-                        <ul class="overview-list mb-6">
-                            <li>
-                                <i data-lucide="trending-up"></i>
-                                <span><strong class="text-white">¿Qué país lidera en casos, decesos y recuperaciones?</strong> ¿Y cuál tiene menor impacto?</span>
-                            </li>
-                            <li>
-                                <i data-lucide="activity"></i>
-                                <span><strong class="text-white">Tasa de contagio y mortalidad</strong> por continente y país</span>
-                            </li>
-                            <li>
-                                <i data-lucide="heart"></i>
-                                <span><strong class="text-white">Países con más recuperados</strong> y su tasa de recuperación respecto a datos acumulados</span>
-                            </li>
-                            <li>
-                                <i data-lucide="line-chart"></i>
-                                <span><strong class="text-white">Tendencia diaria de casos</strong> y tasa de mortalidad por país 📉🔬</span>
-                            </li>
-                        </ul>
-
-                        <div class="bg-gradient-to-r from-red-900/20 to-orange-900/20 p-6 rounded-xl border border-red-800/30 mb-6">
-                            <h3 class="text-xl font-semibold text-white mb-3 flex items-center gap-2">
-                                <i data-lucide="alert-circle" class="text-red-400 w-6 h-6"></i>
-                                Métricas Epidemiológicas
-                            </h3>
-                            <div class="grid sm:grid-cols-3 gap-4 text-center">
-                                <div>
-                                    <p class="text-red-400 font-bold text-2xl mb-1">Casos</p>
-                                    <p class="text-gray-400 text-sm">Confirmados globalmente</p>
-                                </div>
-                                <div>
-                                    <p class="text-orange-400 font-bold text-2xl mb-1">Fallecimientos</p>
-                                    <p class="text-gray-400 text-sm">Tasa de mortalidad</p>
-                                </div>
-                                <div>
-                                    <p class="text-green-400 font-bold text-2xl mb-1">Recuperaciones</p>
-                                    <p class="text-gray-400 text-sm">Tasa de recuperación</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="grid sm:grid-cols-2 gap-4 mb-6">
-                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
-                                <i data-lucide="map" class="text-ieo-accent w-8 h-8 mb-3"></i>
-                                <h4 class="text-white font-semibold mb-2">Análisis Geográfico</h4>
-                                <p class="text-gray-400 text-sm">Comparativa entre continentes y países</p>
-                            </div>
-                            <div class="bg-gray-900 p-5 rounded-xl border border-gray-800">
-                                <i data-lucide="calendar" class="text-ieo-accent w-8 h-8 mb-3"></i>
-                                <h4 class="text-white font-semibold mb-2">Evolución Temporal</h4>
-                                <p class="text-gray-400 text-sm">Tendencias diarias y acumuladas</p>
-                            </div>
-                        </div>
-                        
-                        <p class="text-gray-400 text-lg leading-relaxed mt-6 italic border-l-4 border-ieo-primary pl-4">
-                            📊 Este dashboard proporciona una visión integral del impacto global de la pandemia COVID-19, permitiendo identificar patrones epidemiológicos, comparar respuestas entre países y comprender la evolución de la crisis sanitaria mundial.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Botón de retorno -->
-                <div class="text-center mt-12">
-                    <a href="index.html#portafolio" class="btn-premium flex items-center justify-center gap-2 max-w-xs mx-auto">
-                        <i data-lucide="arrow-left" class="w-5 h-5"></i> Volver al Portafolio
-                    </a>
-                </div>
-
+        
+        <div class="space-y-6">
+          <h2 class="text-3xl font-bold text-ieo-text mb-4">Metodología y Tecnologías</h2>
+          <p class="text-lg text-ieo-text/80">
+            Integración de datos de APIs oficiales (JHU, Covid19api, Worldometers) con procesamiento y visualización en Power BI para análisis epidemiológico comparativo.
+          </p>
+          <div class="grid md:grid-cols-2 gap-6">
+            
+            <div class="bg-ieo-card p-6 rounded-xl border border-slate-700 shadow-lg">
+              <h4 class="font-bold text-ieo-primary mb-2 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10m0 0h16m-4 0l-4 4m0-4l4-4m-4 4H4M8 7v10m4-7h8m0 0l-4-4m4 4l-4 4"></path></svg>
+                Fuentes de Datos
+              </h4>
+              <ul class="text-sm text-ieo-text/70 space-y-1 pl-1">
+                <li><span class="font-semibold text-ieo-text">APIs Oficiales:</span> JHU, Covid19api, Worldometers, Wikipedia.</li>
+                <li><span class="font-semibold text-ieo-text">Integración:</span> Consolidación de múltiples fuentes epidemiológicas.</li>
+              </ul>
             </div>
-        </section>
-    </main>
+            
+            <div class="bg-ieo-card p-6 rounded-xl border border-slate-700 shadow-lg">
+              <h4 class="font-bold text-ieo-primary mb-2 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6m0 0h18m0 0V5a2 2 0 00-2-2H9a2 2 0 00-2 2v14m0 0h2"></path></svg>
+                Analytics
+              </h4>
+              <ul class="text-sm text-ieo-text/70 space-y-1 pl-1">
+                <li><span class="font-semibold text-ieo-text">Tasas Calculadas:</span> Infección, mortalidad y recuperación.</li>
+                <li><span class="font-semibold text-ieo-text">Análisis Comparativo:</span> Entre países y continentes.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="lg:col-span-1">
+        <div class="border-gradient-dark p-8 rounded-2xl sticky top-28 shadow-elegant-dark">
+          <h2 class="text-3xl font-bold text-ieo-text mb-6">Resultados Clave</h2>
+          
+          <div class="space-y-6">
+            
+            <div class="p-4 rounded-xl bg-ieo-bg border border-slate-700">
+              <p class="text-sm font-semibold text-ieo-primary">Visión Global</p>
+              <p class="text-2xl font-bold text-ieo-text mt-1">
+                <span class="text-ieo-dark_success">Multi</span>fuente
+              </p>
+              <p class="text-xs text-ieo-text/70 mt-1">Datos integrados de JHU, Covid19api, Worldometers y Wikipedia.</p>
+            </div>
+            
+            <div class="p-4 rounded-xl bg-ieo-bg border border-slate-700">
+              <p class="text-sm font-semibold text-ieo-primary">Métricas Epidemiológicas</p>
+              <p class="text-2xl font-bold text-ieo-text mt-1">
+                <span class="text-ieo-dark_success">3 Tasas</span> Clave
+              </p>
+              <p class="text-xs text-ieo-text/70 mt-1">Infección, mortalidad y recuperación calculadas por país y continente.</p>
+            </div>
+            
+            <div class="p-4 rounded-xl bg-ieo-bg border border-slate-700">
+              <p class="text-sm font-semibold text-ieo-primary">Análisis Temporal</p>
+              <p class="text-2xl font-bold text-ieo-text mt-1">
+                <span class="text-ieo-dark_success">Tendencias</span> Diarias
+              </p>
+              <p class="text-xs text-ieo-text/70 mt-1">Evolución de casos y tasas de mortalidad a lo largo del tiempo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </main>
+  
+  <footer class="bg-ieo-card border-t border-slate-700 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+      <p class="text-ieo-text/60 text-sm">&copy; 2025 IEO Analytics. Todos los derechos reservados.</p>
+      <div class="mt-2 space-x-4 text-ieo-text/80 text-sm">
+        <a href="index.html#pilares" class="hover:text-ieo-primary transition">Pilares</a>
+        <a href="index.html#certificaciones" class="hover:text-ieo-primary transition">Certificaciones</a>
+        <a href="index.html#contacto" class="hover:text-ieo-primary transition">Contacto</a>
+      </div>
+    </div>
+  </footer>
+  
+  <a href="https://wa.me/5215513407872?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20de%20BI%20y%20automatizaci%C3%B3n" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     class="fixed right-6 bottom-6 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 z-50 group"
+     aria-label="Contactar por WhatsApp">
+      <svg class="w-8 h-8 group-hover:rotate-12 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+      <span class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-ping"></span>
+      <span class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full"></span>
+  </a>
 
-    <!-- Footer Simple -->
-    <footer class="bg-black py-6 border-t border-gray-800 text-sm text-gray-500 text-center">
-        <p>&copy; 2024 IEO Analytics. Todos los derechos reservados.</p>
-    </footer>
-
-    <script>
-        lucide.createIcons();
-    </script>
 </body>
 </html>
