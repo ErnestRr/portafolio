@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <base target="_top">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caso de Éxito | Arquitectura E2E & Modern Data Stack</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ieo: {
+                bg: '#0F172A',
+                card: '#1E293B',
+                text: '#E2E8F0',
+                primary: '#3B82F6',
+                accent: '#60A5FA',
+                dark_success: '#15803d',
+              }
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      body { background-color: #0F172A; color: #E2E8F0; scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
+      
+      .btn-primary-dark {
+        background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+      }
+      .btn-primary-dark:hover {
+        background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+        transform: translateY(-2px);
+      }
+      
+      .border-gradient-dark {
+        position: relative;
+        background: #1E293B; 
+        border-radius: 1rem;
+        border: 1px solid #334155;
+      }
+      .border-gradient-dark::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0; height: 4px;
+        background: linear-gradient(90deg, #3B82F6, #60A5FA);
+        border-radius: 1rem 1rem 0 0;
+      }
+      
+      .shadow-elegant-dark {
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      }
+      
+      .powerbi-container {
+        position: relative; 
+        padding-bottom: 56.25%;
+        height: 0; 
+        overflow: hidden; 
+        border-radius: 1rem; 
+        background: #0F172A;
+      }
+      .powerbi-container iframe {
+        position: absolute; 
+        top: 0; left: 0; width: 100%; height: 100%; border: 0;
+      }
+    </style>
+</head>
+
+<body class="antialiased min-h-screen">
+  
+  <header class="bg-ieo-bg sticky top-0 z-50 border-b border-slate-700">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold tracking-wider">
+        <a href="index.html" class="text-ieo-text">IEO <span class="text-ieo-primary">Analytics</span></a>
+      </div>
+      <a href="index.html#portafolio" 
+         class="btn-primary-dark text-white font-semibold py-2.5 px-5 rounded-lg">
+        <svg class="w-5 h-5 inline mr-2 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        Volver al Portafolio
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    
+    <div class="text-center mb-12">
+      <span class="text-ieo-primary uppercase tracking-widest text-sm font-semibold">Caso de Aplicación Real | Modern Data Stack</span>
+      <h1 class="text-5xl font-extrabold text-ieo-text mt-2 leading-tight">
+        Arquitectura Medallion en Microsoft Fabric: <br> Integración E2E de Operaciones Logísticas
+      </h1>
+      <p class="mt-4 text-xl text-ieo-text/80 max-w-4xl mx-auto">
+        Implementación de un ecosistema de datos profesional que vincula transacciones en la nube con la automatización de flujos logísticos y analítica de última milla.
+      </p>
+    </div>
+
+    <div class="mb-16 bg-ieo-card p-4 md:p-8 rounded-2xl shadow-elegant-dark">
+      <div class="powerbi-container border border-slate-700 rounded-xl overflow-hidden">
+        <iframe
+          title="reporte eccomerce"
+          src="https://app.powerbi.com/view?r=eyJrIjoiMzJiODdjNTAtYmZiNS00NTM0LWEwZTQtODg1ZGU3NzYwMWI1IiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9"
+          allowFullScreen="true"
+        ></iframe>
+      </div>
+      <div class="mt-6 text-center">
+        <p class="text-ieo-text/70 text-sm">Capa de Visualización: Dashboard de Rendimiento Transaccional y Distribución Geográfica</p>
+      </div>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-12">
+      
+      <div class="lg:col-span-2 space-y-12">
+        
+        <div class="border-gradient-dark p-8 rounded-2xl shadow-elegant-dark">
+          <h2 class="text-3xl font-bold text-ieo-primary mb-4">El Desafío Técnico</h2>
+          <p class="text-lg text-ieo-text/80 leading-relaxed">
+            La problemática central residía en la desarticulación entre el registro de venta y la ejecución operativa. Se diseñó una solución para eliminar la dispersión de datos, conectando el backend de la tienda con un motor de lógica que enriqueciera cada pedido con información logística antes de ser procesado por la capa analítica. El reto consistió en transformar esquemas JSON heterogéneos en un modelo de datos robusto y auditable.
+          </p>
+        </div>
+        
+        <div class="space-y-6">
+          <h2 class="text-3xl font-bold text-ieo-text mb-4">Infraestructura y Procesamiento</h2>
+          <div class="grid md:grid-cols-2 gap-6">
+            
+            <div class="bg-ieo-card p-6 rounded-xl border border-slate-700 shadow-lg">
+              <h4 class="font-bold text-ieo-primary mb-2 flex items-center">
+                Ingeniería & Automatización
+              </h4>
+              <ul class="text-sm text-ieo-text/70 space-y-2">
+                <li><span class="font-semibold text-ieo-text">Transaccional:</span> Supabase como backend relacional de alta disponibilidad.</li>
+                <li><span class="font-semibold text-ieo-text">Orquestación:</span> n8n para la asignación lógica de proveedores y cálculo de rutas logísticas.</li>
+              </ul>
+            </div>
+            
+            <div class="bg-ieo-card p-6 rounded-xl border border-slate-700 shadow-lg">
+              <h4 class="font-bold text-ieo-primary mb-2 flex items-center">
+                Analítica Moderna (Fabric)
+              </h4>
+              <ul class="text-sm text-ieo-text/70 space-y-2">
+                <li><span class="font-semibold text-ieo-text">Arquitectura Medallion:</span> Flujo de datos estructurado en capas Bronze, Silver y Gold.</li>
+                <li><span class="font-semibold text-ieo-text">Modelado:</span> Star Schema optimizado para grandes volúmenes transaccionales.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="border-gradient-dark p-8 rounded-2xl shadow-elegant-dark">
+            <h3 class="text-2xl font-bold text-ieo-text mb-4">Implementación de Valor</h3>
+            <div class="space-y-4">
+              <div class="bg-ieo-bg p-4 rounded-lg border border-slate-700">
+                <h4 class="font-semibold text-ieo-accent mb-2">● Normalización de Datos Crudos</h4>
+                <p class="text-sm text-ieo-text/70">Tratamiento de formatos de fecha ISO y strings inconsistentes para asegurar la integridad de los cálculos DAX de inteligencia de tiempo.</p>
+              </div>
+              <div class="bg-ieo-bg p-4 rounded-lg border border-slate-700">
+                <h4 class="font-semibold text-ieo-accent mb-2">● Visibilidad de Última Milla</h4>
+                <p class="text-sm text-ieo-text/70">Georreferenciación precisa basada en códigos postales de México, permitiendo identificar la densidad de demanda por zona geográfica.</p>
+              </div>
+              <div class="bg-ieo-bg p-4 rounded-lg border border-slate-700">
+                <h4 class="font-semibold text-ieo-accent mb-2">● Automatización de Procesos</h4>
+                <p class="text-sm text-ieo-text/70">Integración de n8n para eliminar la intervención manual en la selección de métodos de envío y seguimiento logístico.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="lg:col-span-1">
+        <div class="border-gradient-dark p-8 rounded-2xl sticky top-28 shadow-elegant-dark">
+          <h2 class="text-3xl font-bold text-ieo-text mb-6">Ficha del Proyecto</h2>
+          
+          <div class="space-y-6">
+            <div class="p-4 rounded-xl bg-ieo-bg border border-slate-700">
+              <p class="text-sm font-semibold text-ieo-primary">FRAMEWORK</p>
+              <p class="text-xl font-bold text-ieo-text mt-1">Arquitectura Medallion</p>
+              <p class="text-xs text-ieo-text/70 mt-1">Gobernanza y trazabilidad desde el dato crudo hasta la capa de negocio.</p>
+            </div>
+            
+            <div class="p-4 rounded-xl bg-ieo-bg border border-slate-700">
+              <p class="text-sm font-semibold text-ieo-primary">INTEGRACIÓN</p>
+              <p class="text-xl font-bold text-ieo-text mt-1">Middleware n8n</p>
+              <p class="text-xs text-ieo-text/70 mt-1">Flujo automatizado que garantiza datos enriquecidos en tiempo real.</p>
+            </div>
+            
+            <div class="p-4 rounded-xl bg-ieo-bg border border-slate-700">
+              <p class="text-sm font-semibold text-ieo-primary">GEODATA</p>
+              <p class="text-xl font-bold text-ieo-text mt-1">Logística México</p>
+              <p class="text-xs text-ieo-text/70 mt-1">Normalización geográfica para el análisis de costos de envío y distribución nacional.</p>
+            </div>
+
+            <div class="mt-8 p-4 rounded-xl bg-gradient-to-br from-ieo-primary/20 to-ieo-accent/10 border border-ieo-primary/30 text-center">
+              <p class="text-xs font-semibold text-ieo-primary uppercase mb-1">Stack Utilizado</p>
+              <p class="text-xs text-ieo-text/80">Supabase | n8n | Microsoft Fabric | Power BI</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <footer class="bg-ieo-card border-t border-slate-700 mt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center text-ieo-text/60 text-sm">
+      <p>&copy; 2025 IEO Analytics. Soluciones Profesionales de Business Intelligence e Ingeniería de Datos.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
