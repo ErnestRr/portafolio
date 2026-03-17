@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IEO Analytics | Control Operativo y Visibilidad Logística</title>
+    <title>IEO Analytics | Rentabilidad, costos y decisiones de negocio basadas en datos</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
@@ -14,6 +14,7 @@
         .header-white {
             background: #ffffff;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            animation: slideDown 0.6s ease-out;
         }
         .hero-dark-blue {
             background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
@@ -22,12 +23,14 @@
             background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(59, 130, 246, 0.2);
+            animation: fadeInUp 0.8s ease-out 0.3s both;
         }
         .border-gradient {
             position: relative;
             background: white;
             border-radius: 1rem;
             border: 1px solid #e2e8f0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .border-gradient::before {
             content: '';
@@ -39,6 +42,10 @@
             background: linear-gradient(90deg, #3B82F6, #60A5FA);
             border-radius: 1rem 1rem 0 0;
         }
+        .border-gradient:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
+        }
         .shadow-elegant {
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
         }
@@ -48,7 +55,8 @@
         .cert-card {
             background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
             border: 2px solid #3B82F6;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeInScale 0.6s ease-out 0.6s both;
         }
         .cert-card:hover {
             transform: translateY(-8px) scale(1.02);
@@ -59,31 +67,185 @@
         .portfolio-card {
             background: white;
             border: 1px solid #e2e8f0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
             overflow: hidden;
+            animation: fadeInUp 0.8s ease-out 0.9s both;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(59, 130, 246, 0.12);
+        }
+        .portfolio-card img {
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .portfolio-card:hover img {
+            transform: scale(1.05);
         }
         .btn-primary {
             background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.6s;
+        }
+        .btn-primary:hover::before {
+            left: 100%;
         }
         .btn-primary:hover {
             background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
         }
         .btn-secondary {
             border: 2px solid #ffffff;
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.25);
             transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
         }
         .metric-card {
             background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
             border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.1);
+        }
+        
+        /* Animaciones sutiles */
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Animaciones para elementos específicos */
+        .fade-in-delay-1 {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+        
+        .fade-in-delay-2 {
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+        
+        .fade-in-delay-3 {
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+        
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Animación sutil para el título principal */
+        .hero-title {
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+        
+        .hero-subtitle {
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+        
+        .hero-buttons {
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+        
+        /* Animación para enlaces de navegación */
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #3B82F6, #60A5FA);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Animación sutil para el logo */
+        .logo {
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Animación para el botón de WhatsApp */
+        .whatsapp-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
     </style>
 </head>
@@ -93,13 +255,13 @@
     <header class="header-white sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
             <div class="text-2xl font-bold tracking-wider">
-                <a href="#" class="text-gray-900">IEO <span class="text-blue-600">Analytics</span></a>
+                <a href="#" class="text-gray-900 logo">IEO <span class="text-blue-600">Analytics</span></a>
             </div>
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#pilares" class="text-gray-700 hover:text-blue-600 transition duration-300 font-semibold">Enfoque</a>
-                <a href="#certificaciones" class="text-gray-700 hover:text-blue-600 transition duration-300 font-semibold">Certificaciones</a>
-                <a href="#portafolio" class="text-gray-700 hover:text-blue-600 transition duration-300 font-semibold">Portafolio Técnico</a>
-                <a href="#contacto" class="text-gray-700 hover:text-blue-600 transition duration-300 font-semibold">Contacto</a>
+                <a href="#pilares" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-semibold">Enfoque</a>
+                <a href="#certificaciones" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-semibold">Certificaciones</a>
+                <a href="#portafolio" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-semibold">Portafolio Técnico</a>
+                <a href="#contacto" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-semibold">Contacto</a>
             </nav>
             <a href="#contacto" class="btn-primary text-white font-semibold py-2.5 px-5 rounded-lg text-sm">
                Agendar Auditoría
@@ -111,21 +273,19 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
                 <div class="lg:col-span-7 text-center lg:text-left">
-                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
-                        <span class="text-white">Datos claros para </span>
-                        <span class="text-blue-400">decisiones reales</span>
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 hero-title">
+                        <span class="text-white">Entiende la rentabilidad de tu negocio y </span>
+                        <span class="text-blue-400">toma mejores decisiones</span>
                     </h1>
-                        <p class="mt-6 text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                        Ayudo a equipos medianos a dejar de pelear con reportes manuales, Excel rotos y sistemas aislados.
-                        Conecto tus datos y los convierto en tableros simples que realmente se usan para operar y decidir.
-                        </p>
-
-                    <div class="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
+                    <p class="mt-6 text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed hero-subtitle">
+                    Te ayudo a identificar dónde realmente ganas o pierdes dinero, optimizar costos y tomar decisiones con base en datos reales, no intuición.
+                    </p>
+                    <div class="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 hero-buttons">
                         <a href="#contacto" class="btn-primary inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl text-white">
-                        Hablar sobre mis datos
+                        Hablar sobre mi negocio
                         </a>
                         <a href="#portafolio" class="btn-secondary inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl text-white">
-                        Ver ejemplos reales
+                        Ver casos reales
                         </a>
                     </div>
                 </div>
@@ -168,17 +328,17 @@
             <span class="text-blue-600 uppercase tracking-widest text-sm font-semibold"></span>
             <h2 class="text-4xl font-bold text-gray-900 mt-2 mb-12">Cero puntos ciegos en tu gestión</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="border-gradient p-8 shadow-sm">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Decisiones con Datos Reales</h3>
-                    <p class="text-gray-600">Sustituyo las suposiciones por una fuente única de verdad. Toda tu operación en un solo tablero de control.</p>
+                <div class="border-gradient p-8 shadow-sm fade-in-delay-1 hover-lift">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Rentabilidad real del negocio</h3>
+                    <p class="text-gray-600">Identifico qué productos, servicios o canales realmente generan margen y cuáles están afectando tus resultados.</p>
                 </div>
-                <div class="border-gradient p-8 shadow-sm">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Prevención de Incidencias</h3>
-                    <p class="text-gray-600">Identifico patrones de riesgo en tus rutas para que puedas anticiparte y proteger tus activos.</p>
+                <div class="border-gradient p-8 shadow-sm fade-in-delay-2 hover-lift">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Decisiones con impacto financiero</h3>
+                    <p class="text-gray-600">Transformo datos en información clara para definir precios, reducir costos y mejorar la rentabilidad.</p>
                 </div>
-                <div class="border-gradient p-8 shadow-sm">
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Operación Inteligente</h3>
-                    <p class="text-gray-600">Automatizo el flujo de información para que dejes de perder tiempo en tareas administrativas y te enfoques en crecer.</p>
+                <div class="border-gradient p-8 shadow-sm fade-in-delay-3 hover-lift">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Control del desempeño del negocio</h3>
+                    <p class="text-gray-600">Defino métricas clave para entender cómo está funcionando tu negocio y tomar mejores decisiones.</p>
                 </div>
             </div>
         </div>
@@ -225,7 +385,7 @@
             <div class="mb-12 text-center">
                 <h2 class="text-4xl font-bold text-white">Portafolio Visual</h2>
                 <p class="mt-3 text-xl text-gray-300 max-w-4xl mx-auto">
-                    Soluciones de Inteligencia de Negocio de alto impacto operativo
+                     Casos reales enfocados en rentabilidad, costos y decisiones de negocio
                 </p>
             </div>
 
@@ -331,7 +491,7 @@
                     <div class="text-center mb-12">
                         <span class="text-blue-400 uppercase tracking-widest text-sm font-semibold">Contacto</span>
                         <h2 class="text-4xl font-bold text-white mt-2">Agenda tu <span class="text-blue-400">Evaluación Gratuita</span></h2>
-                        <p class="mt-4 text-gray-300">Dime cómo puedo ayudarte con tu proyecto de datos</p>
+                        <p class="mt-4 text-gray-300">Cuéntame sobre tu negocio y dónde necesitas mejorar rentabilidad o control de costos</p>
                     </div>
 
                     <form action="https://formspree.io/f/mjkajgro" method="POST" class="space-y-6 max-w-xl mx-auto">
@@ -345,9 +505,9 @@
             </div>
         </section>
 
-        <a href="https://wa.me/5215513407872?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20de%20BI%20y%20automatizaci%C3%B3n" 
+        <a href="https://wa.me/5215513407872?text=Hola%2C%20me%20interesa%20mejorar%20la%20rentabilidad%20de%20mi%20negocio%20usando%20datos" 
            target="_blank" rel="noopener noreferrer"
-           class="fixed right-6 bottom-6 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 z-50 group"
+           class="whatsapp-float fixed right-6 bottom-6 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 z-50 group"
            aria-label="Contactar por WhatsApp">
             <svg class="w-8 h-8 group-hover:rotate-12 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
