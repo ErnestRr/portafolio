@@ -3,611 +3,1032 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IEO Analytics | Automatizamos reportes y damos claridad real del negocio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Business Intelligence y analytics para empresas. Mejora rentabilidad, control operativo y toma de decisiones con datos reales.">
+    <title>Business Intelligence y Analytics para decisiones de negocio | IEO Analytics</title>
+        <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="IEO Analytics | Business Intelligence para decisiones de negocio">
+    <meta property="og:description" content="Ayudo a empresas a mejorar rentabilidad, control operativo y toma de decisiones mediante Business Intelligence y analytics.">
+    <meta property="og:url" content="https://ieosnalitics.com">
+    <meta property="og:image" content="https://ieosnalitics.com/assets/img/og-cover.jpg">
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="IEO Analytics | Business Intelligence para decisiones de negocio">
+    <meta name="twitter:description" content="Business Intelligence y analytics aplicado para mejorar rentabilidad y toma de decisiones.">
+    <meta name="twitter:image" content="https://ieosnalitics.com/assets/img/og-cover.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --navy: #0B1120;
+            --navy-mid: #111827;
+            --navy-soft: #1C2B3A;
+            --blue: #3B82F6;
+            --blue-light: #60A5FA;
+            --blue-dim: rgba(59,130,246,0.12);
+            --accent: #22D3EE;
+            --text-primary: #F8FAFC;
+            --text-muted: #94A3B8;
+            --text-subtle: #64748B;
+            --border: rgba(255,255,255,0.07);
+            --border-blue: rgba(59,130,246,0.25);
+            --card-bg: rgba(255,255,255,0.04);
+            --green: #10B981;
+            --red-soft: #F87171;
+        }
+
+        html { scroll-behavior: smooth; }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--navy);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
-        .header-white {
-            background: #ffffff;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            animation: slideDown 0.6s ease-out;
+
+        h1, h2, h3, h4, .brand {
+            font-family: 'Sora', sans-serif;
         }
-        .hero-dark-blue {
-            background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-        }
-        .glass-effect {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(59, 130, 246, 0.2);
-            animation: fadeInUp 0.8s ease-out 0.3s both;
-        }
-        .border-gradient {
-            position: relative;
-            background: white;
-            border-radius: 1rem;
-            border: 1px solid #e2e8f0;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .border-gradient::before {
-            content: '';
-            position: absolute;
+
+        /* ─── NAV ─── */
+        nav {
+            position: sticky;
             top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #3B82F6, #60A5FA);
-            border-radius: 1rem 1rem 0 0;
+            z-index: 100;
+            background: rgba(11,17,32,0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            padding: 0 max(1.5rem, calc(50% - 600px));
         }
-        .border-gradient:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(59, 130, 246, 0.15);
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+            max-width: 1100px;
+            margin: 0 auto;
         }
-        .shadow-elegant {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+
+        .brand {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
         }
-        .shadow-elegant-hover {
-            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.15), 0 10px 10px -5px rgba(59, 130, 246, 0.08);
+        .brand span { color: var(--blue-light); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
         }
-        .cert-card {
-            background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-            border: 2px solid #3B82F6;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: fadeInScale 0.6s ease-out 0.6s both;
+        .nav-links a {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
         }
-        .cert-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            border-color: #2563EB;
-            box-shadow: 0 20px 25px -5px rgba(59, 130, 246, 0.25);
-            background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%);
+        .nav-links a:hover { color: var(--text-primary); }
+
+        .nav-cta {
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: 'Sora', sans-serif;
+            background: var(--blue);
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
         }
-        .portfolio-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        .nav-cta:hover { background: #2563EB; transform: translateY(-1px); }
+
+        /* ─── HERO ─── */
+        .hero {
+            padding: 6rem max(1.5rem, calc(50% - 600px)) 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 420px;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--blue-dim);
+            border: 1px solid var(--border-blue);
+            color: var(--blue-light);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.8rem;
+            border-radius: 100px;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            color: var(--text-primary);
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--blue-light);
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 480px;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-main {
+            font-family: 'Sora', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            background: var(--blue);
+            color: #fff;
+            padding: 0.85rem 1.8rem;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .btn-main:hover {
+            background: #2563EB;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(59,130,246,0.3);
+        }
+
+        .btn-ghost {
+            font-family: 'Sora', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            padding: 0.85rem 1.4rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: transparent;
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color 0.2s, color 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .btn-ghost:hover { border-color: var(--blue-light); color: var(--text-primary); }
+
+        /* ─── HERO CARD ─── */
+        .hero-card {
+            background: var(--navy-soft);
+            border: 1px solid var(--border-blue);
+            border-radius: 16px;
+            padding: 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1rem;
+        }
+
+        .card-title { font-weight: 600; font-family: 'Sora', sans-serif; font-size: 0.9rem; }
+        .live-pill {
+            background: rgba(16,185,129,0.12);
+            border: 1px solid rgba(16,185,129,0.3);
+            color: var(--green);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.6rem;
+            border-radius: 100px;
+            letter-spacing: 0.04em;
+        }
+
+        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-bottom: 0.75rem; }
+
+        .metric-box {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.85rem;
+        }
+
+        .metric-label {
+            font-size: 0.7rem;
+            color: var(--text-subtle);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+        .metric-value { font-family: 'Sora', sans-serif; font-size: 1.4rem; font-weight: 700; }
+        .metric-value.blue { color: var(--blue-light); }
+        .metric-value.green { color: var(--green); }
+        .metric-delta { font-size: 0.72rem; color: var(--text-subtle); margin-top: 0.2rem; }
+        .metric-delta span.up { color: var(--green); }
+        .metric-delta span.dn { color: var(--red-soft); }
+
+        .mini-chart {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.85rem;
+        }
+        .mini-chart-label { font-size: 0.7rem; color: var(--text-subtle); margin-bottom: 0.5rem; }
+
+        /* ─── SECTORS ─── */
+        .section { padding: 5rem max(1.5rem, calc(50% - 600px)); max-width: 1100px; margin: 0 auto; }
+
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--blue-light);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.7rem, 3vw, 2.4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+            line-height: 1.15;
+        }
+
+        .section-sub {
+            font-size: 1rem;
+            color: var(--text-muted);
+            max-width: 540px;
+            line-height: 1.7;
+        }
+
+        .sectors-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+            border-radius: 16px;
             overflow: hidden;
-            animation: fadeInUp 0.8s ease-out 0.9s both;
-        }
-        .portfolio-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 32px rgba(59, 130, 246, 0.12);
-        }
-        .portfolio-card img {
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .portfolio-card:hover img {
-            transform: scale(1.05);
-        }
-        .btn-primary {
-            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.6s;
-        }
-        .btn-primary:hover::before {
-            left: 100%;
-        }
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
-        }
-        .btn-secondary {
-            border: 2px solid #ffffff;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
-        }
-        .metric-card {
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
-            border: 1px solid #e2e8f0;
-            transition: all 0.3s ease;
-        }
-        .metric-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.1);
+            margin-top: 3rem;
         }
 
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .sector-item {
+            background: var(--navy);
+            padding: 2rem 1.5rem;
+            transition: background 0.2s;
         }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .sector-item:hover { background: var(--navy-soft); }
+
+        .sector-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: var(--blue-dim);
+            border: 1px solid var(--border-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
-        .fade-in-delay-1 { animation: fadeInUp 0.8s ease-out 0.2s both; }
-        .fade-in-delay-2 { animation: fadeInUp 0.8s ease-out 0.4s both; }
-        .fade-in-delay-3 { animation: fadeInUp 0.8s ease-out 0.6s both; }
-
-        .hover-lift { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .hover-lift:hover { transform: translateY(-2px); }
-
-        .hero-title { animation: fadeInUp 0.8s ease-out 0.1s both; }
-        .hero-subtitle { animation: fadeInUp 0.8s ease-out 0.3s both; }
-        .hero-buttons { animation: fadeInUp 0.8s ease-out 0.5s both; }
-
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #3B82F6, #60A5FA);
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after { width: 100%; }
-
-        .logo { transition: all 0.3s ease; }
-        .logo:hover { transform: scale(1.05); }
-
-        .whatsapp-float { animation: float 3s ease-in-out infinite; }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+        .sector-name {
+            font-family: 'Sora', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin-bottom: 0.4rem;
         }
 
-        /* Mini chart bar animation */
-        @keyframes growBar {
-            from { transform: scaleY(0); }
-            to { transform: scaleY(1); }
+        .sector-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
         }
-        .bar-animate {
-            transform-origin: bottom;
-            animation: growBar 1s ease-out forwards;
+
+        /* ─── PROBLEMS ─── */
+        .problems-section {
+            background: var(--navy-soft);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 5rem max(1.5rem, calc(50% - 600px));
         }
-        .bar-animate:nth-child(1) { animation-delay: 0.1s; }
-        .bar-animate:nth-child(2) { animation-delay: 0.2s; }
-        .bar-animate:nth-child(3) { animation-delay: 0.3s; }
-        .bar-animate:nth-child(4) { animation-delay: 0.4s; }
-        .bar-animate:nth-child(5) { animation-delay: 0.5s; }
-        .bar-animate:nth-child(6) { animation-delay: 0.6s; }
+
+        .problems-inner { max-width: 1100px; margin: 0 auto; }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
 
         .problem-card {
-            border-left: 4px solid #EF4444;
-            background: #FFF5F5;
-            border-radius: 0.75rem;
-            transition: all 0.3s ease;
+            background: var(--navy);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--blue);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: border-left-color 0.2s, transform 0.2s;
         }
-        .problem-card:hover {
-            background: #FEE2E2;
-            transform: translateX(4px);
+        .problem-card:hover { border-left-color: var(--accent); transform: translateX(4px); }
+
+        .problem-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-family: 'Sora', sans-serif;
         }
+
+        .problem-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+
+        /* ─── HOW IT WORKS ─── */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .step-num {
+            font-family: 'Sora', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--blue-dim);
+            line-height: 1;
+            letter-spacing: -0.05em;
+            -webkit-text-stroke: 1px var(--blue-light);
+            color: transparent;
+        }
+
+        .step h3 { font-size: 1rem; font-weight: 700; font-family: 'Sora', sans-serif; }
+        .step p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.65; }
+
+        /* ─── TOOLS (secondary) ─── */
+        .tools-strip {
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 2rem max(1.5rem, calc(50% - 600px));
+        }
+
+        .tools-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+
+        .tools-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-subtle);
+            white-space: nowrap;
+        }
+
+        .tools-list { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+
+        .tool-pill {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            color: var(--text-subtle);
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.3rem 0.75rem;
+            border-radius: 100px;
+        }
+
+        /* ─── CERTS ─── */
+        .certs-grid {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+            justify-content: center;
+        }
+
+        .cert-card {
+            background: var(--navy-soft);
+            border: 1px solid var(--border-blue);
+            border-radius: 14px;
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            width: 190px;
+            text-align: center;
+            transition: transform 0.2s, border-color 0.2s;
+            text-decoration: none;
+        }
+        .cert-card:hover { transform: translateY(-4px); border-color: var(--blue-light); }
+        .cert-card img { width: 60px; height: 60px; }
+        .cert-card span {
+            font-size: 0.72rem;
+            font-weight: 700;
+            font-family: 'Sora', sans-serif;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+            line-height: 1.4;
+        }
+
+        /* ─── PORTFOLIO ─── */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+            margin-top: 3rem;
+        }
+
+        .pf-card {
+            background: var(--navy-soft);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            text-decoration: none;
+            display: block;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+        .pf-card:hover { border-color: var(--blue-light); transform: translateY(-3px); }
+
+        .pf-thumb {
+            height: 160px;
+            background: var(--navy);
+            overflow: hidden;
+        }
+        .pf-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .pf-card:hover .pf-thumb img { transform: scale(1.06); }
+
+        .pf-body { padding: 1.1rem 1.25rem; }
+
+        .pf-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.6rem; }
+        .pf-tag {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+        .tag-blue { background: rgba(59,130,246,0.15); color: var(--blue-light); }
+        .tag-green { background: rgba(16,185,129,0.15); color: #34D399; }
+        .tag-yellow { background: rgba(251,191,36,0.15); color: #FCD34D; }
+        .tag-purple { background: rgba(139,92,246,0.15); color: #A78BFA; }
+        .tag-pink { background: rgba(236,72,153,0.15); color: #F472B6; }
+        .tag-slate { background: rgba(148,163,184,0.1); color: #94A3B8; }
+
+        .pf-title {
+            font-family: 'Sora', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.35rem;
+            line-height: 1.35;
+            transition: color 0.2s;
+        }
+        .pf-card:hover .pf-title { color: var(--blue-light); }
+        .pf-desc { font-size: 0.8rem; color: var(--text-muted); line-height: 1.55; }
+
+        /* ─── CONTACT ─── */
+        .contact-wrap {
+            max-width: 560px;
+            margin: 3rem auto 0;
+            background: var(--navy-soft);
+            border: 1px solid var(--border-blue);
+            border-radius: 20px;
+            padding: 2.5rem;
+        }
+
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.4rem; }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.92rem;
+            padding: 0.75rem 1rem;
+            outline: none;
+            transition: border-color 0.2s;
+            appearance: none;
+        }
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: var(--text-subtle); }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus { border-color: var(--blue-light); }
+        .form-group select option { background: var(--navy-mid); }
+        .form-group textarea { resize: vertical; min-height: 110px; }
+
+        .btn-submit {
+            width: 100%;
+            font-family: 'Sora', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            background: var(--blue);
+            color: #fff;
+            border: none;
+            padding: 0.9rem;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            margin-top: 0.5rem;
+        }
+        .btn-submit:hover { background: #2563EB; transform: translateY(-1px); }
+
+        /* ─── FOOTER ─── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem max(1.5rem, calc(50% - 600px));
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+
+        footer p { font-size: 0.8rem; color: var(--text-subtle); }
+        .footer-links { display: flex; gap: 1.5rem; }
+        .footer-links a { font-size: 0.8rem; color: var(--text-subtle); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--text-muted); }
+
+        /* ─── WHATSAPP ─── */
+        .wa-btn {
+            position: fixed;
+            right: 1.5rem;
+            bottom: 1.5rem;
+            background: #22C55E;
+            color: #fff;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            z-index: 200;
+            box-shadow: 0 4px 24px rgba(34,197,94,0.4);
+            animation: wa-float 3s ease-in-out infinite;
+            transition: transform 0.2s;
+        }
+        .wa-btn:hover { transform: scale(1.1); }
+        .wa-dot {
+            position: absolute;
+            top: 1px;
+            right: 1px;
+            width: 12px;
+            height: 12px;
+            background: #4ADE80;
+            border-radius: 50%;
+            animation: ping 1.5s cubic-bezier(0,0,0.2,1) infinite;
+        }
+        @keyframes wa-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+        @keyframes ping {
+            0% { transform: scale(1); opacity: 1; }
+            75%, 100% { transform: scale(2); opacity: 0; }
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; gap: 2.5rem; }
+            .hero-card { max-width: 100%; }
+            .sectors-grid { grid-template-columns: 1fr 1fr; }
+            .problems-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .portfolio-grid { grid-template-columns: 1fr 1fr; }
+            .nav-links { display: none; }
+        }
+        @media (max-width: 600px) {
+            .sectors-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ─── DIVIDER ─── */
+        .divider { height: 1px; background: var(--border); max-width: 1100px; margin: 0 auto; }
     </style>
 </head>
-
 <body>
 
-    <!-- HEADER -->
-    <header class="header-white sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold tracking-wider">
-                <a href="#" class="text-gray-900 logo">IEO <span class="text-blue-600">Analytics</span></a>
+<!-- NAV -->
+<nav>
+    <div class="nav-inner">
+        <span class="brand">IEO <span>Analytics</span></span>
+        <ul class="nav-links">
+            <li><a href="#sectores">Para tu negocio</a></li>
+            <li><a href="#proceso">Proceso</a></li>
+            <li><a href="#portafolio">Portafolio</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <a href="#contacto" class="nav-cta">Agendar llamada →</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div style="padding: 0 max(1.5rem, calc(50% - 600px));">
+<div class="hero" style="padding-left:0; padding-right:0; max-width:1100px; margin:0 auto;">
+    <div>
+        <div class="hero-badge">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4" fill="#22D3EE" opacity="0.8"/></svg>
+            Business Intelligence · Analytics aplicado a negocio
+        </div>
+        <h1>Business Intelligence<br>para decisiones de <em>negocio rentables</em>.</h1>
+        <p class="hero-sub">Ayudo a empresas a mejorar rentabilidad, control operativo y toma de decisiones mediante Business Intelligence, analytics y automatización de datos. — No intuición.</p>
+        <div class="hero-actions">
+            <a href="#contacto" class="btn-main">Quiero saber dónde estoy perdiendo dinero →</a>
+            <a href="#portafolio" class="btn-ghost">Ver casos reales</a>
+        </div>
+    </div>
+
+    <div class="hero-card">
+        <div class="card-header">
+            <span class="card-title">Análisis de margen por canal</span>
+            <span class="live-pill">● LIVE</span>
+        </div>
+        <div class="metrics-grid">
+            <div class="metric-box">
+                <div class="metric-label">Margen bruto</div>
+                <div class="metric-value blue">31.4%</div>
+                <div class="metric-delta"><span class="up">↑ 4.1%</span> vs mes anterior</div>
             </div>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#problemas" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-semibold">Problemas</a>
-                <a href="#que-hacemos" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-semibold">Qué hacemos</a>
-                <a href="#portafolio" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-semibold">Casos reales</a>
-                <a href="#contacto" class="nav-link text-gray-700 hover:text-blue-600 transition duration-300 font-semibold">Contacto</a>
-            </nav>
-            <a href="#contacto" class="btn-primary text-white font-semibold py-2.5 px-5 rounded-lg text-sm">
-                Revisar mi caso
+            <div class="metric-box">
+                <div class="metric-label">Costo oculto</div>
+                <div class="metric-value" style="color: var(--red-soft);">$48,200</div>
+                <div class="metric-delta"><span class="dn">↑ detectado</span> en logística</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Mejor SKU</div>
+                <div class="metric-value green">SKU-117</div>
+                <div class="metric-delta">Margen: <span class="up">52%</span></div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-label">Peor canal</div>
+                <div class="metric-value" style="color: var(--red-soft); font-size:1rem; margin-top:4px;">Marketplace B</div>
+                <div class="metric-delta">Margen: <span class="dn">−3%</span> neto</div>
+            </div>
+        </div>
+        <div class="mini-chart">
+            <div class="mini-chart-label">Rentabilidad por producto — últimos 12 meses</div>
+            <svg viewBox="0 0 360 80" width="100%" height="80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <polyline points="0,65 40,45 80,55 120,30 160,40 200,18 240,28 280,14 320,22 360,10" stroke="#3B82F6" stroke-width="2" fill="none"/>
+                <polyline points="0,65 40,45 80,55 120,30 160,40 200,18 240,28 280,14 320,22 360,10" stroke="#3B82F6" stroke-width="0" fill="url(#grad)"/>
+                <defs>
+                    <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.2"/>
+                        <stop offset="100%" stop-color="#3B82F6" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+                <polygon points="0,65 40,45 80,55 120,30 160,40 200,18 240,28 280,14 320,22 360,10 360,80 0,80" fill="url(#grad)"/>
+                <circle cx="360" cy="10" r="4" fill="#3B82F6"/>
+                <circle cx="280" cy="14" r="3" fill="#60A5FA" opacity="0.7"/>
+            </svg>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- TOOLS STRIP (secondary) -->
+<div class="tools-strip">
+    <div class="tools-inner">
+        <span class="tools-label">Herramientas</span>
+        <div class="tools-list">
+            <span class="tool-pill">Power BI</span>
+            <span class="tool-pill">Microsoft Fabric</span>
+            <span class="tool-pill">DAX</span>
+            <span class="tool-pill">Power Apps</span>
+            <span class="tool-pill">SQL</span>
+            <span class="tool-pill">n8n</span>
+            <span class="tool-pill">Supabase</span>
+            <span class="tool-pill">Python</span>
+        </div>
+    </div>
+</div>
+
+<!-- SECTORES -->
+<div class="section" id="sectores">
+    <div class="section-tag">Para quién es esto</div>
+    <h2 class="section-title">Business Intelligence <br>aplicado a decisiones de negocio</h2>
+    <p class="section-sub">Trabajo directamente con dueños y directores para resolver problemas de rentabilidad, operación y visibilidad del negocio mediante datos.</p>
+
+    <div class="sectors-grid">
+        <div class="sector-item">
+            <div class="sector-icon">🛒</div>
+            <div class="sector-name">Ecommerce</div>
+            <p class="sector-desc">¿Cuánto te cuesta cada canal realmente? Marketplace, tienda propia, redes sociales — cada uno tiene un costo oculto que afecta tu margen.</p>
+        </div>
+        <div class="sector-item">
+            <div class="sector-icon">📦</div>
+            <div class="sector-name">Distribución y ventas B2B</div>
+            <p class="sector-desc">¿Qué clientes son rentables y cuáles te cuestan más de lo que pagan? Identifica a los que sí mueven el negocio.</p>
+        </div>
+        <div class="sector-item">
+            <div class="sector-icon">🏪</div>
+            <div class="sector-name">Retail y punto de venta</div>
+            <p class="sector-desc">Control de inventario, márgenes por producto y proyección de demanda para no vender lo que no deja dinero.</p>
+        </div>
+        <div class="sector-item">
+            <div class="sector-icon">🏭</div>
+            <div class="sector-name">Manufactura ligera</div>
+            <p class="sector-desc">Costos de producción reales vs. los que crees tener. Visibilidad operativa para decidir qué fabricar y qué dejar de hacer.</p>
+        </div>
+        <div class="sector-item">
+            <div class="sector-icon">💼</div>
+            <div class="sector-name">Servicios y consultoría</div>
+            <p class="sector-desc">Facturación, tiempo real invertido y rentabilidad por cliente o proyecto. ¿A quién realmente le estás ganando?</p>
+        </div>
+        <div class="sector-item">
+            <div class="sector-icon">📊</div>
+            <div class="sector-name">Finanzas operativas</div>
+            <p class="sector-desc">Flujo de caja, margen por línea, control de costos fijos vs. variables. Datos para decisiones financieras reales, no solo contables.</p>
+        </div>
+    </div>
+</div>
+
+<!-- PROBLEMS -->
+<div class="problems-section">
+    <div class="problems-inner">
+        <div class="section-tag">El problema real</div>
+        <h2 class="section-title">Lo que pasa cuando no tienes<br>visibilidad de tus datos</h2>
+        <p class="section-sub">No es un problema de ventas. Es un problema de información. Muchos negocios crecen en volumen pero no en rentabilidad.</p>
+
+        <div class="problems-grid">
+            <div class="problem-card">
+                <h3>Vendes mucho pero no sabes qué te deja margen</h3>
+                <p>Tienes productos o clientes que parecen buenos pero después de costos de logística, comisiones y devoluciones, el margen es casi nulo o negativo.</p>
+            </div>
+            <div class="problem-card">
+                <h3>Tomas decisiones con el estado de cuenta, no con datos</h3>
+                <p>Si hay dinero en la cuenta, "todo está bien". Hasta que hay que pagar nómina, proveedores e impuestos al mismo tiempo y ya no está.</p>
+            </div>
+            <div class="problem-card">
+                <h3>No sabes qué vendedor, sucursal o canal te está costando</h3>
+                <p>Tienes equipos o canales que venden pero no sabes si realmente generan utilidad o si están erosionando el margen del negocio.</p>
+            </div>
+            <div class="problem-card">
+                <h3>Los reportes llegan tarde y en Excel con errores</h3>
+                <p>Para el momento en que tienes la información, ya tomaste la decisión. Y cuando la revisas, hay errores de captura o datos desactualizados.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="section" id="proceso">
+    <div class="section-tag">Cómo trabajo</div>
+    <h2 class="section-title">Sin promesas infladas.<br>Sin soluciones genéricas.</h2>
+    <p class="section-sub">Trabajo directamente contigo para entender el problema, analizar los datos y construir una solución enfocada al negocio.</p>
+
+    <div class="steps-grid">
+        <div class="step">
+            <div class="step-num">01</div>
+            <h3>Auditoría de datos gratuita</h3>
+            <p>Conversamos sobre tu negocio, qué decisiones estás tomando a ciegas y qué datos ya tienes disponibles. Sin costo, sin compromiso.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">02</div>
+            <h3>Diagnóstico de rentabilidad</h3>
+            <p>Identifico dónde están los costos ocultos, qué canales o productos no están funcionando y qué métricas realmente deberías estar mirando.</p>
+        </div>
+        <div class="step">
+            <div class="step-num">03</div>
+            <h3>Solución enfocada, no genérica</h3>
+            <p>Un dashboard, un pipeline de datos o una automatización — lo que tu negocio necesita para que puedas decidir con información real, cada semana.</p>
+        </div>
+    </div>
+</div>
+
+<!-- CERTS -->
+<div style="background: var(--navy-soft); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem max(1.5rem, calc(50% - 600px));">
+    <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+        <div class="section-tag" style="justify-content: center; display: flex;">Credenciales</div>
+        <h2 class="section-title">Certificaciones <span style="color: var(--blue-light);">Microsoft</span></h2>
+        <div class="certs-grid">
+            <a href="https://learn.microsoft.com/es-mx/users/ernesto-8560/credentials/fe059356d8f88b2d" target="_blank" class="cert-card">
+                <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="PL-300">
+                <span>Power BI Analyst Associate</span>
+            </a>
+            <a href="https://learn.microsoft.com/es-mx/users/ernesto-8560/credentials/f7542c788e96261b" target="_blank" class="cert-card">
+                <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="DP-600">
+                <span>Fabric Analytics Engineer</span>
+            </a>
+            <a href="https://learn.microsoft.com/es-es/users/ernesto-8560/credentials/97a024bbc243389" target="_blank" class="cert-card">
+                <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="PL-200">
+                <span>Power Platform Consultant</span>
             </a>
         </div>
-    </header>
 
-    <!-- HERO -->
-    <section class="hero-dark-blue relative py-20 md:py-32 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="lg:grid lg:grid-cols-12 lg:gap-12 items-center">
-                <div class="lg:col-span-7 text-center lg:text-left">
-                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 hero-title">
-                        <span class="text-white">¿Tu equipo sigue armando </span>
-                        <span class="text-blue-400">reportes manuales en Excel?</span>
-                    </h1>
-                    <p class="mt-6 text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed hero-subtitle">
-                        Automatizamos reportes y centralizamos la información de tu negocio para que dejes de consolidar archivos y tengas claridad real sobre ventas, margen y desempeño operativo.
-                    </p>
-                    <ul class="mt-8 space-y-3 text-left max-w-xl mx-auto lg:mx-0 hero-subtitle">
-                        <li class="flex items-center space-x-3 text-gray-200 text-base">
-                            <span class="text-green-400 font-bold text-lg">✓</span>
-                            <span>Ventas y desempeño comercial</span>
-                        </li>
-                        <li class="flex items-center space-x-3 text-gray-200 text-base">
-                            <span class="text-green-400 font-bold text-lg">✓</span>
-                            <span>Rentabilidad por producto o servicio</span>
-                        </li>
-                        <li class="flex items-center space-x-3 text-gray-200 text-base">
-                            <span class="text-green-400 font-bold text-lg">✓</span>
-                            <span>KPIs operativos en tiempo real</span>
-                        </li>
-                        <li class="flex items-center space-x-3 text-gray-200 text-base">
-                            <span class="text-green-400 font-bold text-lg">✓</span>
-                            <span>Información centralizada, sin depender de una persona</span>
-                        </li>
-                    </ul>
-                    <div class="mt-10 flex flex-col sm:flex-row justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4 hero-buttons">
-                        <a href="#contacto" class="btn-primary inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl text-white">
-                            Revisar mi caso
-                        </a>
-                        <a href="#portafolio" class="btn-secondary inline-flex items-center justify-center px-8 py-4 text-lg font-semibold rounded-xl text-white">
-                            Ver ejemplos reales
-                        </a>
-                    </div>
-                </div>
-
-                <!-- MOCKUP HERO: Reporte Ejecutivo de Negocio -->
-                <div class="hidden lg:col-span-5 lg:flex justify-center items-center mt-10 lg:mt-0">
-                    <div class="w-full max-w-lg glass-effect p-6 rounded-3xl shadow-2xl">
-                        <div class="flex justify-between items-center mb-4 border-b border-gray-200 pb-3">
-                            <span class="text-sm font-semibold text-blue-700">Reporte Ejecutivo</span>
-                            <span class="text-xs text-white bg-blue-600 px-2 py-1 rounded-full font-medium">Actualizado hoy</span>
-                        </div>
-                        <div class="grid grid-cols-3 gap-3 mb-4">
-                            <div class="metric-card p-3 rounded-xl text-center">
-                                <p class="text-xs text-gray-500 font-semibold uppercase">Ventas</p>
-                                <p class="text-xl font-bold text-blue-600 mt-1">+18%</p>
-                                <p class="text-xs text-green-600 font-semibold mt-1">↑ vs mes ant.</p>
-                            </div>
-                            <div class="metric-card p-3 rounded-xl text-center">
-                                <p class="text-xs text-gray-500 font-semibold uppercase">Margen</p>
-                                <p class="text-xl font-bold text-gray-800 mt-1">24.6%</p>
-                                <p class="text-xs text-gray-500 mt-1">Neto real</p>
-                            </div>
-                            <div class="metric-card p-3 rounded-xl text-center">
-                                <p class="text-xs text-gray-500 font-semibold uppercase">Utilidad</p>
-                                <p class="text-xl font-bold text-green-600 mt-1">+12%</p>
-                                <p class="text-xs text-green-600 font-semibold mt-1">↑ tendencia</p>
-                            </div>
-                        </div>
-                        <!-- Mini bar chart con alturas en px para que se rendericen correctamente -->
-                        <div class="metric-card p-4 rounded-xl">
-                            <p class="text-xs text-gray-500 font-semibold uppercase mb-3">Tendencia comercial (6 meses)</p>
-                            <div class="flex items-end justify-around gap-2" style="height:80px;">
-                                <div class="flex flex-col items-center justify-end gap-1 flex-1 h-full">
-                                    <div class="w-full bg-blue-200 rounded-t bar-animate" style="height:36px;"></div>
-                                    <span class="text-[9px] text-gray-400">E</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-end gap-1 flex-1 h-full">
-                                    <div class="w-full bg-blue-300 rounded-t bar-animate" style="height:46px;"></div>
-                                    <span class="text-[9px] text-gray-400">F</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-end gap-1 flex-1 h-full">
-                                    <div class="w-full bg-blue-400 rounded-t bar-animate" style="height:40px;"></div>
-                                    <span class="text-[9px] text-gray-400">M</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-end gap-1 flex-1 h-full">
-                                    <div class="w-full bg-blue-500 rounded-t bar-animate" style="height:56px;"></div>
-                                    <span class="text-[9px] text-gray-400">A</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-end gap-1 flex-1 h-full">
-                                    <div class="w-full bg-blue-600 rounded-t bar-animate" style="height:64px;"></div>
-                                    <span class="text-[9px] text-gray-400">M</span>
-                                </div>
-                                <div class="flex flex-col items-center justify-end gap-1 flex-1 h-full">
-                                    <div class="w-full bg-blue-700 rounded-t bar-animate" style="height:72px;"></div>
-                                    <span class="text-[9px] text-gray-400">J</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div style="margin-top: 2.5rem; display: flex; justify-content: center; gap: 2.5rem; flex-wrap: wrap;">
+            <a href="https://www.linkedin.com/in/ernesto-roldan-bi-consultant/" target="_blank" style="display:flex; align-items:center; gap:0.5rem; text-decoration:none; color: var(--text-muted); font-size: 0.88rem; font-weight:600; transition: color 0.2s;">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 24h5V7H0v17zm7.5-17h4.8v2.3h.1c.7-1.3 2.4-2.7 4.9-2.7 5.2 0 6.2 3.4 6.2 7.8V24h-5v-7.7c0-1.8 0-4.2-2.6-4.2s-3 2-3 4.1V24h-5V7z"/></svg>
+                LinkedIn
+            </a>
+            <a href="https://github.com/ErnestRr" target="_blank" style="display:flex; align-items:center; gap:0.5rem; text-decoration:none; color: var(--text-muted); font-size: 0.88rem; font-weight:600; transition: color 0.2s;">
+                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.8 1.7 2.8 1.2.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.4 1.1-3.3-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.4 1.2a11.6 11.6 0 016.2 0c2.5-1.5 3.4-1.2 3.4-1.2.6 1.6.2 2.8.1 3.1.7.9 1.1 2 1.1 3.3 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1 .8 2v3c0 .4.2.7.8.6A11.5 11.5 0 0023.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
+                GitHub
+            </a>
         </div>
-    </section>
+    </div>
+</div>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+<!-- PORTFOLIO -->
+<div class="section" id="portafolio">
+    <div class="section-tag">Portafolio</div>
+    <h2 class="section-title">Casos reales de negocios<br>como el tuyo</h2>
+    <p class="section-sub">No demos ni datasets ficticios. Proyectos aplicados con datos reales de negocios, operaciones, ventas y finanzas.</p>
 
-        <!-- 2. PROBLEMAS REALES -->
-        <section id="problemas" class="py-20 bg-white pt-16 -mt-16">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-12">
-                    <span class="text-red-500 uppercase tracking-widest text-sm font-semibold">¿Te suena familiar?</span>
-                    <h2 class="text-4xl font-bold text-gray-900 mt-2">Así se ve el problema desde adentro</h2>
-                    <p class="mt-4 text-gray-500 text-lg max-w-2xl mx-auto">Si algo de esto pasa en tu negocio, estás tomando decisiones con información incompleta.</p>
+    <div class="portfolio-grid">
+        <a href="portfolio-details10.html" target="_blank" class="pf-card">
+            <div class="pf-thumb">
+                <img src="assets/img/portfolio/medallion_eccomerce.gif" alt="E-commerce pipeline">
+            </div>
+            <div class="pf-body">
+                <div class="pf-tags">
+                    <span class="pf-tag tag-blue">Fabric</span>
+                    <span class="pf-tag tag-purple">n8n</span>
+                    <span class="pf-tag tag-green">Supabase</span>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div class="problem-card p-6 fade-in-delay-1">
-                        <p class="text-gray-800 font-semibold text-base">📊 Cada semana alguien arma el reporte en Excel desde cero</p>
-                        <p class="text-gray-500 text-sm mt-2">Horas perdidas en algo que debería ser automático.</p>
-                    </div>
-                    <div class="problem-card p-6 fade-in-delay-1">
-                        <p class="text-gray-800 font-semibold text-base">🤷 Los números cambian según quién haga el reporte</p>
-                        <p class="text-gray-500 text-sm mt-2">No hay una sola versión de la verdad. Todos tienen su propio Excel.</p>
-                    </div>
-                    <div class="problem-card p-6 fade-in-delay-2">
-                        <p class="text-gray-800 font-semibold text-base">💸 Vendes bien pero no sabes exactamente cuánto estás ganando</p>
-                        <p class="text-gray-500 text-sm mt-2">El margen real es difícil de calcular cuando los costos están dispersos.</p>
-                    </div>
-                    <div class="problem-card p-6 fade-in-delay-2">
-                        <p class="text-gray-800 font-semibold text-base">⏰ La información llega tarde o desactualizada</p>
-                        <p class="text-gray-500 text-sm mt-2">Cuando ves los números del mes, ya es tarde para actuar.</p>
-                    </div>
-                    <div class="problem-card p-6 fade-in-delay-3">
-                        <p class="text-gray-800 font-semibold text-base">📁 Demasiados archivos, demasiadas carpetas, demasiado tiempo</p>
-                        <p class="text-gray-500 text-sm mt-2">Consolidar información es un trabajo de medio día para alguien de tu equipo.</p>
-                    </div>
-                    <div class="problem-card p-6 fade-in-delay-3">
-                        <p class="text-gray-800 font-semibold text-base">🔍 No sabes qué productos o clientes te dejan más margen</p>
-                        <p class="text-gray-500 text-sm mt-2">Trabajas duro sin saber exactamente dónde está el dinero real.</p>
-                    </div>
-                </div>
+                <div class="pf-title">Automatización de datos para monitoreo de ecommerce</div>
+                <p class="pf-desc">Pipeline de datos desde órdenes hasta reportes de margen por canal y SKU.</p>
             </div>
-        </section>
-
-        <!-- 3. QUÉ HACE IEO ANALYTICS -->
-        <section id="que-hacemos" class="py-20 text-center bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <span class="text-blue-600 uppercase tracking-widest text-sm font-semibold">Lo que hacemos</span>
-                <h2 class="text-4xl font-bold text-gray-900 mt-2 mb-4">No solo hacemos dashboards</h2>
-                <p class="text-gray-500 text-lg max-w-2xl mx-auto mb-12">Ayudamos a automatizar reportes y a dar claridad sobre cómo está funcionando tu negocio, para que puedas tomar decisiones con información confiable.</p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="border-gradient p-8 shadow-sm fade-in-delay-1 hover-lift">
-                        <div class="text-3xl mb-4">⚙️</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Automatización de reportes</h3>
-                        <p class="text-gray-600">Eliminamos el trabajo manual de consolidar archivos. Tus reportes se actualizan solos, sin depender de una persona.</p>
-                    </div>
-                    <div class="border-gradient p-8 shadow-sm fade-in-delay-2 hover-lift">
-                        <div class="text-3xl mb-4">📈</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Visibilidad del negocio</h3>
-                        <p class="text-gray-600">Definimos las métricas que importan: ventas, margen, costos, KPIs operativos. Todo en un solo lugar, siempre actualizado.</p>
-                    </div>
-                    <div class="border-gradient p-8 shadow-sm fade-in-delay-3 hover-lift">
-                        <div class="text-3xl mb-4">💡</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Claridad para decidir</h3>
-                        <p class="text-gray-600">Identificamos qué productos, clientes o procesos generan rentabilidad real y cuáles están afectando el margen sin que lo veas.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4. PORTAFOLIO (orden: negocio primero, técnico después) -->
-        <section id="portafolio" class="py-24 bg-gradient-to-b from-white to-gray-50 pt-16 -mt-16">
-            <div class="max-w-7xl mx-auto px-4">
-                <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-10 md:p-14 border border-blue-500/30 shadow-2xl">
-                    <div class="mb-12 text-center">
-                        <span class="text-blue-400 uppercase tracking-widest text-sm font-semibold">Casos reales</span>
-                        <h2 class="text-4xl font-bold text-white mt-2">Portafolio Visual</h2>
-                        <p class="mt-3 text-xl text-gray-300 max-w-4xl mx-auto">
-                            Proyectos enfocados en claridad de negocio, ventas, rentabilidad y operaciones
-                        </p>
-                    </div>
-
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-                        <!-- 1. Performance de Vendedores (negocio primero) -->
-                        <a href="portfolio-details2.html" target="_blank" class="group rounded-2xl overflow-hidden bg-slate-900/70 border border-slate-700 hover:border-blue-400 transition shadow-lg">
-                            <div class="h-52 overflow-hidden bg-slate-800">
-                                <img src="assets/img/portfolio/PBI-2.webp.gif" alt="Performance Vendedores" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            </div>
-                            <div class="p-5">
-                                <div class="flex flex-wrap gap-2 mb-3">
-                                    <span class="text-[10px] font-bold bg-yellow-500/20 text-yellow-400 px-2 py-0.5 rounded uppercase tracking-wider">Power BI</span>
-                                    <span class="text-[10px] font-bold bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded uppercase tracking-wider">DAX</span>
-                                    <span class="text-[10px] font-bold bg-pink-500/20 text-pink-400 px-2 py-0.5 rounded uppercase tracking-wider">UX/UI</span>
-                                </div>
-                                <h4 class="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition">Performance de Vendedores</h4>
-                                <p class="text-sm text-gray-300">Ranking y análisis comparativo de fuerza de ventas. Quién vende más, quién cumple cuota, dónde hay oportunidad.</p>
-                            </div>
-                        </a>
-
-                        <!-- 2. Funnel comercial y geográfico -->
-                        <a href="portfolio-details3.html" target="_blank" class="group rounded-2xl overflow-hidden bg-slate-900/70 border border-slate-700 hover:border-blue-400 transition shadow-lg">
-                            <div class="h-52 overflow-hidden bg-slate-800">
-                                <img src="assets/img/portfolio/PBI-3.webp.gif" alt="Funnel Geográfico" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            </div>
-                            <div class="p-5">
-                                <div class="flex flex-wrap gap-2 mb-3">
-                                    <span class="text-[10px] font-bold bg-yellow-500/20 text-yellow-400 px-2 py-0.5 rounded uppercase tracking-wider">Power BI</span>
-                                    <span class="text-[10px] font-bold bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded uppercase tracking-wider">DAX</span>
-                                    <span class="text-[10px] font-bold bg-pink-500/20 text-pink-400 px-2 py-0.5 rounded uppercase tracking-wider">UX/UI</span>
-                                </div>
-                                <h4 class="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition">Funnel y Rendimiento Geográfico</h4>
-                                <p class="text-sm text-gray-300">Análisis de conversión de ventas y contribución por región. Saber dónde se cierra y dónde se pierde.</p>
-                            </div>
-                        </a>
-
-                        <!-- 3. Rentabilidad por SKU -->
-                        <a href="portfolio-details4.html" target="_blank" class="group rounded-2xl overflow-hidden bg-slate-900/70 border border-slate-700 hover:border-blue-400 transition shadow-lg">
-                            <div class="h-52 overflow-hidden bg-slate-800">
-                                <img src="assets/img/portfolio/PBI-4.webp.gif" alt="Rentabilidad SKU" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            </div>
-                            <div class="p-5">
-                                <div class="flex flex-wrap gap-2 mb-3">
-                                    <span class="text-[10px] font-bold bg-yellow-500/20 text-yellow-400 px-2 py-0.5 rounded uppercase tracking-wider">Power BI</span>
-                                    <span class="text-[10px] font-bold bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded uppercase tracking-wider">DAX</span>
-                                    <span class="text-[10px] font-bold bg-pink-500/20 text-pink-400 px-2 py-0.5 rounded uppercase tracking-wider">UX/UI</span>
-                                </div>
-                                <h4 class="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition">Rentabilidad por Producto y SKU</h4>
-                                <p class="text-sm text-gray-300">Margen neto real por producto eliminando costos ocultos. Saber qué vale la pena vender y qué no.</p>
-                            </div>
-                        </a>
-
-                        <!-- 4. Power Apps CRUD -->
-                        <a href="portfolio-details1.html" target="_blank" class="group rounded-2xl overflow-hidden bg-slate-900/70 border border-slate-700 hover:border-blue-400 transition shadow-lg">
-                            <div class="h-52 overflow-hidden bg-slate-800">
-                                <img src="assets/img/portfolio/APP-1.webp.gif" alt="Power Apps" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            </div>
-                            <div class="p-5">
-                                <div class="flex flex-wrap gap-2 mb-3">
-                                    <span class="text-[10px] font-bold bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded uppercase tracking-wider">Power Apps</span>
-                                    <span class="text-[10px] font-bold bg-slate-500/20 text-slate-300 px-2 py-0.5 rounded uppercase tracking-wider">SQL Server</span>
-                                    <span class="text-[10px] font-bold bg-yellow-500/20 text-yellow-400 px-2 py-0.5 rounded uppercase tracking-wider">Power BI</span>
-                                </div>
-                                <h4 class="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition">Automatización con Power Apps</h4>
-                                <p class="text-sm text-gray-300">Captura de información operativa y visualización inmediata de KPIs. Sin Excel, sin correos.</p>
-                            </div>
-                        </a>
-
-                        <!-- 5. Fabric End to End -->
-                        <a href="portfolio-details5.html" target="_blank" class="group rounded-2xl overflow-hidden bg-slate-900/70 border border-slate-700 hover:border-blue-400 transition shadow-lg">
-                            <div class="h-52 overflow-hidden bg-slate-800">
-                                <img src="assets/img/portfolio/ING-8.webp.gif" alt="Fabric End to End" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            </div>
-                            <div class="p-5">
-                                <div class="flex flex-wrap gap-2 mb-3">
-                                    <span class="text-[10px] font-bold bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded uppercase tracking-wider">Fabric / Medallion</span>
-                                    <span class="text-[10px] font-bold bg-yellow-500/20 text-yellow-400 px-2 py-0.5 rounded uppercase tracking-wider">Power BI</span>
-                                </div>
-                                <h4 class="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition">Desarrollo End-to-End con Microsoft Fabric</h4>
-                                <p class="text-sm text-gray-300">Arquitectura de datos robusta para disponibilidad continua y reportes siempre actualizados.</p>
-                            </div>
-                        </a>
-
-                        <!-- 6. E-commerce Medallion -->
-                        <a href="portfolio-details10.html" target="_blank" class="group rounded-2xl overflow-hidden bg-slate-900/70 border border-slate-700 hover:border-blue-400 transition shadow-lg">
-                            <div class="h-52 overflow-hidden bg-slate-800">
-                                <img src="assets/img/portfolio/medallion_eccomerce.gif" alt="E-commerce Medallion" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
-                            </div>
-                            <div class="p-5">
-                                <div class="flex flex-wrap gap-2 mb-3">
-                                    <span class="text-[10px] font-bold bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded uppercase tracking-wider">Fabric / Medallion</span>
-                                    <span class="text-[10px] font-bold bg-purple-500/20 text-purple-400 px-2 py-0.5 rounded uppercase tracking-wider">n8n</span>
-                                    <span class="text-[10px] font-bold bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded uppercase tracking-wider">Supabase</span>
-                                </div>
-                                <h4 class="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition">E-commerce E2E: Arquitectura Medallion</h4>
-                                <p class="text-sm text-gray-300">Pipeline integral desde ingesta transaccional hasta gobernanza de datos en Microsoft Fabric.</p>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. POR QUÉ IEO ANALYTICS -->
-        <section id="pilares" class="py-20 bg-white">
-            <div class="max-w-5xl mx-auto text-center">
-                <span class="text-blue-600 uppercase tracking-widest text-sm font-semibold">Por qué IEO Analytics</span>
-                <h2 class="text-4xl font-bold text-gray-900 mt-2 mb-4">Negocio + Datos + Tecnología Microsoft</h2>
-                <p class="text-gray-500 text-lg max-w-2xl mx-auto mb-12">No somos una consultoría genérica de sistemas ni una agencia de marketing con dashboards de muestra. La mezcla que ofrecemos es poco común en el mercado mexicano.</p>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="border-gradient p-8 shadow-sm fade-in-delay-1 hover-lift">
-                        <div class="text-3xl mb-4">🏢</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Entendemos el negocio</h3>
-                        <p class="text-gray-600">12 años de experiencia en análisis de negocio, KPIs, rentabilidad y mejora operativa. No hay que explicarnos qué es margen o costo de venta.</p>
-                    </div>
-                    <div class="border-gradient p-8 shadow-sm fade-in-delay-2 hover-lift">
-                        <div class="text-3xl mb-4">🛠️</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Stack Microsoft real</h3>
-                        <p class="text-gray-600">Power BI, SQL, Fabric, Power Platform y Power Apps. Las herramientas que ya usa tu empresa, sin necesitar infraestructura nueva ni costosa.</p>
-                    </div>
-                    <div class="border-gradient p-8 shadow-sm fade-in-delay-3 hover-lift">
-                        <div class="text-3xl mb-4">🇲🇽</div>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Aterrizados al mercado mexicano</h3>
-                        <p class="text-gray-600">Sin promesas infladas ni jerga técnica. Proyectos concretos, a la medida, con alcance claro y entregables reales desde la primera sesión.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. CERTIFICACIONES (abajo, validan confianza pero no venden) -->
-        <section id="certificaciones" class="mb-20 py-12 pt-16 -mt-16">
-            <div class="text-center mb-12">
-                <span class="text-blue-600 uppercase tracking-widest text-sm font-semibold">Respaldo técnico</span>
-                <h2 class="text-4xl font-bold text-gray-900 mt-2">Certificaciones <span class="text-blue-600">Microsoft</span></h2>
-                <p class="mt-3 text-gray-500 text-base max-w-xl mx-auto">Certificaciones que respaldan el conocimiento técnico detrás de cada proyecto.</p>
-            </div>
-            <div class="flex flex-wrap justify-center gap-8">
-                <a href="https://learn.microsoft.com/es-mx/users/ernesto-8560/credentials/fe059356d8f88b2d" target="_blank" class="w-52 h-52 cert-card p-6 rounded-2xl flex flex-col items-center justify-center">
-                    <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" class="w-20 h-20 mb-4" alt="Certification">
-                    <p class="text-xs font-bold text-gray-800 text-center uppercase">Power BI Analyst Associate</p>
-                </a>
-                <a href="https://learn.microsoft.com/es-mx/users/ernesto-8560/credentials/f7542c788e96261b" target="_blank" class="w-52 h-52 cert-card p-6 rounded-2xl flex flex-col items-center justify-center">
-                    <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" class="w-20 h-20 mb-4" alt="Certification">
-                    <p class="text-xs font-bold text-gray-800 text-center uppercase">Fabric Analytics Engineer</p>
-                </a>
-                <a href="https://learn.microsoft.com/es-es/users/ernesto-8560/credentials/97a024bbc243389" target="_blank" class="w-52 h-52 cert-card p-6 rounded-2xl flex flex-col items-center justify-center">
-                    <img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" class="w-20 h-20 mb-4" alt="Certification">
-                    <p class="text-xs font-bold text-gray-800 text-center uppercase">Power Platform Consultant</p>
-                </a>
-            </div>
-            <div class="mt-14 flex flex-col items-center text-center">
-                <p class="text-sm text-gray-500 mb-4 font-medium uppercase tracking-tighter">Conecta con el perfil técnico</p>
-                <div class="flex items-center space-x-8">
-                    <a href="https://www.linkedin.com/in/ernesto-roldan-bi-consultant/" target="_blank" class="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition font-bold">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 24h5V7H0v17zm7.5-17h4.8v2.3h.1c.7-1.3 2.4-2.7 4.9-2.7 5.2 0 6.2 3.4 6.2 7.8V24h-5v-7.7c0-1.8 0-4.2-2.6-4.2s-3 2-3 4.1V24h-5V7z"/></svg>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/ErnestRr" target="_blank" class="flex items-center space-x-2 text-gray-700 hover:text-black transition font-bold">
-                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.2-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.8 1.7 2.8 1.2.1-.7.4-1.2.7-1.5-2.6-.3-5.3-1.3-5.3-5.8 0-1.3.5-2.4 1.1-3.3-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.4 1.2a11.6 11.6 0 016.2 0c2.5-1.5 3.4-1.2 3.4-1.2.6 1.6.2 2.8.1 3.1.7.9 1.1 2 1.1 3.3 0 4.5-2.7 5.5-5.3 5.8.4.4.8 1 .8 2v3c0 .4.2.7.8.6A11.5 11.5 0 0023.5 12C23.5 5.7 18.3.5 12 .5z"/></svg>
-                        <span>GitHub</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. CONTACTO -->
-        <section id="contacto" class="py-24 pt-16 -mt-16">
-            <div class="max-w-3xl mx-auto">
-                <div class="bg-gradient-to-br from-slate-900 to-slate-800 rounded-3xl p-10 md:p-14 border border-blue-500/30 shadow-2xl">
-                    <div class="text-center mb-12">
-                        <span class="text-blue-400 uppercase tracking-widest text-sm font-semibold">Primer paso</span>
-                        <h2 class="text-4xl font-bold text-white mt-2">Cuéntame sobre <span class="text-blue-400">tu negocio</span></h2>
-                        <p class="mt-4 text-gray-300">Sin compromisos. Revisamos juntos si tiene sentido trabajar en esto y cómo se vería la solución para tu caso específico.</p>
-                    </div>
-                    <form action="https://formspree.io/f/mjkajgro" method="POST" class="space-y-6 max-w-xl mx-auto">
-                        <input type="hidden" name="_subject" value="Solicitud de consultoría – IEO Analytics">
-                        <input type="text" name="name" required placeholder="Nombre completo" class="w-full px-4 py-3.5 rounded-xl bg-slate-900/70 border border-slate-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400 outline-none transition">
-                        <input type="email" name="email" required placeholder="Correo electrónico" class="w-full px-4 py-3.5 rounded-xl bg-slate-900/70 border border-slate-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400 outline-none transition">
-                        <textarea name="message" rows="5" required placeholder="¿Cuál es el principal problema que quieres resolver con tus datos?" class="w-full px-4 py-3.5 rounded-xl bg-slate-900/70 border border-slate-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-blue-400 outline-none transition resize-none"></textarea>
-                        <button type="submit" class="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-4 rounded-xl shadow-lg transition transform hover:scale-[1.02]">Revisar mi caso →</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <!-- WhatsApp Float -->
-        <a href="https://wa.me/5215513407872?text=Hola%2C%20me%20interesa%20automatizar%20mis%20reportes%20y%20tener%20más%20claridad%20del%20negocio"
-           target="_blank" rel="noopener noreferrer"
-           class="whatsapp-float fixed right-6 bottom-6 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 z-50 group"
-           aria-label="Contactar por WhatsApp">
-            <svg class="w-8 h-8 group-hover:rotate-12 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-            <span class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-ping"></span>
-            <span class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full"></span>
         </a>
-    </main>
 
-    <footer class="w-full mt-24 bg-gradient-to-br from-slate-900 to-slate-800 border-t border-blue-500/30">
-        <div class="max-w-7xl mx-auto px-4 py-8 text-center">
-            <p class="text-sm text-gray-300 font-medium">© 2026 IEO Analytics. Todos los derechos reservados.</p>
+        <a href="portfolio-details1.html" target="_blank" class="pf-card">
+            <div class="pf-thumb">
+                <img src="assets/img/portfolio/APP-1.webp.gif" alt="Operaciones KPIs">
+            </div>
+            <div class="pf-body">
+                <div class="pf-tags">
+                    <span class="pf-tag tag-blue">Power Apps</span>
+                    <span class="pf-tag tag-slate">SQL Server</span>
+                    <span class="pf-tag tag-yellow">Power BI</span>
+                </div>
+                <div class="pf-title">KPIs operativos en tiempo real</div>
+                <p class="pf-desc">Gestión de incidencias con visibilidad inmediata de impacto en el negocio.</p>
+            </div>
+        </a>
+
+        <a href="portfolio-details5.html" target="_blank" class="pf-card">
+            <div class="pf-thumb">
+                <img src="assets/img/portfolio/ING-8.webp.gif" alt="Pipeline analítico">
+            </div>
+            <div class="pf-body">
+                <div class="pf-tags">
+                    <span class="pf-tag tag-blue">Fabric</span>
+                    <span class="pf-tag tag-yellow">Power BI</span>
+                </div>
+                <div class="pf-title">Pipeline analítico para decisiones operativas</div>
+                <p class="pf-desc">Arquitectura de datos con disponibilidad 24/7 para equipos de ventas y finanzas.</p>
+            </div>
+        </a>
+
+        <a href="portfolio-details2.html" target="_blank" class="pf-card">
+            <div class="pf-thumb">
+                <img src="assets/img/portfolio/PBI-2.webp.gif" alt="Performance vendedores">
+            </div>
+            <div class="pf-body">
+                <div class="pf-tags">
+                    <span class="pf-tag tag-yellow">Power BI</span>
+                    <span class="pf-tag tag-green">DAX</span>
+                    <span class="pf-tag tag-pink">UX/UI</span>
+                </div>
+                <div class="pf-title">Performance de fuerza de ventas</div>
+                <p class="pf-desc">Ranking de vendedores con análisis de conversión, ticket promedio y margen real.</p>
+            </div>
+        </a>
+
+        <a href="portfolio-details3.html" target="_blank" class="pf-card">
+            <div class="pf-thumb">
+                <img src="assets/img/portfolio/PBI-3.webp.gif" alt="Rendimiento geográfico">
+            </div>
+            <div class="pf-body">
+                <div class="pf-tags">
+                    <span class="pf-tag tag-yellow">Power BI</span>
+                    <span class="pf-tag tag-green">DAX</span>
+                    <span class="pf-tag tag-pink">UX/UI</span>
+                </div>
+                <div class="pf-title">Funnel y rentabilidad por región</div>
+                <p class="pf-desc">¿Qué zonas geográficas generan margen y cuáles solo volumen? Análisis espacial aplicado.</p>
+            </div>
+        </a>
+
+        <a href="portfolio-details4.html" target="_blank" class="pf-card">
+            <div class="pf-thumb">
+                <img src="assets/img/portfolio/PBI-4.webp.gif" alt="Rentabilidad SKU">
+            </div>
+            <div class="pf-body">
+                <div class="pf-tags">
+                    <span class="pf-tag tag-yellow">Power BI</span>
+                    <span class="pf-tag tag-green">DAX</span>
+                    <span class="pf-tag tag-pink">UX/UI</span>
+                </div>
+                <div class="pf-title">Rentabilidad real por producto y SKU</div>
+                <p class="pf-desc">Margen neto por producto eliminando costos ocultos de logística, devoluciones y comisiones.</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div style="padding: 5rem max(1.5rem, calc(50% - 600px)); background: var(--navy-soft); border-top: 1px solid var(--border);" id="contacto">
+    <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+        <div class="section-tag" style="justify-content: center; display: flex;">Agenda una llamada</div>
+        <h2 class="section-title">¿Tu negocio está creciendo<br>pero el margen no?</h2>
+        <p class="section-sub" style="margin: 0 auto;">Cuéntame en qué sector estás y cuál es el mayor problema de visibilidad que tienes ahora mismo. La primera conversación no tiene costo.</p>
+
+        <div class="contact-wrap">
+            <form action="https://formspree.io/f/mjkajgro" method="POST">
+                <input type="hidden" name="_subject" value="Solicitud de consultoría – IEO Analytics">
+                <div class="form-group">
+                    <label>Tu nombre</label>
+                    <input type="text" name="name" required placeholder="Nombre completo">
+                </div>
+                <div class="form-group">
+                    <label>Correo electrónico</label>
+                    <input type="email" name="email" required placeholder="tu@empresa.com">
+                </div>
+                <div class="form-group">
+                    <label>Sector de tu negocio</label>
+                    <select name="sector" required>
+                        <option value="" disabled selected>Selecciona tu sector</option>
+                        <option>Ecommerce / Tienda online</option>
+                        <option>Distribución / Ventas B2B</option>
+                        <option>Retail / Punto de venta</option>
+                        <option>Manufactura</option>
+                        <option>Servicios / Consultoría</option>
+                        <option>Finanzas operativas</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>¿Cuál es tu mayor problema con los datos ahora mismo?</label>
+                    <textarea name="message" required placeholder="Ej: No sé qué productos me dejan margen, los reportes tardan días, no confío en los números de ventas..."></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Quiero mi auditoría gratuita →</button>
+            </form>
         </div>
-    </footer>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <p>© 2026 IEO Analytics — Business Intelligence y analytics para Pymes</p>
+        <div class="footer-links">
+            <a href="https://www.linkedin.com/in/ernesto-roldan-bi-consultant/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/ErnestRr" target="_blank">GitHub</a>
+            <a href="#contacto">Contacto</a>
+        </div>
+    </div>
+</footer>
+
+<!-- WHATSAPP -->
+<a href="https://wa.me/5215513407872?text=Hola%2C%20me%20interesa%20saber%20d%C3%B3nde%20est%C3%A1%20perdiendo%20margen%20mi%20negocio" target="_blank" rel="noopener noreferrer" class="wa-btn" aria-label="Contactar por WhatsApp">
+    <div class="wa-dot"></div>
+    <svg width="28" height="28" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
 
 </body>
 </html>
