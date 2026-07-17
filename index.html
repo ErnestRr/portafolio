@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -13,6 +12,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
         }
 
         :root {
@@ -630,10 +633,11 @@
         }
 
         /* MOBILE PEQUEÑO */
-        @media (max-width: 375px) {
+        @media (max-width: 768px) {
             .cred-grid {
                 grid-template-columns: 1fr !important;
             }
+
             nav {
                 display: none;
             }
@@ -642,28 +646,50 @@
                 padding: 1rem 1.5rem;
             }
 
-            nav a {
-                font-size: 0.85rem;
-            }
-
             .hero {
-                padding: 3rem 1.5rem 2.5rem;
+                padding: 2rem 1.5rem 2rem;
+                margin-top: 50px;
             }
 
             .hero h1 {
-                font-size: 1.8rem;
+                font-size: clamp(1.5rem, 5vw, 2.5rem);
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+                width: 100%;
             }
 
             .valor, .servicios, .casos, .credibilidad, .contacto {
-                padding: 2.5rem 1.5rem;
+                padding: 2.5rem 1rem;
             }
 
             .credibilidad-diagnostico {
-                padding: 2.5rem 1.5rem;
+                padding: 2rem 1rem;
             }
 
             .section-title {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
+            }
+
+            .section-label {
+                font-size: 0.75rem;
+            }
+
+            .section-desc {
+                font-size: 0.9rem;
             }
 
             .cred-content {
@@ -671,23 +697,203 @@
                 gap: 2rem;
             }
 
+            .valor-title {
+                font-size: 1.3rem;
+            }
+
+            .valor-desc {
+                font-size: 0.9rem;
+            }
+
+            .valor-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 1.5rem;
+            }
+
+            .valor-item {
+                padding: 1rem;
+            }
+
             .servicios-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 1.5rem;
+            }
+
+            .servicio-card {
+                padding: 1rem;
+            }
+
+            .servicio-icon {
+                font-size: 1.5rem;
+            }
+
+            .servicio-card h3 {
+                font-size: 0.95rem;
+            }
+
+            .servicio-card p {
+                font-size: 0.85rem;
+            }
+
+            .casos-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 1.5rem;
+            }
+
+            .caso-card {
+                max-height: 400px;
+            }
+
+            .caso-image {
+                height: 120px;
+            }
+
+            .caso-content {
+                padding: 1rem;
+            }
+
+            .caso-tag {
+                font-size: 0.7rem;
+            }
+
+            .caso-card h3 {
+                font-size: 0.95rem;
+                margin-bottom: 0.4rem;
+            }
+
+            .caso-card p {
+                font-size: 0.85rem;
+            }
+
+            /* Form section in credentials */
+            .cred-grid > div {
+                padding: 1.5rem !important;
+                min-height: auto !important;
                 gap: 1rem;
             }
 
-            .casos-grid, .valor-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .cred-grid > div h3 {
+                font-size: 1.1rem !important;
+                margin-bottom: 1.5rem !important;
             }
 
-            .credibilidad-diagnostico > .container > div {
-                grid-template-columns: 1fr !important;
-                gap: 2rem !important;
+            .cred-grid > div > div {
+                gap: 1rem !important;
+            }
+
+            .cred-grid > div a div {
+                padding: 1rem !important;
+                gap: 1rem !important;
+            }
+
+            .cred-grid > div svg {
+                width: 50px !important;
+                height: 50px !important;
+            }
+
+            .cred-grid > div p {
+                font-size: 0.8rem !important;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+                gap: 0.8rem;
+            }
+
+            .contact-form input,
+            .contact-form textarea {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .contact-form button {
+                padding: 0.8rem;
+                font-size: 0.85rem;
+            }
+
+            footer {
+                padding: 1.5rem 1rem;
+                font-size: 0.85rem;
             }
 
             .exp-number {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+            header .container {
+                padding: 0.75rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .hero {
+                padding: 1.5rem 1rem;
+                margin-top: 45px;
+            }
+
+            .hero h1 {
+                font-size: 1.3rem;
+                line-height: 1.2;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .btn {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.85rem;
+            }
+
+            .valor, .servicios, .casos, .credibilidad, .contacto {
+                padding: 2rem 1rem;
+            }
+
+            .section-title {
+                font-size: 1.1rem;
+                margin-bottom: 0.6rem;
+            }
+
+            .section-label {
+                font-size: 0.7rem;
+            }
+
+            .valor-grid, .servicios-grid, .casos-grid {
+                gap: 0.8rem;
+                margin-top: 1rem;
+            }
+
+            .caso-image {
+                height: 100px;
+            }
+
+            .cred-grid > div {
+                padding: 1rem !important;
+            }
+
+            .cred-grid > div h3 {
+                font-size: 1rem !important;
+                margin-bottom: 1rem !important;
+            }
+
+            .cred-grid > div > div {
+                gap: 0.8rem !important;
+            }
+
+            .cred-grid > div a div {
+                padding: 0.8rem !important;
+            }
+
+            .contact-form {
+                padding: 1.2rem;
             }
         }
     </style>
@@ -701,7 +907,7 @@
                 <a href="#valor">Valor</a>
                 <a href="#servicios">Servicios</a>
                 <a href="#casos">Casos</a>
-                <a href="#contacto" class="btn-header">Contactar</a>
+                <a href="#credibilidad" class="btn-header">Diagnóstico Gratis</a>
             </nav>
         </div>
     </header>
@@ -712,7 +918,7 @@
             <h1>Decisiones <span class="highlight">Inteligentes</span> basadas en Datos</h1>
             <p>Transformamos tus datos en insights accionables. Dashboards ejecutivos, análisis profundos y automatización para PyMES en crecimiento.</p>
             <div class="hero-buttons">
-                <a href="#contacto" class="btn btn-primary">Agendar Diagnóstico</a>
+                <a href="#credibilidad" class="btn btn-primary">Diagnóstico Gratis</a>
                 <a href="#casos" class="btn btn-secondary">Ver Casos de Éxito</a>
             </div>
         </div>
@@ -970,5 +1176,4 @@
     </a>
 </body>
 </html>
-
 
