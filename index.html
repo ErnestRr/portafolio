@@ -40,6 +40,30 @@
             line-height: 1.6;
         }
 
+        /* ANIMACIONES SUTILES */
+        @keyframes softFadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes driftGlow {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            50% {
+                transform: translate3d(-10px, -8px, 0);
+            }
+            100% {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -118,7 +142,12 @@
         .hero {
             margin-top: 60px;
             padding: 5rem 2rem 4rem;
-            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-alt) 100%);
+            background:
+                linear-gradient(120deg, rgba(10, 22, 40, 0.9) 0%, rgba(10, 22, 40, 0.84) 45%, rgba(15, 32, 67, 0.88) 100%),
+                url('assets/img/services/services-1.webp');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             position: relative;
             overflow: hidden;
             text-align: center;
@@ -134,11 +163,12 @@
             background: radial-gradient(circle, rgba(255, 140, 66, 0.08) 0%, transparent 70%);
             border-radius: 50%;
             pointer-events: none;
+            z-index: 1;
         }
 
         .hero .container {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             max-width: 800px;
         }
 
@@ -149,6 +179,7 @@
             line-height: 1.2;
             margin-bottom: 1.2rem;
             letter-spacing: -1px;
+            animation: softFadeUp 0.7s ease both;
         }
 
         .hero h1 .highlight {
@@ -160,6 +191,7 @@
             color: var(--text-light);
             margin-bottom: 2rem;
             line-height: 1.7;
+            animation: softFadeUp 0.7s ease 0.12s both;
         }
 
         .hero-buttons {
@@ -167,6 +199,7 @@
             gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
+            animation: softFadeUp 0.7s ease 0.24s both;
         }
 
         .btn {
@@ -418,6 +451,30 @@
             padding: 4rem 2rem 3rem;
             background: var(--dark-alt);
             margin-bottom: 2.4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experiencia::after {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: -120px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 140, 66, 0.09) 0%, transparent 70%);
+            pointer-events: none;
+            animation: driftGlow 8s ease-in-out infinite;
+        }
+
+        .experiencia .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .experiencia .section-header {
+            animation: softFadeUp 0.7s ease both;
         }
 
         .experiencia-grid {
@@ -439,12 +496,25 @@
             text-align: center;
             gap: 0.6rem;
             transition: all 0.3s ease;
+            animation: softFadeUp 0.55s ease both;
         }
+
+        .experiencia-card:nth-child(1) { animation-delay: 0.04s; }
+        .experiencia-card:nth-child(2) { animation-delay: 0.08s; }
+        .experiencia-card:nth-child(3) { animation-delay: 0.12s; }
+        .experiencia-card:nth-child(4) { animation-delay: 0.16s; }
+        .experiencia-card:nth-child(5) { animation-delay: 0.2s; }
+        .experiencia-card:nth-child(6) { animation-delay: 0.24s; }
 
         .experiencia-card:hover {
             border-color: var(--accent);
             background: rgba(255, 140, 66, 0.05);
             transform: translateY(-3px);
+        }
+
+        .experiencia-card:hover .experiencia-icon {
+            transform: translateY(-1px) scale(1.04);
+            border-color: rgba(255, 140, 66, 0.35);
         }
 
         .experiencia-icon {
@@ -458,6 +528,7 @@
             color: var(--accent);
             flex-shrink: 0;
             background: rgba(255, 140, 66, 0.04);
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         .experiencia-icon svg {
@@ -481,6 +552,24 @@
         @media (max-width: 1100px) {
             .experiencia-grid {
                 grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero h1,
+            .hero p,
+            .hero-buttons,
+            .experiencia .section-header,
+            .experiencia-card,
+            .experiencia::after {
+                animation: none !important;
+            }
+
+            .experiencia-card,
+            .experiencia-icon,
+            .btn,
+            .btn-header {
+                transition: none !important;
             }
         }
 
@@ -720,6 +809,7 @@
             .hero {
                 padding: 2rem 1.5rem 2rem;
                 margin-top: 50px;
+                background-position: center;
             }
 
             .hero h1 {
@@ -922,6 +1012,7 @@
             .hero {
                 padding: 1.5rem 1rem;
                 margin-top: 45px;
+                background-position: center;
             }
 
             .hero h1 {
@@ -1013,7 +1104,7 @@
     <section class="hero">
         <div class="container">
             <h1>Decisiones <span class="highlight">Inteligentes</span> basadas en Datos</h1>
-            <p>Transformamos tus datos en insights accionables. Dashboards ejecutivos, análisis profundos y automatización para PyMES en crecimiento.</p>
+            <p>Transformamos tus datos en insights accionables. Reportes ejecutivos, análisis profundos y automatización para PyMES en crecimiento.</p>
             <div class="hero-buttons">
                 <a href="#credibilidad" class="btn btn-primary">Diagnóstico Gratis</a>
                 <a href="#casos" class="btn btn-secondary">Ver Casos de Éxito</a>
@@ -1049,7 +1140,7 @@
             <div class="section-header">
                 <span class="section-label">Cómo te ayudamos</span>
                 <h2 class="section-title">Nuestros Servicios</h2>
-                <p class="section-desc">Soluciones completas desde diagnóstico hasta implementación de dashboards y automatización</p>
+                <p class="section-desc">Soluciones completas desde diagnóstico hasta implementación de reportes y automatización</p>
             </div>
             <div class="servicios-grid">
                 <div class="servicio-card">
@@ -1057,7 +1148,7 @@
                     <p>Evaluamos tu situación actual de datos, identificamos gaps y definimos la estrategia ideal para tu negocio.</p>
                 </div>
                 <div class="servicio-card">
-                    <div><span class="servicio-icon">📊</span><h3>Dashboards Ejecutivos</h3></div>
+                    <div><span class="servicio-icon">📊</span><h3>Reportes Ejecutivos</h3></div>
                     <p>Paneles visuales que muestran exactamente lo que importa: ventas, rentabilidad, KPIs y métricas operativas.</p>
                 </div>
                 <div class="servicio-card">
@@ -1069,8 +1160,8 @@
                     <p>Conectamos tus sistemas (ERP, CRM, contabilidad) en una única fuente de verdad confiable.</p>
                 </div>
                 <div class="servicio-card">
-                    <div><span class="servicio-icon">🎓</span><h3>Capacitación de Equipo</h3></div>
-                    <p>Tu equipo aprende a usar y mantener los dashboards. Sin dependencia de consultores externos.</p>
+                    <div><span class="servicio-icon">🎓</span><h3>Pricing & Rentabilidad</h3></div>
+                    <p>Optimiza precios, márgenes y rentabilidad mediante análisis de datos y estrategias basadas en información confiable.</p>
                 </div>
                 <div class="servicio-card">
                     <div><span class="servicio-icon">🚀</span><h3>Soporte Continuado</h3></div>
