@@ -1,34 +1,39 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="https://www.ieoanalytics.com/">
-    <meta name="description" content="IEO Analytics ofrece consultoría boutique de Business Intelligence para PyMEs de servicios: unificación y calidad de datos, automatización, rentabilidad, pricing y control con Microsoft Fabric, Power BI, SQL y Power Platform.">
+    <title>Hugo Ernesto Roldán | Business Intelligence · Power BI · Microsoft Fabric</title>
+    <meta name="description" content="Hugo Ernesto Roldán, consultor senior independiente de Business Intelligence para empresas medianas, corporativos y consultoras. Proyectos por alcance con Power BI, Microsoft Fabric, SQL y Excel para integrar datos, reducir procesos manuales y construir reporting confiable.">
     <meta name="author" content="Hugo Ernesto Roldán">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://www.ieoanalytics.com/">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="IEO Analytics | Business Intelligence para PyMEs de servicios">
-    <meta property="og:description" content="Datos unificados y confiables para tomar mejores decisiones de rentabilidad, pricing, costos y operación con soluciones sobre el stack Microsoft.">
-    <meta property="og:url" content="https://www.ieoanalytics.com/">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://ieoanalytics.com/">
+    <meta property="og:type" content="profile">
+    <meta property="og:locale" content="es_MX">
+    <meta property="profile:first_name" content="Hugo Ernesto">
+    <meta property="profile:last_name" content="Roldán">
+    <meta property="og:url" content="https://ieoanalytics.com/">
+    <meta property="og:title" content="Hugo Ernesto Roldán | Business Intelligence">
+    <meta property="og:description" content="Consultor senior independiente de BI para empresas medianas, corporativos y consultoras · Proyectos por alcance con Power BI, Microsoft Fabric, SQL y Excel.">
     <meta property="og:site_name" content="IEO Analytics">
     <meta name="twitter:card" content="summary">
-    <title>IEO Analytics | Business Intelligence para PyMEs de servicios</title>
+    <meta name="twitter:title" content="Hugo Ernesto Roldán | Business Intelligence">
+    <meta name="twitter:description" content="Business Intelligence por alcance para empresas medianas, corporativos y consultoras · Power BI, Microsoft Fabric, SQL y Excel.">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "IEO Analytics",
-      "url": "https://www.ieoanalytics.com/",
-      "description": "Consultoría boutique de Business Intelligence para PyMEs de servicios, enfocada en unificación y calidad de datos, automatización y analítica para rentabilidad, pricing, costos y operación.",
-      "founder": {
+      "@type": "ProfilePage",
+      "url": "https://ieoanalytics.com/",
+      "name": "Hugo Ernesto Roldán | Business Intelligence",
+      "mainEntity": {
         "@type": "Person",
         "name": "Hugo Ernesto Roldán",
-        "url": "https://www.linkedin.com/in/hugo-ernesto-roldan/",
-        "jobTitle": "Consultor de Business Intelligence",
-        "knowsAbout": ["Business Intelligence", "Microsoft Fabric", "Power BI", "SQL", "Power Apps", "Power Automate", "Rentabilidad", "Pricing", "Control de costos"],
-        "sameAs": ["https://www.linkedin.com/in/hugo-ernesto-roldan/"]
+        "alternateName": ["Ernesto Roldán", "Hugo Roldán", "Hugo Ernesto Roldan", "Ernesto Roldan", "Hugo Roldan"],
+        "url": "https://ieoanalytics.com/",
+        "sameAs": ["https://www.linkedin.com/in/hugo-ernesto-roldan/"],
+        "jobTitle": "Consultor Senior de Business Intelligence",
+        "description": "Consultor senior independiente de Business Intelligence para empresas medianas, corporativos y consultoras. Proyectos por alcance con Power BI, Microsoft Fabric, SQL y Excel para integración de datos, reducción de procesos manuales, reporting y analítica de negocio.",
+        "knowsAbout": ["Business Intelligence", "BI", "Power BI", "Microsoft Fabric", "SQL", "Excel", "DAX", "Power Query", "Data Modeling", "Modelado de datos", "Semantic Models", "Modelos semánticos", "Reporting", "Data Analytics", "Análisis de datos", "Power Platform", "Data Integration", "Integración de datos"]
       }
     }
     </script>
@@ -92,9 +97,9 @@
         }
 
         .container {
-            max-width: 1520px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.25rem;
+            padding: 0 2rem;
         }
 
         /* HEADER */
@@ -227,7 +232,7 @@
         .hero .container {
             position: relative;
             z-index: 2;
-            max-width: 1080px;
+            max-width: 800px;
         }
 
         .hero h1 {
@@ -250,6 +255,94 @@
             margin-bottom: 2rem;
             line-height: 1.7;
             animation: softFadeUp 0.7s ease 0.12s both;
+        }
+
+        .hero-value-strip {
+            max-width: 780px;
+            margin: 0 auto 1.8rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            animation: softFadeUp 0.7s ease 0.12s both;
+        }
+
+        .hero-value-item {
+            position: relative;
+            padding: 1rem 1.25rem;
+            text-align: left;
+        }
+
+        .hero-value-item + .hero-value-item {
+            border-left: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .hero-value-label {
+            display: block;
+            margin-bottom: 0.25rem;
+            color: var(--accent);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero-value-text {
+            display: block;
+            color: var(--text-white);
+            font-size: 0.92rem;
+            font-weight: 600;
+            line-height: 1.35;
+        }
+
+        .hero-value-text span {
+            display: block;
+            margin-top: 0.16rem;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            font-weight: 400;
+        }
+
+        .hero-meta {
+            max-width: 760px;
+            margin: -0.35rem auto 1.8rem;
+            padding: 0.85rem 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.09);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.55rem;
+            flex-wrap: wrap;
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            line-height: 1.4;
+        }
+
+        .hero-meta-name {
+            color: var(--text-white);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-right: 0.2rem;
+        }
+
+        .hero-meta-tag {
+            display: inline-flex;
+            align-items: center;
+            min-height: 28px;
+            padding: 0.28rem 0.68rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.11);
+            background: rgba(255, 255, 255, 0.035);
+            color: var(--text-light);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .hero-meta-tag.primary {
+            border-color: rgba(255, 116, 32, 0.28);
+            background: rgba(255, 116, 32, 0.08);
+            color: var(--text-white);
         }
 
         .hero-buttons {
@@ -295,13 +388,13 @@
 
         /* VALOR */
         .valor {
-            padding: 4rem 2rem 3rem;
+            padding: 3.4rem 2rem 2.8rem;
             background: var(--dark);
             text-align: center;
         }
 
         .valor .container {
-            max-width: 1080px;
+            max-width: 900px;
         }
 
         .valor-title {
@@ -376,7 +469,7 @@
         .section-desc {
             color: var(--text-light);
             font-size: 1rem;
-            max-width: 760px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
@@ -616,6 +709,7 @@
             .hero h1,
             .hero p,
             .hero-buttons,
+            .hero-value-strip,
             .experiencia .section-header,
             .experiencia-card,
             .experiencia::after {
@@ -625,15 +719,25 @@
             .experiencia-card,
             .experiencia-icon,
             .btn,
-            .btn-header {
+            .btn-header,
+            .whatsapp-btn {
                 transition: none !important;
             }
         }
 
-        /* CREDIBILIDAD */
-        .credibilidad {
+        /* CREDIBILIDAD / CONTACTO */
+        .credibilidad,
+        .credibilidad-diagnostico {
             padding: 4rem 2rem 3rem;
             background: var(--dark-alt);
+        }
+
+        .casos .section-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .casos-grid {
+            margin-top: 0;
         }
 
         .cred-content {
@@ -641,7 +745,7 @@
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
-            max-width: 1240px;
+            max-width: 1000px;
             margin: 2rem auto 0;
         }
 
@@ -814,26 +918,35 @@
         /* WHATSAPP */
         .whatsapp-btn {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            background: #25d366;
+            right: max(20px, env(safe-area-inset-right));
+            bottom: max(20px, env(safe-area-inset-bottom));
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            z-index: 40;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+            display: grid;
+            place-items: center;
+            background: #25D366;
+            color: #fff;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
             text-decoration: none;
+            z-index: 60;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .whatsapp-btn svg {
+            width: 27px;
+            height: 27px;
+            display: block;
         }
 
         .whatsapp-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 11px 26px rgba(0, 0, 0, 0.34);
+        }
+
+        .whatsapp-btn:focus-visible {
+            outline: 3px solid rgba(255,255,255,.85);
+            outline-offset: 3px;
         }
 
         .cred-grid {
@@ -876,7 +989,49 @@
 
             .hero p {
                 font-size: 0.95rem;
-                margin-bottom: 1.5rem;
+                margin-bottom: 1.25rem;
+            }
+
+            .hero-value-strip {
+                grid-template-columns: 1fr;
+                margin-bottom: 1.4rem;
+            }
+
+            .hero-value-item {
+                padding: 0.8rem 0.9rem;
+            }
+
+            .hero-value-item + .hero-value-item {
+                border-left: 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .hero-value-text {
+                font-size: 0.88rem;
+            }
+
+            .hero-value-text span {
+                font-size: 0.78rem;
+            }
+
+            .hero-meta {
+                margin: 0 auto 1.35rem;
+                padding: 0.75rem 0.55rem;
+                gap: 0.42rem;
+                font-size: 0.76rem;
+            }
+
+            .hero-meta-name {
+                width: 100%;
+                text-align: center;
+                margin: 0 0 0.15rem;
+            }
+
+            .hero-meta-tag {
+                min-height: 26px;
+                padding: 0.24rem 0.58rem;
+                white-space: normal;
+                text-align: center;
             }
 
             .hero-buttons {
@@ -1081,6 +1236,18 @@
                 font-size: 0.9rem;
             }
 
+            .hero-value-item {
+                padding: 0.72rem 0.8rem;
+            }
+
+            .hero-value-label {
+                font-size: 0.66rem;
+            }
+
+            .hero-value-text {
+                font-size: 0.84rem;
+            }
+
             .btn {
                 padding: 0.7rem 1.2rem;
                 font-size: 0.85rem;
@@ -1158,11 +1325,8 @@
                 <span class="logo-text">IEO <span>Analytics</span></span>
             </a>
             <nav>
-                <a href="#valor">Valor</a>
-                <a href="#servicios">Servicios</a>
-                <a href="#casos">Casos</a>
-                <a href="#experiencia">Experiencia</a>
-                <a href="#credibilidad" class="btn-header">Evaluar un proyecto</a>
+                <a href="#casos">Proyectos</a>
+                <a href="#credibilidad" class="btn-header">Contacto</a>
             </nav>
         </div>
     </header>
@@ -1170,195 +1334,87 @@
     <!-- HERO -->
     <section class="hero">
         <div class="container">
-            <h1>Datos confiables para <span class="highlight">decisiones de negocio</span></h1>
-            <p>Convertimos datos dispersos en información confiable para mejorar rentabilidad, pricing, costos y operación con tecnología Microsoft.</p>
+            <h1>De información dispersa a <span class="highlight">reporting útil para el negocio</span></h1>
+            <div class="hero-value-strip" aria-label="Propuesta de valor">
+                <div class="hero-value-item">
+                    <span class="hero-value-label">Rentabilidad</span>
+                    <span class="hero-value-text">Identifico dónde se genera o pierde margen<span>Por producto, canal, cliente o área.</span></span>
+                </div>
+                <div class="hero-value-item">
+                    <span class="hero-value-label">Costos</span>
+                    <span class="hero-value-text">Detecto sobrecostos y desviaciones<span>Ubico dónde aumentan los costos y oportunidades de reducción.</span></span>
+                </div>
+                <div class="hero-value-item">
+                    <span class="hero-value-label">Eficiencia</span>
+                    <span class="hero-value-text">Reduzco tiempo dedicado al reporting<span>Integro y automatizo información para acelerar el análisis.</span></span>
+                </div>
+            </div>
+            <div class="hero-meta" aria-label="Perfil profesional y modalidad de trabajo">
+                <span class="hero-meta-name">Hugo Ernesto Roldán</span>
+                <span class="hero-meta-tag primary">Consultor BI Senior</span>
+                <span class="hero-meta-tag">Independiente</span>
+                <span class="hero-meta-tag">Proyectos por alcance</span>
+                <span class="hero-meta-tag">Empresas medianas · Corporativos · Consultoras</span>
+            </div>
             <div class="hero-buttons">
-                <a href="#credibilidad" class="btn btn-primary">Evaluar un proyecto</a>
-                <a href="#casos" class="btn btn-secondary">Ver proyectos</a>
+                <a href="#casos" class="btn btn-primary">Ver proyectos</a>
+                <a href="#credibilidad" class="btn btn-secondary">Consultar proyecto</a>
             </div>
         </div>
     </section>
 
-    <!-- VALOR -->
-    <section class="valor" id="valor">
-        <div class="container">
-            <div class="valor-title">Datos confiables para decidir mejor</div>
-            <p class="valor-desc">Centralizamos información y reducimos diferencias, procesos manuales y decisiones tardías.</p>
-            <div class="valor-grid">
-                <div class="valor-item">
-                    <h3>⚡ Información a tiempo</h3>
-                    <p>Datos disponibles cuando los necesitas.</p>
-                </div>
-                <div class="valor-item">
-                    <h3>📊 Datos consistentes</h3>
-                    <p>Una misma versión de indicadores y resultados.</p>
-                </div>
-                <div class="valor-item">
-                    <h3>💰 Control del negocio</h3>
-                    <p>Rentabilidad, pricing, costos y operación.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SERVICIOS -->
-    <section class="servicios" id="servicios">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Cómo te ayudamos</span>
-                <h2 class="section-title">Nuestros Servicios</h2>
-                <p class="section-desc">Soluciones de BI y datos con tecnología Microsoft.</p>
-            </div>
-            <div class="servicios-grid">
-                <div class="servicio-card">
-                    <div><span class="servicio-icon">📋</span><h3>Diagnóstico de Datos y BI</h3></div>
-                    <p>Detectamos inconsistencias, duplicidades y procesos manuales.</p>
-                </div>
-                <div class="servicio-card">
-                    <div><span class="servicio-icon">📊</span><h3>BI y Analítica de Negocio</h3></div>
-                    <p>Modelos e indicadores para rentabilidad, ventas, costos y operación.</p>
-                </div>
-                <div class="servicio-card">
-                    <div><span class="servicio-icon">⚙️</span><h3>Automatización de Procesos</h3></div>
-                    <p>Automatizamos tareas repetitivas con Power Apps y Power Automate.</p>
-                </div>
-                <div class="servicio-card">
-                    <div><span class="servicio-icon">🔄</span><h3>Integración y Calidad de Datos</h3></div>
-                    <p>Integramos ERP, CRM, archivos y otras fuentes con Fabric y SQL.</p>
-                </div>
-                <div class="servicio-card">
-                    <div><span class="servicio-icon">🎓</span><h3>Pricing, Costos y Rentabilidad</h3></div>
-                    <p>Analizamos precios, márgenes y costos para mejorar rentabilidad.</p>
-                </div>
-                <div class="servicio-card">
-                    <div><span class="servicio-icon">🚀</span><h3>Proyectos por Alcance</h3></div>
-                    <p>Objetivos, alcance y entregables definidos desde el inicio.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- CASOS -->
     <section class="casos" id="casos">
         <div class="container">
             <div class="section-header">
-                <span class="section-label">Proyectos</span>
-                <h2 class="section-title">Proyectos y Casos</h2>
-                <p class="section-desc">Integración, automatización y analítica aplicadas al negocio.</p>
+                <h2 class="section-title">Proyectos</h2>
             </div>
             <div class="casos-grid">
-                <a href="portfolio-details1.html" class="caso-card" target="_blank">
+                <a href="portfolio-details1.html" class="caso-card" target="_blank" rel="noopener noreferrer">
                     <div class="caso-image"><img src="assets/img/portfolio/PBI-1.webp.gif" alt="Reportes Automáticos"></div>
                     <div class="caso-content">
-                        <span class="caso-tag">Automatización</span>
-                        <h3>Automatización de Información</h3>
-                        <p>Menos trabajo manual y datos disponibles a tiempo.</p>
+                        <span class="caso-tag">Proyecto demostrativo</span>
+                        <h3>Power Apps + SQL + Power BI</h3>
+                        <p>Captura, trazabilidad y reporting.</p>
                     </div>
                 </a>
-                <a href="portfolio-details2.html" class="caso-card" target="_blank">
+                <a href="portfolio-details2.html" class="caso-card" target="_blank" rel="noopener noreferrer">
                     <div class="caso-image"><img src="assets/img/portfolio/PBI-2.webp.gif" alt="Análisis de Desempeño"></div>
                     <div class="caso-content">
-                        <span class="caso-tag">Rentabilidad</span>
-                        <h3>Desempeño Comercial</h3>
-                        <p>Indicadores por vendedor y región para decidir mejor.</p>
+                        <span class="caso-tag">Proyecto aplicado</span>
+                        <h3>Desempeño comercial</h3>
+                        <p>KPIs por vendedor y región.</p>
                     </div>
                 </a>
-                <a href="portfolio-details3.html" class="caso-card" target="_blank">
+                <a href="portfolio-details3.html" class="caso-card" target="_blank" rel="noopener noreferrer">
                     <div class="caso-image"><img src="assets/img/portfolio/ING-8.webp.gif" alt="Análisis Regional"></div>
                     <div class="caso-content">
-                        <span class="caso-tag">Geografía</span>
-                        <h3>Análisis Regional</h3>
-                        <p>Información territorial para evaluar oportunidades.</p>
+                        <span class="caso-tag">Proyecto aplicado</span>
+                        <h3>Análisis regional</h3>
+                        <p>Análisis geográfico de desempeño.</p>
                     </div>
                 </a>
-                <a href="portfolio-details4.html" class="caso-card" target="_blank">
+                <a href="portfolio-details4.html" class="caso-card" target="_blank" rel="noopener noreferrer">
                     <div class="caso-image"><img src="assets/img/portfolio/medallion_eccomerce.gif" alt="Análisis de Productos"></div>
                     <div class="caso-content">
-                        <span class="caso-tag">Margen</span>
-                        <h3>Rentabilidad por Producto</h3>
-                        <p>Margen, precio y desempeño por producto.</p>
+                        <span class="caso-tag">Proyecto aplicado</span>
+                        <h3>Ventas y margen</h3>
+                        <p>Ventas, margen y rentabilidad por producto.</p>
                     </div>
                 </a>
-                <a href="portfolio-details10.html" class="caso-card" target="_blank">
+                <a href="portfolio-details10.html" class="caso-card" target="_blank" rel="noopener noreferrer">
                     <div class="caso-image"><img src="assets/img/portfolio/PBI-3.webp.gif" alt="Datos Centralizados"></div>
                     <div class="caso-content">
-                        <span class="caso-tag">Integración</span>
-                        <h3>Unificación de Datos</h3>
-                        <p>Fuentes integradas para una misma versión de la información.</p>
+                        <span class="caso-tag">Proyecto técnico E2E</span>
+                        <h3>Arquitectura de datos</h3>
+                        <p>Integración, modelado y consumo en Power BI.</p>
                     </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- EXPERIENCIA SECTORIAL -->
-    <section class="experiencia" id="experiencia">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-label">Credibilidad</span>
-                <h2 class="section-title">Trayectoria Profesional</h2>
-                <p class="section-desc">Experiencia acumulada en roles y proyectos de BI, incluyendo participaciones a través de consultorías.</p>
-            </div>
-            <div class="experiencia-grid">
-                <div class="experiencia-card">
-                    <span class="experiencia-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M3 7h18"/>
-                            <path d="M6 3h12v18H6z"/>
-                            <path d="M9 11h6"/>
-                            <path d="M9 15h3"/>
-                        </svg>
-                    </span>
-                    <h3>Retail</h3>
-                </div>
-
-                <div class="experiencia-card">
-                    <span class="experiencia-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 4h8"/>
-                            <path d="M9 4v4l-4 6a4 4 0 0 0 3.4 6h7.2A4 4 0 0 0 19 14l-4-6V4"/>
-                            <path d="M8 14h8"/>
-                        </svg>
-                    </span>
-                    <h3>Farmacéutica</h3>
-                </div>
-
-                <div class="experiencia-card">
-                    <span class="experiencia-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="3" y="6" width="18" height="12" rx="2"/>
-                            <path d="M3 10h18"/>
-                            <path d="M7 14h4"/>
-                        </svg>
-                    </span>
-                    <h3>Servicios Financieros</h3>
-                </div>
-
-                <div class="experiencia-card">
-                    <span class="experiencia-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="9" cy="19" r="1.5"/>
-                            <circle cx="17" cy="19" r="1.5"/>
-                            <path d="M3 4h2l2.2 10.2a1 1 0 0 0 1 .8h8.9a1 1 0 0 0 1-.8L20 7H7"/>
-                        </svg>
-                    </span>
-                    <h3>eCommerce</h3>
-                </div>
-
-                <div class="experiencia-card">
-                    <span class="experiencia-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 6h16"/>
-                            <path d="M5 6l1.5 10a2 2 0 0 0 2 1.7h7a2 2 0 0 0 2-1.7L19 6"/>
-                            <path d="M10 10v4"/>
-                            <path d="M14 10v4"/>
-                        </svg>
-                    </span>
-                    <h3>Restaurantes</h3>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- CREDIBILIDAD Y DIAGNÓSTICO -->
     <section class="credibilidad-diagnostico" id="credibilidad">
@@ -1373,7 +1429,6 @@
                             <div style="display: flex; flex-direction: row; align-items: center; gap: 1.7rem; text-align: left; padding: 0.6rem 0.9rem 0.6rem 0.35rem; background: transparent; border-radius: 0; border: none; transition: transform 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
                                 <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Logo" width="60" height="60" style="flex-shrink:0; display:block; filter: drop-shadow(0 4px 10px rgba(255,116,32,0.15)); transition: transform 0.3s ease;">
                                 <div>
-                                    <p style="font-size: 0.65rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin: 0; font-weight: 900;">Microsoft Certified</p>
                                     <p style="font-size: 0.9rem; color: var(--text-white); font-weight: 800; margin: 0.3rem 0 0 0; line-height: 1.2;">Fabric Analytics Engineer</p>
                                 </div>
                             </div>
@@ -1383,7 +1438,6 @@
                             <div style="display: flex; flex-direction: row; align-items: center; gap: 1.7rem; text-align: left; padding: 0.6rem 0.9rem 0.6rem 0.35rem; background: transparent; border-radius: 0; border: none; transition: transform 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
                                 <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Logo" width="60" height="60" style="flex-shrink:0; display:block; filter: drop-shadow(0 4px 10px rgba(255,116,32,0.15)); transition: transform 0.3s ease;">
                                 <div>
-                                    <p style="font-size: 0.65rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin: 0; font-weight: 900;">Microsoft Certified</p>
                                     <p style="font-size: 0.9rem; color: var(--text-white); font-weight: 800; margin: 0.3rem 0 0 0; line-height: 1.2;">Power Platform Consultant</p>
                                 </div>
                             </div>
@@ -1393,14 +1447,13 @@
                             <div style="display: flex; flex-direction: row; align-items: center; gap: 1.7rem; text-align: left; padding: 0.6rem 0.9rem 0.6rem 0.35rem; background: transparent; border-radius: 0; border: none; transition: transform 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
                                 <img src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Logo" width="60" height="60" style="flex-shrink:0; display:block; filter: drop-shadow(0 4px 10px rgba(255,116,32,0.15)); transition: transform 0.3s ease;">
                                 <div>
-                                    <p style="font-size: 0.65rem; color: var(--accent); text-transform: uppercase; letter-spacing: 1px; margin: 0; font-weight: 900;">Microsoft Certified</p>
                                     <p style="font-size: 0.9rem; color: var(--text-white); font-weight: 800; margin: 0.3rem 0 0 0; line-height: 1.2;">Power BI Data Analyst</p>
                                 </div>
                             </div>
                         </a>
 
                         <!-- LINKEDIN LINK -->
-                        <a href="https://www.linkedin.com/in/hugo-ernesto-roldan/" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                        <a href="https://www.linkedin.com/in/hugo-ernesto-roldan/" target="_blank" rel="me noopener noreferrer" style="text-decoration: none; color: inherit; display: block; width: 100%;">
                             <div style="display: flex; flex-direction: row; align-items: center; gap: 1.7rem; text-align: left; padding: 0.6rem 0.9rem 0.6rem 0.35rem; background: transparent; border-radius: 0; border: none; transition: transform 0.2s ease;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">
                                 <!-- MODIFICADO: Contenedor Cuadrado con Esquinas Redondeadas -->
                                 <div style="width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
@@ -1419,13 +1472,13 @@
 
                 <!-- DERECHA: FORMULARIO -->
                 <div style="background: linear-gradient(180deg, rgba(0, 120, 212, 0.05) 0%, rgba(255, 116, 32, 0.05) 100%); border: 2px solid rgba(0, 120, 212, 0.3); border-radius: 1.2rem; padding: 2.5rem 2.5rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); display: flex; flex-direction: column; justify-content: center; min-height: 400px;">
-                    <h3 style="text-align: center; font-family: 'Manrope', sans-serif; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2.5px; background: linear-gradient(135deg, #0078D4, #1084D7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0 0 1rem 0;">Evaluar un proyecto</h3>
-                    <p style="text-align: center; font-size: 0.85rem; color: var(--text-light); margin: 0 0 2rem 0; font-weight: 500;">Cuéntame qué necesitas unificar, automatizar o analizar.</p>
+                    <h3 style="text-align: center; font-family: 'Manrope', sans-serif; font-size: 1.4rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2.5px; background: linear-gradient(135deg, #0078D4, #1084D7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin: 0 0 1rem 0;">Proyecto de BI</h3>
+                    <p style="text-align: center; font-size: 0.85rem; color: var(--text-light); margin: 0 0 2rem 0; font-weight: 500;">Alcance o entregable</p>
                     <form action="https://formspree.io/f/mjkajgro" method="POST" class="contact-form" style="display: flex; flex-direction: column; gap: 1rem;">
-                        <input type="hidden" name="_subject" value="Solicitud de proyecto – IEO Analytics">
+                        <input type="hidden" name="_subject" value="Consulta de proyecto – IEO Analytics">
                         <input type="text" name="name" required placeholder="Tu nombre" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 120, 212, 0.3); color: var(--text-white); padding: 0.9rem 1.2rem; border-radius: 0.6rem; font-size: 0.95rem; transition: all 0.3s ease;" />
                         <input type="email" name="email" required placeholder="Tu email" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 120, 212, 0.3); color: var(--text-white); padding: 0.9rem 1.2rem; border-radius: 0.6rem; font-size: 0.95rem; transition: all 0.3s ease;" />
-                        <textarea name="message" required placeholder="Cuéntame sobre tu reto de datos..." style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 120, 212, 0.3); color: var(--text-white); padding: 0.9rem 1.2rem; border-radius: 0.6rem; font-size: 0.95rem; min-height: 80px; transition: all 0.3s ease; resize: none;"></textarea>
+                        <textarea name="message" required placeholder="¿Qué necesitas resolver?" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(0, 120, 212, 0.3); color: var(--text-white); padding: 0.9rem 1.2rem; border-radius: 0.6rem; font-size: 0.95rem; min-height: 80px; transition: all 0.3s ease; resize: none;"></textarea>
                         <button type="submit" style="width: 100%; background: linear-gradient(135deg, #0078D4, #1084D7); color: white; padding: 0.9rem; border: none; border-radius: 0.6rem; font-weight: 700; font-size: 0.9rem; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 120, 212, 0.3); margin-top: 1rem;">Enviar consulta</button>
                         <p style="text-align: center; font-size: 0.8rem; color: var(--text-light); margin: 0.5rem 0 0 0; font-weight: 500;">contacto@ieoanalytics.com</p>
                     </form>
@@ -1437,22 +1490,14 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <p>© 2026 IEO Analytics · Hugo Ernesto Roldán</p>
-            <p>contacto@ieoanalytics.com</p>
+            <p>© 2026 IEO Analytics · Hugo Ernesto Roldán · contacto@ieoanalytics.com</p>
         </div>
     </footer>
 
     <!-- WHATSAPP -->
-    <a href="https://wa.me/5215513407872?text=Hola%2C%20quiero%20conversar%20sobre%20un%20proyecto%20de%20BI%20y%20datos" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" title="Contactar por WhatsApp">
-        <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="whatsappGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#25D366;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#1DA853;stop-opacity:1" />
-                </linearGradient>
-            </defs>
-            <circle fill="url(#whatsappGrad)" cx="30" cy="30" r="30"/>
-            <path d="M 30 12 C 20.06 12 12 20.06 12 30 C 12 33.89 13.1 37.46 15.01 40.37 L 13.24 46.78 L 19.9 44.83 C 22.7 46.53 26.02 47.5 30 47.5 C 39.94 47.5 48 39.44 48 29.5 C 48 24.32 45.96 19.62 42.35 16.24 C 38.74 12.86 33.67 12 30 12 Z M 30 14 C 33.08 14 36.79 14.8 39.83 17.68 C 42.87 20.56 44.8 24.48 44.8 29.5 C 44.8 38.22 38.22 45.5 30 45.5 C 26.5 45.5 23.2 44.67 20.33 43.1 L 15.41 44.96 L 17.24 39.42 C 15.6 36.74 14.8 33.58 14.8 30 C 14.8 21.28 21.38 14 30 14 Z M 25.12 22.55 C 24.82 22.55 24.2 22.65 23.7 23.25 C 23.2 23.85 21.9 25.05 21.9 27.3 C 21.9 29.55 23.75 31.75 23.98 32.1 C 24.21 32.45 27.3 37.06 32.13 38.73 C 35.47 40.0 36.42 39.8 37.4 39.7 C 38.38 39.6 40.37 38.36 40.75 37.05 C 41.13 35.74 41.13 34.62 40.99 34.37 C 40.85 34.12 40.5 34.02 39.98 33.8 C 39.46 33.58 37.3 32.56 36.82 32.37 C 36.34 32.18 35.99 32.09 35.64 32.62 C 35.29 33.15 34.3 34.32 34.01 34.67 C 33.72 35.02 33.43 35.05 32.91 34.83 C 32.39 34.61 30.63 34.08 28.56 32.29 C 26.89 30.89 25.81 29.12 25.52 28.59 C 25.23 28.06 25.48 27.8 25.7 27.58 C 25.89 27.39 26.13 27.05 26.36 26.75 C 26.59 26.45 26.68 26.23 26.86 25.88 C 27.04 25.53 26.95 25.23 26.82 25.01 C 26.69 24.79 25.64 22.55 25.12 22.55 Z" fill="white"/>
+    <a href="https://wa.me/5215513407872?text=Hola%2C%20quiero%20consultar%20un%20proyecto%20de%20BI" class="whatsapp-btn" target="_blank" rel="noopener noreferrer" title="Contactar por WhatsApp" aria-label="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.009-.371-.011-.57-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479s1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.004 21.5h-.004a9.42 9.42 0 0 1-4.8-1.313l-.344-.204-3.569.936.953-3.479-.224-.357A9.43 9.43 0 0 1 2.571 12c0-5.198 4.229-9.426 9.433-9.426a9.37 9.37 0 0 1 6.668 2.762A9.37 9.37 0 0 1 21.429 12c-.002 5.199-4.23 9.429-9.425 9.5m8.027-17.027A11.27 11.27 0 0 0 12.008 1.15C5.77 1.15.695 6.225.693 12.463c0 1.995.52 3.943 1.508 5.66L.6 23.974l5.987-1.57a11.3 11.3 0 0 0 5.416 1.379h.005c6.237 0 11.313-5.076 11.316-11.314a11.24 11.24 0 0 0-3.293-7.996Z"/>
         </svg>
     </a>
 </body>
