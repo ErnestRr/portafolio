@@ -74,9 +74,9 @@
     },
     {
       "@type": "Service",
-      "name": "Rescate de reportes existentes",
+      "name": "Rescate de información que no cuadra",
       "provider": { "@id": "https://www.ieoanalytics.com/#hugo-ernesto-roldan" },
-      "description": "Auditoría del modelo y de las medidas DAX, corrección de cifras inconsistentes y optimización de tiempos de carga. 1 a 2 semanas."
+      "description": "Revisión técnica del modelo de datos y de la lógica de cálculo, corrección de discrepancias atribuibles al modelo y optimización de tiempos de carga. 1 a 2 semanas."
     }
   ]
 }
@@ -233,6 +233,9 @@
   .servicio-list { display: grid; gap: 0.65rem; flex: 1; margin-bottom: 1.6rem; }
   .servicio-list li { display: flex; gap: 0.65rem; font-size: 0.9rem; line-height: 1.55; color: var(--text-light); }
   .servicio-list li::before { content: '→'; color: var(--accent); font-weight: 700; flex: none; }
+  .servicio-alcance { font-size: 0.76rem; line-height: 1.55; color: rgba(167,180,201,0.66); margin-bottom: 0.9rem; text-wrap: pretty; }
+  .aviso-legal { margin-top: 2.2rem; padding-top: 1.4rem; border-top: 1px solid var(--border); font-size: 0.76rem; line-height: 1.7; color: rgba(167,180,201,0.6); text-wrap: pretty; }
+  .servicio-precio { font-family: 'Manrope', sans-serif; font-size: 1.02rem; font-weight: 800; color: var(--accent); letter-spacing: -0.01em; margin-bottom: 1.1rem; }
   .servicio-card .btn { width: 100%; }
 
   .sub-note { margin-top: 1.15rem; background: rgba(255,255,255,0.025); border: 1px solid var(--border); border-radius: 0.7rem; padding: clamp(1.2rem, 2vw, 1.6rem) clamp(1.4rem, 2.4vw, 2rem); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; }
@@ -240,6 +243,23 @@
   .sub-note a { font-weight: 700; font-size: 0.92rem; border-bottom: 2px solid var(--accent); padding-bottom: 2px; color: var(--text-white); min-height: 44px; display: inline-flex; align-items: center; }
   .sub-note a:hover { color: var(--accent); }
   .price-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 1.1rem; line-height: 1.6; }
+
+  .mensual { margin-top: 1.6rem; position: relative; overflow: hidden; background: linear-gradient(120deg, rgba(255,116,32,0.13) 0%, rgba(255,116,32,0.04) 46%, rgba(255,255,255,0.02) 100%); border: 1px solid var(--accent); border-radius: 0.85rem; padding: clamp(1.7rem, 3vw, 2.6rem) clamp(1.5rem, 3vw, 2.8rem); display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(240px, 0.85fr); gap: clamp(1.6rem, 3.5vw, 3.4rem); align-items: center; }
+  .mensual::after { content: ''; position: absolute; top: -90px; right: -60px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(255,116,32,0.14) 0%, transparent 68%); pointer-events: none; }
+  .mensual-body { position: relative; z-index: 2; }
+  .mensual-label { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--border-accent); background: rgba(255,116,32,0.08); padding: 0.4rem 0.7rem; border-radius: 0.3rem; margin-bottom: 1rem; }
+  .mensual h3 { font-size: clamp(1.4rem, 2.4vw, 1.95rem); font-weight: 800; letter-spacing: -0.025em; margin-bottom: 0.7rem; }
+  .mensual p.mensual-text { font-size: clamp(0.96rem, 1.2vw, 1.05rem); color: var(--text-light); line-height: 1.68; max-width: 62ch; text-wrap: pretty; }
+  .mensual-side { position: relative; z-index: 2; display: grid; gap: 1rem; }
+  .mensual-detail { display: grid; gap: 0.45rem; border-top: 1px solid var(--border-accent); padding-top: 1rem; }
+  .mensual-detail li { display: flex; align-items: baseline; gap: 0.55rem; font-size: 0.9rem; color: var(--text-light); }
+  .mensual-detail li::before { content: '·'; color: var(--accent); font-weight: 800; }
+  .mensual-detail li:first-child { font-family: 'Manrope', sans-serif; font-size: 1.12rem; font-weight: 800; color: var(--text-white); }
+  .mensual-detail li:first-child::before { content: ''; display: none; }
+
+  .cap-note { margin-top: 1.6rem; display: grid; gap: 0.55rem; }
+  .cap-note p { font-size: 0.82rem; line-height: 1.65; color: var(--text-muted); max-width: 92ch; text-wrap: pretty; }
+  .cap-note p.stack-note { font-size: 0.78rem; color: rgba(167,180,201,0.72); letter-spacing: 0.02em; }
 
   /* ---------- PROCESO ---------- */
   .proceso-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(1.15rem, 1.6vw, 1.6rem); }
@@ -267,20 +287,20 @@
 
   /* ---------- PERFIL ---------- */
   .perfil { background: var(--dark-alt); }
-  .perfil .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: clamp(2.4rem, 5.5vw, 6rem); align-items: start; }
+  .perfil .container { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: clamp(2.4rem, 4.5vw, 4.5rem); align-items: start; }
   .perfil p.body { font-size: clamp(0.98rem, 1.25vw, 1.08rem); color: var(--text-light); line-height: 1.75; text-wrap: pretty; margin-bottom: 1.1rem; }
   .ventajas { display: grid; gap: 1rem; border-top: 1px solid var(--border); padding-top: 1.6rem; margin-top: 1.6rem; }
   .ventajas li { display: flex; gap: 0.9rem; align-items: flex-start; font-size: 0.96rem; line-height: 1.6; color: var(--text-light); }
   .ventajas li span.n { font-size: 0.72rem; font-weight: 800; color: var(--accent); padding-top: 0.32rem; flex: none; letter-spacing: 0.06em; }
   .ventajas strong { color: var(--text-white); font-weight: 800; }
 
-  .certs-list { display: grid; gap: 0.7rem; }
-  .cert-item { display: flex; align-items: center; gap: 1rem; background: rgba(255,255,255,0.025); border: 1px solid var(--border); border-radius: 0.6rem; padding: 0.9rem 1.1rem; color: inherit; transition: border-color 0.25s ease, transform 0.25s ease; }
+  .certs-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 0.7rem; align-items: stretch; }
+  .cert-item { display: flex; align-items: center; gap: 0.9rem; background: rgba(255,255,255,0.025); border: 1px solid var(--border); border-radius: 0.6rem; padding: 0.9rem 1.1rem; color: inherit; transition: border-color 0.25s ease, transform 0.25s ease; }
   .cert-item:hover { border-color: var(--border-accent); transform: translateY(-2px); color: inherit; }
-  .cert-item img, .cert-item .cert-icon { width: 46px; height: 46px; flex: none; display: grid; place-items: center; }
+  .cert-item img, .cert-item .cert-icon { width: 40px; height: 40px; flex: none; display: grid; place-items: center; }
   .cert-item .cert-name { font-size: 0.95rem; font-weight: 800; }
   .cert-item .cert-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.15rem; }
-  .cert-item .cert-go { margin-left: auto; font-size: 0.76rem; color: var(--text-muted); flex: none; }
+  .cert-item .cert-go { margin-left: auto; font-size: 0.74rem; color: var(--text-muted); flex: none; }
 
   /* ---------- CONTACTO ---------- */
   .contacto { background: radial-gradient(100% 80% at 88% 0%, #16305c 0%, var(--dark) 62%); }
@@ -337,6 +357,8 @@
     .pilares-grid .pilar:not(:last-child) { border-right: none; }
     .casos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .servicio-meta { gap: 1.2rem; }
+    .mensual { grid-template-columns: 1fr; gap: 1.6rem; }
+    .perfil .container { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) {
     nav.main-nav { display: none; }
@@ -370,7 +392,6 @@
 </a>
 <nav aria-label="Navegación principal" class="main-nav">
 <a href="#servicios">Servicios</a>
-<a href="#proceso">Cómo trabajo</a>
 <a href="#casos">Proyectos</a>
 <a href="#perfil">Sobre mí</a>
 <a class="btn-header" href="#contacto">Consultar proyecto</a>
@@ -384,11 +405,11 @@
 <section class="hero" id="top">
 <div class="container">
 <div>
-<p class="hero-badge">Business Intelligence · Proyectos y colaboración remota</p>
-<h1>De información dispersa a <span class="highlight">reporting que sostiene decisiones</span></h1>
-<p class="hero-lead">Para equipos que ya tienen datos pero no tienen respuestas. Alcance definido, entrega en semanas y un solo interlocutor de principio a fin.</p>
+<p class="hero-badge">Business Intelligence · Remoto</p>
+<h1>De datos dispersos a <span class="highlight">reporting que sostiene decisiones</span></h1>
+<p class="hero-lead">Alcance cerrado. Entrega en semanas.</p>
 <div class="hero-buttons">
-<a class="btn btn-primary" href="#servicios">Ver servicios y alcances</a>
+<a class="btn btn-primary" href="#servicios">Ver servicios</a>
 <a class="btn btn-secondary" href="#casos">Ver proyectos</a>
 </div>
 <div>
@@ -416,22 +437,18 @@
 <dl class="profile-list">
 <div>
 <dt>Modalidad</dt>
-<dd>Proyecto por alcance cerrado · remoto</dd>
+<dd>Alcance cerrado · remoto</dd>
 </div>
 <div>
 <dt>Base</dt>
-<dd>Ciudad de México · LATAM y España</dd>
+<dd>CDMX · LATAM y España</dd>
 </div>
 <div>
 <dt>Trayectoria</dt>
 <dd>Consultor BI en corporativos</dd>
 </div>
-<div>
-<dt>Colaboración</dt>
-<dd>Proyectos por alcance · roles remotos de BI</dd>
-</div>
 </dl>
-<a class="profile-cta" href="#contacto">Cuéntame tu caso en 30 min</a>
+<a class="profile-cta" href="#contacto">Cuéntame tu caso · 30 min</a>
 </aside>
 </div>
 </section>
@@ -442,18 +459,18 @@
 <div class="pilares-grid">
 <article class="pilar">
 <p class="pilar-label">01 · Rentabilidad</p>
-<h3>Identifico dónde se gana o se pierde margen</h3>
-<p>Margen real por producto, canal y cliente. No solo volumen.</p>
+<h3>Dónde se gana o se pierde margen</h3>
+<p>Por producto, canal y cliente.</p>
 </article>
 <article class="pilar">
 <p class="pilar-label">02 · Costos</p>
-<h3>Detecto sobrecostos y desviaciones</h3>
-<p>Dónde crecen los costos frente a presupuesto y qué es recuperable.</p>
+<h3>Sobrecostos y desviaciones</h3>
+<p>Frente a presupuesto, y qué es recuperable.</p>
 </article>
 <article class="pilar">
 <p class="pilar-label">03 · Eficiencia</p>
-<h3>Reduzco el tiempo dedicado al reporting</h3>
-<p>El equipo analiza en lugar de armar archivos cada semana.</p>
+<h3>Menos tiempo en reporting</h3>
+<p>El equipo analiza, no arma archivos.</p>
 </article>
 </div>
 </div>
@@ -464,15 +481,15 @@
 <div class="container">
 <div class="section-head">
 <p class="eyebrow">Servicios</p>
-<h2 class="section-title">Cuatro formas de resolverlo, con entregable y precio por escrito</h2>
-<p class="section-desc">Alcance cerrado, no por hora. Tras la llamada de diagnóstico recibes entregable, plazo y precio por escrito.</p>
+<h2 class="section-title">Cuatro formas de resolverlo</h2>
+<p class="section-desc">Alcance cerrado, nunca por hora. Precio por escrito tras la llamada de diagnóstico.</p>
 </div>
 
 <div class="servicios-grid">
 <article class="servicio-card">
 <p class="servicio-num">Paquete 01</p>
 <h3>Diagnóstico de rentabilidad</h3>
-<p class="servicio-pitch">Para cuando sospechas que hay margen perdido y necesitas saber dónde, rápido.</p>
+<p class="servicio-pitch">Hay margen perdido y no sabes dónde.</p>
 <dl class="servicio-meta">
 <div>
 <dt>Plazo</dt>
@@ -480,23 +497,23 @@
 </div>
 <div>
 <dt>Entrega</dt>
-<dd>Modelo + tablero</dd>
+<dd>Informe + modelo de margen</dd>
 </div>
 </dl>
 <ul class="servicio-list">
-<li>Revisión de fuentes y calidad de datos</li>
-<li>Modelo de margen por producto, canal y cliente</li>
-<li>Tablero Power BI con los hallazgos</li>
-<li>Sesión de conclusiones y plan de acción</li>
+<li>Costos reales por cliente, producto y canal</li>
+<li>Modelo documentado para el equipo</li>
+<li>Conclusiones y plan priorizado</li>
 </ul>
+<p class="servicio-alcance">Hasta 3 fuentes y 2 rondas de ajuste.</p>
 <a class="btn btn-outline-dark" href="#contacto">Consultar este alcance</a>
 </article>
 
 <article class="servicio-card featured">
 <p class="servicio-flag">Más solicitado</p>
 <p class="servicio-num">Paquete 02</p>
-<h3>Reporting automatizado</h3>
-<p class="servicio-pitch">Para cuando el equipo pierde días armando archivos y el cierre siempre llega tarde.</p>
+<h3>Información confiable, sin trabajo manual</h3>
+<p class="servicio-pitch">El cierre llega tarde y se pierden días en archivos.</p>
 <dl class="servicio-meta">
 <div>
 <dt>Plazo</dt>
@@ -504,22 +521,22 @@
 </div>
 <div>
 <dt>Entrega</dt>
-<dd>Tableros en producción</dd>
+<dd>Información en producción</dd>
 </div>
 </dl>
 <ul class="servicio-list">
-<li>Integración de fuentes: SQL, Excel, ERP, APIs</li>
-<li>Modelo dimensional y capa de métricas en DAX</li>
-<li>Tableros por área con actualización programada</li>
-<li>Documentación y capacitación al equipo</li>
+<li>Integración de contable, Excel y ERP</li>
+<li>Indicadores con definición única</li>
+<li>Actualización programada</li>
 </ul>
+<p class="servicio-alcance">Hasta 5 fuentes, 3 vistas y 2 rondas de ajuste.</p>
 <a class="btn btn-primary" href="#contacto">Consultar este alcance</a>
 </article>
 
 <article class="servicio-card">
 <p class="servicio-num">Paquete 03</p>
-<h3>Rescate de reportes existentes</h3>
-<p class="servicio-pitch">Para cuando ya tienes tableros pero nadie confía en las cifras o tardan una eternidad en cargar.</p>
+<h3>Rescate de información que no cuadra</h3>
+<p class="servicio-pitch">Tienes reportes, pero nadie confía en las cifras.</p>
 <dl class="servicio-meta">
 <div>
 <dt>Plazo</dt>
@@ -527,56 +544,39 @@
 </div>
 <div>
 <dt>Entrega</dt>
-<dd>Auditoría + correcciones</dd>
+<dd>Revisión + correcciones</dd>
 </div>
 </dl>
 <ul class="servicio-list">
-<li>Auditoría del modelo y de las medidas DAX</li>
-<li>Corrección de cifras que no cuadran</li>
-<li>Optimización de tiempos de carga y actualización</li>
-<li>Documentación de cómo mantenerlo</li>
+<li>Revisión del origen y la lógica de cálculo</li>
+<li>Corrección de discrepancias del modelo</li>
+<li>Causas documentadas</li>
 </ul>
+<p class="servicio-alcance">Un modelo existente y 2 rondas de ajuste.</p>
 <a class="btn btn-outline-dark" href="#contacto">Consultar este alcance</a>
 </article>
 </div>
 
+<div class="mensual">
+<div class="mensual-body">
+<p class="mensual-label">Esquema mensual</p>
+<h3>Área de datos externalizada</h3>
+<p class="mensual-text">Capacidad analítica permanente, sin equipo interno.</p>
+</div>
+<div class="mensual-side">
+<ul class="mensual-detail">
+<li>Mínimo 3 meses</li>
+<li>Sujeto a disponibilidad</li>
+</ul>
+<a class="btn btn-primary" href="#contacto">Ver cómo funciona</a>
+</div>
+</div>
+
 <div class="sub-note">
-<p><strong>¿Trabajas en una consultora?</strong> Tomo subcontratación por proyecto, bajo tu marca y con confidencialidad.</p>
+<p><strong>¿Trabajas en una consultora?</strong> Subcontratación por proyecto, bajo tu marca y con NDA.</p>
 <a href="#contacto">Hablemos de subcontratación</a>
 </div>
 
-</div>
-</section>
-
-<!-- PROCESO -->
-<section class="sec-pad" id="proceso">
-<div class="container">
-<div class="section-head">
-<p class="eyebrow">Cómo trabajo</p>
-<h2 class="section-title">Cuatro etapas, sin sorpresas de alcance</h2>
-</div>
-<ol class="proceso-grid">
-<li class="proceso-card">
-<p aria-hidden="true" class="proceso-num">01</p>
-<h3>Diagnóstico</h3>
-<p>Llamada de 30 min. Salida: alcance, plazo y precio firme.</p>
-</li>
-<li class="proceso-card">
-<p aria-hidden="true" class="proceso-num">02</p>
-<h3>Modelo</h3>
-<p>Validamos las definiciones de negocio antes de visualizar nada.</p>
-</li>
-<li class="proceso-card">
-<p aria-hidden="true" class="proceso-num">03</p>
-<h3>Entrega</h3>
-<p>Tableros en producción con actualización automática.</p>
-</li>
-<li class="proceso-card">
-<p aria-hidden="true" class="proceso-num">04</p>
-<h3>Transferencia</h3>
-<p>Documentación y capacitación: el equipo opera sin depender de mí.</p>
-</li>
-</ol>
 </div>
 </section>
 
@@ -585,8 +585,8 @@
 <div class="container">
 <div class="section-head">
 <p class="eyebrow">Proyectos</p>
-<h2 class="section-title">Trabajo entregado y el efecto que produjo</h2>
-<p class="section-desc">Tableros navegables, con datos anonimizados.</p>
+<h2 class="section-title">Trabajo entregado y su efecto</h2>
+<p class="section-desc">Tableros navegables, datos anonimizados.</p>
 </div>
 
 <div class="casos-grid">
@@ -595,7 +595,7 @@
 <div class="caso-content">
 <span class="caso-tag">Rentabilidad</span>
 <h3>Ventas y margen por producto</h3>
-<p class="caso-desc">Nadie sabía qué SKU destruía la utilidad. Modelo de margen real por producto, ciudad y vendedor.</p>
+<p class="caso-desc">Margen real por producto, ciudad y vendedor.</p>
 <dl class="caso-kpis">
 <div>
 <dd>18%</dd>
@@ -615,7 +615,7 @@
 <div class="caso-content">
 <span class="caso-tag">Desempeño comercial</span>
 <h3>KPIs por vendedor y región</h3>
-<p class="caso-desc">Cada región definía la cuota distinto. Definición unificada y seguimiento automático.</p>
+<p class="caso-desc">Una sola definición de cuota, seguimiento automático.</p>
 <dl class="caso-kpis">
 <div>
 <dd>2 sem→1 día</dd>
@@ -635,7 +635,7 @@
 <div class="caso-content">
 <span class="caso-tag">Cobertura territorial</span>
 <h3>Análisis geográfico de desempeño</h3>
-<p class="caso-desc">La inversión se repartía por inercia. Desempeño y cobertura cruzados por territorio.</p>
+<p class="caso-desc">Cobertura y desempeño cruzados por territorio.</p>
 <dl class="caso-kpis">
 <div>
 <dd>6</dd>
@@ -655,7 +655,7 @@
 <div class="caso-content">
 <span class="caso-tag">Integración end-to-end</span>
 <h3>Plataforma de datos en Fabric</h3>
-<p class="caso-desc">Cinco fuentes que se contradecían. Ingesta, transformación y consumo sobre una fuente única.</p>
+<p class="caso-desc">Cinco fuentes contradictorias, ahora una sola.</p>
 <dl class="caso-kpis">
 <div>
 <dd>5 → 1</dd>
@@ -678,14 +678,13 @@
 <section class="perfil sec-pad" id="perfil">
 <div class="container">
 <div>
-<p class="eyebrow">Cómo trabajo</p>
+<p class="eyebrow">Sobre mí</p>
 <h2 class="section-title">Una práctica pequeña, con estándar de consultoría</h2>
-<p class="body">En una firma grande el que vende no es el que modela. Aquí no hay traspaso: quien hace el diagnóstico construye el modelo y capacita a tu equipo.</p>
-<p class="body">Consultor BI certificado por Microsoft, con experiencia dentro de corporativos: conozco el número desde los dos lados — el que lo reporta y el que decide con él.</p>
+<p class="body">En una firma grande el que vende no es el que modela. Aquí quien diagnostica construye el modelo y capacita a tu equipo.</p>
 <ul class="ventajas">
 <li><span class="n">01</span><p><strong>Sin overhead.</strong> Pagas análisis, no estructura de firma.</p></li>
 <li><span class="n">02</span><p><strong>Alcance cerrado.</strong> Precio y plazo definidos antes de firmar.</p></li>
-<li><span class="n">03</span><p><strong>Sin dependencia.</strong> Entrego documentado y capacitado.</p></li>
+<li><span class="n">03</span><p><strong>Sin dependencia.</strong> Documentado y capacitado.</p></li>
 </ul>
 </div>
 
@@ -716,11 +715,11 @@
 </div>
 <span class="cert-go">verificar ↗</span>
 </a>
-<a class="cert-item" href="https://learn.microsoft.com/api/credentials/share/es-mx/Ernesto-8560/178401EBE39866B" rel="noopener noreferrer" target="_blank">
+<a class="cert-item" href="https://learn.microsoft.com/es-mx/users/Ernesto-8560/credentials/" rel="noopener noreferrer" target="_blank">
 <img alt="" aria-hidden="true" decoding="async" height="46" loading="lazy" src="https://learn.microsoft.com/media/learn/certification/badges/microsoft-certified-associate-badge.svg" width="46"/>
 <div>
 <p class="cert-name">AI Agent Builder Associate</p>
-<p class="cert-sub">Microsoft Certified · Associate </p>
+<p class="cert-sub">Microsoft Certified · AB-620</p>
 </div>
 <span class="cert-go">verificar ↗</span>
 </a>
@@ -729,8 +728,8 @@
 <svg fill="#0a66c2" height="34" viewBox="0 0 24 24" width="34"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.8v8.37h2.8v-4.87c0-.26.05-.52.12-.7a1.11 1.11 0 0 1 .91-.7c.47-.02.9.27.9 1a3.4 3.4 0 0 1 0 .57v4.7h2.8M6.5 8.37a1.37 1.37 0 1 0 0-2.75 1.37 1.37 0 0 0 0 2.75M8 18.5V10.13H5.2V18.5H8Z"></path></svg>
 </span>
 <div>
-<p class="cert-name">Perfil profesional en LinkedIn</p>
-<p class="cert-sub">Trayectoria completa y recomendaciones</p>
+<p class="cert-name">Perfil en LinkedIn</p>
+<p class="cert-sub">Trayectoria completa</p>
 </div>
 <span class="cert-go">abrir ↗</span>
 </a>
@@ -744,8 +743,8 @@
 <div class="container">
 <div>
 <p class="eyebrow">Contacto</p>
-<h2 class="section-title">Hablemos de tu proyecto o de tu equipo</h2>
-<p class="section-desc">Una llamada de 30 minutos sin costo: me explicas tu caso y te digo cómo puedo ayudarte — o si no soy la persona indicada.</p>
+<h2 class="section-title">Hablemos de tu proyecto</h2>
+<p class="section-desc">Llamada de 30 minutos sin costo.</p>
 <dl class="contact-datos">
 <div>
 <dt>Correo</dt>
@@ -757,7 +756,7 @@
 </div>
 <div>
 <dt>Respuesta</dt>
-<dd>En menos de 24 h hábiles</dd>
+<dd>Menos de 24 h hábiles</dd>
 </div>
 </dl>
 </div>
@@ -791,10 +790,10 @@
 </label>
 <label>
 <span>Contexto del proyecto</span>
-<textarea name="message" placeholder="Qué información tienes y qué decisión no puedes tomar hoy." required="required" rows="3"></textarea>
+<textarea name="message" placeholder="Qué datos tienes y qué decisión no puedes tomar." required="required" rows="3"></textarea>
 </label>
 <button type="submit">Enviar consulta</button>
-<p class="form-legal">Solo para responder esta consulta. Firmo NDA cuando el proyecto lo requiere.</p>
+<p class="form-legal">Solo para responder esta consulta. Firmo NDA si aplica.</p>
 </form>
 </div>
 </section>
@@ -807,7 +806,6 @@
 <p>© 2026 IEO Analytics · Hugo Ernesto Roldán · <a href="mailto:contacto@ieoanalytics.com">contacto@ieoanalytics.com</a></p>
 <nav aria-label="Navegación de pie de página">
 <a href="#servicios">Servicios</a>
-<a href="#proceso">Cómo trabajo</a>
 <a href="#casos">Proyectos</a>
 <a href="#perfil">Sobre mí</a>
 <a href="#contacto">Contacto</a>
