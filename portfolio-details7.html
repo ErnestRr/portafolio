@@ -66,6 +66,38 @@
           box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 
                       0 4px 6px -2px rgba(0, 0, 0, 0.2);
       }
+      /* Chat embebido: estilos */
+      .chat-toggle {
+        position: fixed;
+        right: 96px;
+        bottom: 28px;
+        z-index: 60;
+        background: linear-gradient(135deg,#111827,#0b1220);
+        color: #E2E8F0;
+        padding: 10px 14px;
+        border-radius: 9999px;
+        box-shadow: 0 8px 20px rgba(2,6,23,0.6);
+        border: 1px solid rgba(255,255,255,0.04);
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .chat-panel {
+        position: fixed;
+        right: 20px;
+        top: 120px;
+        width: 420px;
+        height: calc(100vh - 160px);
+        border-radius: 12px;
+        overflow: hidden;
+        background: #071027;
+        border: 1px solid #334155;
+        z-index: 60;
+        box-shadow: 0 20px 50px rgba(2,6,23,0.6);
+        display: flex;
+        flex-direction: column;
+      }
+      .chat-panel iframe { width: 100%; height: 100%; border: 0; display: block; }
+      .chat-panel .panel-header { display:flex; align-items:center; justify-content:space-between; padding:8px 12px; background:linear-gradient(90deg,#0b1220,#071027); color:#E2E8F0; font-weight:600; }
     </style>
 </head>
 
@@ -218,6 +250,55 @@
     </div>
   </footer>
   
+  <!-- Chat embebido: botón y panel -->
+  <button id="chatToggle" class="chat-toggle" aria-label="Abrir chat">Chat</button>
+  <div id="chatPanel" class="chat-panel hidden" role="dialog" aria-label="Chat del reporte">
+    <div class="panel-header">
+      <div>Chat (solo pruebas)</div>
+      <button id="chatClose" aria-label="Cerrar chat" style="background:transparent;border:0;color:#E2E8F0;font-weight:700;cursor:pointer">×</button>
+    </div>
+    <div style="padding:12px;color:#cbd5e1;background:transparent;font-size:14px;">
+      <p style="margin:0 0 8px 0;color:#e6eef8;font-size:13px;">Prueba el chat usando la siguiente URL:</p>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <a id="panelOpenBtn" href="#" class="btn-primary-dark" style="text-decoration:none">Abrir en pestaña</a>
+        <a id="panelOpenLink" href="http://localhost:5678/webhook/12cf4d3c-2810-43a5-9f87-8cbc83379a0d/chat" target="_blank" rel="noopener noreferrer" style="color:#9fb7d8;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:210px;display:inline-block">http://localhost:5678/.../chat</a>
+      </div>
+    </div>
+    <div id="chatFrameContainer" style="flex:1; background:#071027;">
+      <!-- iframe se cargará aquí al mostrar el panel -->
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      var toggle = document.getElementById('chatToggle');
+      var panel = document.getElementById('chatPanel');
+      var closeBtn = document.getElementById('chatClose');
+      if(!toggle || !panel) return;
+      var chatUrl = 'http://localhost:5678/webhook/12cf4d3c-2810-43a5-9f87-8cbc83379a0d/chat';
+      var frameContainer = document.getElementById('chatFrameContainer');
+      var panelOpenBtn = document.getElementById('panelOpenBtn');
+      toggle.addEventListener('click', function(){
+        if(panel.classList.contains('hidden')){
+          panel.classList.remove('hidden');
+          // lazy-load iframe
+          if(frameContainer && !frameContainer.querySelector('iframe')){
+            var iframe = document.createElement('iframe');
+            iframe.src = chatUrl;
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.border = '0';
+            frameContainer.appendChild(iframe);
+          }
+        } else {
+          panel.classList.add('hidden');
+        }
+      });
+      if(panelOpenBtn) panelOpenBtn.addEventListener('click', function(e){ e.preventDefault(); window.open(chatUrl, '_blank'); });
+      if(closeBtn) closeBtn.addEventListener('click', function(){ panel.classList.add('hidden'); });
+    })();
+  </script>
+
   <a href="https://wa.me/5215513407872?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20de%20BI%20y%20automatizaci%C3%B3n" 
      target="_blank" 
      rel="noopener noreferrer"
