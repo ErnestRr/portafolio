@@ -1,246 +1,276 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
-    <base target="_top">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalles del Proyecto | AIRBNB</title>
-    
+
+    <title>Agente de IA sobre un modelo semántico en Power BI | IEO Analytics</title>
+    <meta name="description" content="Agente de IA que responde preguntas de negocio en lenguaje natural sobre un modelo semántico de Microsoft Fabric, con Power BI como capa visual. Caso construido sobre 23,014 alojamientos de Airbnb en CDMX.">
+    <link rel="canonical" href="https://www.ieoanalytics.com/portfolio-agenteIA_powerbi.html">
+    <meta property="og:title" content="Agente de IA sobre un modelo semántico en Power BI | IEO Analytics">
+    <meta property="og:description" content="Preguntas en lenguaje natural sobre las métricas del negocio, respondidas desde el modelo semántico y no desde una suposición del modelo de lenguaje.">
+    <meta property="og:image" content="https://www.ieoanalytics.com/assets/agente_ia_powerbi.gif">
+    <meta property="og:url" content="https://www.ieoanalytics.com/portfolio-agenteIA_powerbi.html">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="es_MX">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CreativeWork",
+      "name": "Agente de IA sobre un modelo semántico en Power BI",
+      "description": "Agente conversacional conectado a un modelo semántico de Microsoft Fabric que responde preguntas de negocio en lenguaje natural.",
+      "url": "https://www.ieoanalytics.com/portfolio-agenteIA_powerbi.html",
+      "inLanguage": "es-MX",
+      "keywords": "agente de IA, Power BI, Microsoft Fabric, modelo semántico, n8n, lenguaje natural, Business Intelligence",
+      "creator": {
+        "@type": "Person",
+        "name": "Hugo Ernesto Roldán",
+        "alternateName": "Ernesto Roldán",
+        "jobTitle": "Consultor de pricing y rentabilidad",
+        "url": "https://www.ieoanalytics.com/",
+        "sameAs": ["https://www.linkedin.com/in/hugo-ernesto-roldan/"]
+      },
+      "isPartOf": { "@type": "WebSite", "name": "IEO Analytics", "url": "https://www.ieoanalytics.com/" }
+    }
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               ieo: {
-                bg: '#0F172A',
-                card: '#1E293B',
-                text: '#E2E8F0',
-                primary: '#3B82F6',
-                accent: '#60A5FA',
-                dark_success: '#15803d',
+                bg: '#0a1628', card: '#0d1c35', text: '#ffffff',
+                primary: '#ff7420', accent: '#ff5f00', dark_success: '#0e8c6f',
+                muted: '#a7b4c9', border: 'rgba(255,255,255,0.12)',
               }
             },
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-            }
+            fontFamily: { sans: ['Inter','sans-serif'], display: ['Manrope','sans-serif'] }
           }
         }
       }
     </script>
 
     <style>
-      body { background-color: #0F172A; color: #E2E8F0; scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
-      
+      :root {
+        --dark: #0a1628; --dark-alt: #0f2043; --dark-card: #0d1c35;
+        --accent: #ff7420; --accent-hover: #ff5f00; --accent-soft: rgba(255,116,32,0.09);
+        --text-white: #ffffff; --text-light: #dce4f2; --text-muted: #a7b4c9;
+        --border: rgba(255,255,255,0.085); --border-strong: rgba(255,255,255,0.14);
+        --border-accent: rgba(255,116,32,0.30);
+      }
+      html { scroll-behavior: smooth; }
+      body {
+        background: var(--dark);
+        background-image: radial-gradient(140% 60% at 50% 0%, rgba(22,48,92,0.28) 0%, transparent 60%);
+        background-attachment: fixed;
+        color: var(--text-white);
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+        font-variant-numeric: tabular-nums;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; letter-spacing: -0.02em; line-height: 1.2; overflow-wrap: break-word; }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { color: var(--accent-hover); }
+      :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
       .btn-primary-dark {
-        background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        background: linear-gradient(180deg, #ff8438 0%, var(--accent) 100%);
+        color: var(--dark); transition: all 0.25s ease;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.32), 0 2px 10px -3px rgba(255,116,32,0.6);
       }
       .btn-primary-dark:hover {
-        background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
-        box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.6);
-        transform: translateY(-2px);
+        background: linear-gradient(180deg, var(--accent) 0%, var(--accent-hover) 100%);
+        transform: translateY(-2px); color: var(--dark);
       }
-      
       .border-gradient-dark {
         position: relative;
-        background: #1E293B; 
-        border-radius: 1rem;
-        border: 1px solid #334155;
+        background: linear-gradient(180deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.012) 100%);
+        border: 1px solid var(--border); border-radius: 1.2rem;
+        box-shadow: 0 1px 2px rgba(4,10,22,0.28), 0 6px 16px -10px rgba(4,10,22,0.5);
       }
       .border-gradient-dark::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, #3B82F6, #60A5FA);
-        border-radius: 1rem 1rem 0 0;
+        content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+        background: linear-gradient(90deg, var(--accent), rgba(255,116,32,0.35));
+        border-radius: 1.2rem 1.2rem 0 0;
       }
-      
-      .shadow-elegant-dark {
-          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 
-                      0 4px 6px -2px rgba(0, 0, 0, 0.2);
-      }
-      
+      .shadow-elegant-dark { box-shadow: 0 1px 2px rgba(4,10,22,0.28), 0 18px 40px -22px rgba(4,10,22,0.68); }
+
       .video-container {
-        position: relative; 
-        padding-bottom: 56.25%;
-        height: 0; 
-        overflow: hidden; 
-        border-radius: 1rem; 
-        background: #0F172A;
+        position: relative; overflow: hidden;
+        border-radius: 1rem; background: rgba(10,22,40,0.9); border: 1px solid var(--border);
       }
-      .video-container img {
-        position: absolute; 
-        top: 0; 
-        left: 0; 
-        width: 100%; 
-        height: 100%; 
-        object-fit: contain;
-      }
+      .video-container img { display: block; width: 100%; height: auto; }
+      .meta-chip { font-size:.8rem; font-weight:600; color:var(--text-muted); border:1px solid var(--border);
+        background:linear-gradient(180deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.012) 100%);
+        border-radius:2rem; padding:.42rem .95rem; }
+
+      .text-ieo-primary { color: var(--accent) !important; }
+      .text-ieo-text { color: var(--text-white) !important; }
+      .text-ieo-text\/80 { color: rgba(220,228,242,0.8) !important; }
+      .text-ieo-text\/70 { color: rgba(220,228,242,0.7) !important; }
+      .bg-ieo-bg { background: var(--dark) !important; }
+      .bg-ieo-card { background: var(--dark-card) !important; }
+      .border-slate-700 { border-color: var(--border) !important; }
+      .text-ieo-dark_success { color: #46c69b !important; }
+
+      .whatsapp-btn { position: fixed; right: max(20px, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom)); width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(180deg, #2ee06f 0%, #1eb955 100%); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 10px rgba(0,0,0,0.25), 0 14px 30px -10px rgba(0,0,0,0.5); z-index: 90; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+      .whatsapp-btn svg { width: 27px; height: 27px; }
+      .whatsapp-btn:hover { transform: translateY(-2px); color: #fff; box-shadow: 0 11px 26px rgba(0,0,0,0.36); }
     </style>
 </head>
 
 <body class="antialiased min-h-screen">
-  
+
   <header class="bg-ieo-bg sticky top-0 z-50 border-b border-slate-700">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
       <div class="text-2xl font-bold tracking-wider">
         <a href="index.html" class="text-ieo-text">IEO <span class="text-ieo-primary">Analytics</span></a>
       </div>
-      <a href="index.html#portafolio" 
-         class="btn-primary-dark text-white font-semibold py-2.5 px-5 rounded-lg">
+      <a href="index.html#casos" class="btn-primary-dark font-semibold py-2.5 px-5 rounded-lg">
         <svg class="w-5 h-5 inline mr-2 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
-        Volver al Portafolio
+        Volver a proyectos
       </a>
     </div>
   </header>
 
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    
-    <div class="text-center mb-12">
-      <span class="text-ieo-primary uppercase tracking-widest text-sm font-semibold">Portafolio | IA Generativa Aplicada</span>
-      <h1 class="text-5xl font-extrabold text-ieo-text mt-2 leading-tight">
-        Agente IA de Seguimiento <br> de Pedidos
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+
+    <!-- HERO -->
+    <div class="max-w-4xl mb-10">
+      <span class="text-ieo-primary uppercase tracking-widest text-sm font-semibold">Portafolio · IA sobre modelo semántico</span>
+      <h1 class="text-4xl md:text-5xl font-extrabold text-ieo-text mt-3">
+        Preguntarle al tablero en vez de filtrarlo
       </h1>
-      <p class="mt-4 text-xl text-ieo-text/80 max-w-4xl mx-auto">
-        Agente conversacional inteligente 24/7 con Google Gemini, n8n y Airtable para automatizar consultas logísticas, eliminar errores humanos y reducir costos operativos.
+      <p class="mt-5 text-lg md:text-xl text-ieo-text/80">
+        Un agente de IA conectado al modelo semántico responde en lenguaje natural sobre alojamientos, reseñas y calendario. La cifra sale de las mismas definiciones que usa el reporte, no de una suposición del modelo de lenguaje.
       </p>
+      <div class="mt-6 flex flex-wrap gap-2">
+        <span class="meta-chip">Rol: diseño e implementación</span>
+        <span class="meta-chip">Datos: Airbnb Ciudad de México</span>
+        <span class="meta-chip">23,014 alojamientos</span>
+        <span class="meta-chip">Proyecto propio</span>
+      </div>
     </div>
 
-    <div class="mb-16 bg-ieo-card p-4 md:p-8 rounded-2xl shadow-elegant-dark">
+    <!-- DEMO -->
+    <figure class="mb-14 bg-ieo-card p-4 md:p-8 rounded-2xl shadow-elegant-dark">
       <div class="video-container border border-slate-700 rounded-xl overflow-hidden">
-        <img 
-          src="assets/video.gif" 
-          alt="Demostración Agente IA de Seguimiento de Pedidos"
-          class="w-full h-full object-contain"
+        <img
+          src="assets/agente_ia_powerbi.gif"
+          alt="Agente de IA conversando dentro de un tablero de Power BI sobre precios de alojamientos de Airbnb en Ciudad de México"
+          class="w-full h-auto block"
         />
       </div>
-      <div class="mt-6 text-center">
-        <p class="text-ieo-text/70 text-sm">Demostración del agente IA en acción procesando consultas de seguimiento en tiempo real</p>
-      </div>
-    </div>
+      <figcaption class="mt-6 text-center text-ieo-text/70 text-sm">
+        El agente responde dentro del propio tablero, sin cambiar de herramienta.
+      </figcaption>
+    </figure>
 
-    <div class="grid lg:grid-cols-3 gap-12">
-      
-      <div class="lg:col-span-2 space-y-12">
-        
+    <div class="grid lg:grid-cols-3 gap-10 items-start">
+
+      <div class="lg:col-span-2 min-w-0 space-y-10">
+
         <div class="border-gradient-dark p-8 rounded-2xl shadow-elegant-dark">
-          <h2 class="text-3xl font-bold text-ieo-primary mb-4">El Reto de Negocio</h2>
-          <p class="text-lg text-ieo-text/80 leading-relaxed">
-            Una empresa de envíos necesitaba **transformar su eficiencia operativa** reduciendo la carga de trabajo de soporte humano, automatizando consultas de rastreo y garantizando servicio 24/7 sin aumentar costos.
+          <h2 class="text-2xl md:text-3xl font-bold text-ieo-primary mb-4">El reto</h2>
+          <p class="text-lg text-ieo-text/80">
+            Un tablero solo responde lo que alguien previó al diseñarlo. Para todo lo demás hay que recorrer visuales, ajustar filtros o pedirle el dato a un analista, y la respuesta tarda horas o días.
           </p>
           <ul class="mt-6 space-y-3 text-ieo-text/90">
             <li class="flex items-start">
               <svg class="w-5 h-5 mt-1 mr-2 text-ieo-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              **Sobrecarga de Soporte:** Agentes humanos atendiendo consultas repetitivas de rastreo.
+              <span><strong class="text-ieo-text">Consultas que se repiten:</strong> el analista contesta la misma pregunta con distinto filtro.</span>
             </li>
             <li class="flex items-start">
               <svg class="w-5 h-5 mt-1 mr-2 text-ieo-primary flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
-              **Errores Humanos:** Información inconsistente y tiempos de respuesta variables.
+              <span><strong class="text-ieo-text">Cifras que no coinciden:</strong> un copiloto suelto sobre las tablas crudas inventa su propia definición de cada métrica.</span>
             </li>
           </ul>
         </div>
-        
+
         <div class="space-y-6">
-          <h2 class="text-3xl font-bold text-ieo-text mb-4">Metodología y Tecnologías</h2>
+          <h2 class="text-2xl md:text-3xl font-bold text-ieo-text">Cómo está construido</h2>
           <p class="text-lg text-ieo-text/80">
-            Implementación de agente IA basado en herramientas (Tool-Based AI Agent) con Google Gemini como LLM, orquestado por n8n con integración a Airtable para datos en tiempo real.
+            La pieza que hace confiable al agente no es el modelo de lenguaje: es la capa semántica. El agente no consulta tablas sueltas, consulta las medidas ya definidas y validadas.
           </p>
           <div class="grid md:grid-cols-2 gap-6">
-            
             <div class="bg-ieo-card p-6 rounded-xl border border-slate-700 shadow-lg">
-              <h4 class="font-bold text-ieo-primary mb-2 flex items-center">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-                IA y Orquestación
-              </h4>
-              <ul class="text-sm text-ieo-text/70 space-y-1 pl-1">
-                <li><span class="font-semibold text-ieo-text">Google Gemini:</span> LLM para procesamiento de lenguaje natural.</li>
-                <li><span class="font-semibold text-ieo-text">n8n:</span> Orquestador de workflows evento-dirigido.</li>
+              <h3 class="font-bold text-ieo-primary mb-3">Datos y definiciones</h3>
+              <ul class="text-sm text-ieo-text/70 space-y-2">
+                <li><span class="font-semibold text-ieo-text">Microsoft Fabric:</span> modelo semántico con las métricas del negocio.</li>
+                <li><span class="font-semibold text-ieo-text">Power BI:</span> capa visual y punto de entrada del usuario.</li>
               </ul>
             </div>
-            
             <div class="bg-ieo-card p-6 rounded-xl border border-slate-700 shadow-lg">
-              <h4 class="font-bold text-ieo-primary mb-2 flex items-center">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path></svg>
-                Datos y Memoria
-              </h4>
-              <ul class="text-sm text-ieo-text/70 space-y-1 pl-1">
-                <li><span class="font-semibold text-ieo-text">Airtable:</span> Base de datos logística con API integration.</li>
-                <li><span class="font-semibold text-ieo-text">Simple Memory:</span> Persistencia de contexto conversacional.</li>
+              <h3 class="font-bold text-ieo-primary mb-3">IA y orquestación</h3>
+              <ul class="text-sm text-ieo-text/70 space-y-2">
+                <li><span class="font-semibold text-ieo-text">n8n:</span> orquesta la conversación y la consulta al modelo.</li>
+                <li><span class="font-semibold text-ieo-text">LLM:</span> interpreta la pregunta y redacta la respuesta en español.</li>
               </ul>
             </div>
           </div>
         </div>
+
       </div>
-      
-      <div class="lg:col-span-1">
-        <div class="border-gradient-dark p-8 rounded-2xl sticky top-28 shadow-elegant-dark">
-          <h2 class="text-3xl font-bold text-ieo-text mb-6">Resultados Clave</h2>
-          
-          <div class="space-y-6">
-            
+
+      <div class="lg:col-span-1 min-w-0 space-y-6">
+        <div class="border-gradient-dark p-8 rounded-2xl shadow-elegant-dark">
+          <h2 class="text-2xl font-bold text-ieo-text mb-6">Qué permite</h2>
+          <div class="space-y-5">
             <div class="p-4 rounded-xl bg-ieo-bg border border-slate-700">
-              <p class="text-sm font-semibold text-ieo-primary">Disponibilidad</p>
-              <p class="text-2xl font-bold text-ieo-text mt-1">
-                <span class="text-ieo-dark_success">24/7</span> Servicio
-              </p>
-              <p class="text-xs text-ieo-text/70 mt-1">Sin interrupciones, respuestas instantáneas y precisas en cualquier momento.</p>
+              <p class="text-sm font-semibold text-ieo-primary">Autonomía</p>
+              <p class="text-ieo-text/80 text-sm mt-1">Quien no sabe usar Power BI igual obtiene la cifra, preguntando en español.</p>
             </div>
-            
             <div class="p-4 rounded-xl bg-ieo-bg border border-slate-700">
-              <p class="text-sm font-semibold text-ieo-primary">Precisión</p>
-              <p class="text-2xl font-bold text-ieo-text mt-1">
-                <span class="text-ieo-dark_success">100%</span> Exactitud
-              </p>
-              <p class="text-xs text-ieo-text/70 mt-1">Eliminación total de errores humanos en consultas de estatus logístico.</p>
+              <p class="text-sm font-semibold text-ieo-primary">Consistencia</p>
+              <p class="text-ieo-text/80 text-sm mt-1">Una sola definición de cada métrica para el tablero y para el agente.</p>
             </div>
-            
             <div class="p-4 rounded-xl bg-ieo-bg border border-slate-700">
-              <p class="text-sm font-semibold text-ieo-primary">Escalabilidad</p>
-              <p class="text-2xl font-bold text-ieo-text mt-1">
-                <span class="text-ieo-dark_success">∞</span> Volumen
-              </p>
-              <p class="text-xs text-ieo-text/70 mt-1">Soporte ilimitado de consultas simultáneas sin costos adicionales.</p>
+              <p class="text-sm font-semibold text-ieo-primary">Menos consultas manuales</p>
+              <p class="text-ieo-text/80 text-sm mt-1">Las preguntas recurrentes dejan de pasar por el analista.</p>
             </div>
           </div>
+
+          <h3 class="text-base font-bold text-ieo-text mt-8 mb-2">El siguiente reto</h3>
+          <p class="text-ieo-text/70 text-sm">
+            Conectar la IA con los datos es la parte fácil. Llevarlo a producción exige resolver permisos, seguridad a nivel de fila y gobierno del dato. Ahí es donde se decide si el proyecto sobrevive.
+          </p>
+        </div>
+
+        <div class="border border-slate-700 rounded-2xl p-6 bg-ieo-card">
+          <p class="text-ieo-text/80 text-sm mb-4">¿Quieres algo así sobre tus propios datos?</p>
+          <a href="index.html#contacto" class="btn-primary-dark inline-block font-semibold py-2.5 px-5 rounded-lg">Consultar proyecto</a>
         </div>
       </div>
     </div>
-    
+
   </main>
-  
+
   <footer class="bg-ieo-card border-t border-slate-700 mt-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
-      <p class="text-ieo-text/60 text-sm">&copy; 2025 IEO Analytics. Todos los derechos reservados.</p>
+      <p class="text-ieo-text/70 text-sm">© 2026 IEO Analytics · Hugo Ernesto Roldán · <a href="mailto:contacto@ieoanalytics.com">contacto@ieoanalytics.com</a></p>
       <div class="mt-2 space-x-4 text-ieo-text/80 text-sm">
-        <a href="index.html#pilares" class="hover:text-ieo-primary transition">Pilares</a>
-        <a href="index.html#certificaciones" class="hover:text-ieo-primary transition">Certificaciones</a>
+        <a href="index.html#servicios" class="hover:text-ieo-primary transition">Servicios</a>
+        <a href="index.html#casos" class="hover:text-ieo-primary transition">Proyectos</a>
+        <a href="index.html#perfil" class="hover:text-ieo-primary transition">Sobre mí</a>
         <a href="index.html#contacto" class="hover:text-ieo-primary transition">Contacto</a>
       </div>
     </div>
   </footer>
-  
-  <a href="https://wa.me/5215513407872?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20de%20BI%20y%20automatizaci%C3%B3n" 
-     target="_blank" 
-     rel="noopener noreferrer"
-     class="fixed right-6 bottom-6 bg-gradient-to-br from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-4 rounded-full shadow-2xl transition-all duration-300 transform hover:scale-110 z-50 group"
-     aria-label="Contactar por WhatsApp">
-      <svg class="w-8 h-8 group-hover:rotate-12 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-      </svg>
-      <span class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full animate-ping"></span>
-      <span class="absolute -top-1 -right-1 w-3 h-3 bg-green-400 rounded-full"></span>
+
+  <a aria-label="Contactar por WhatsApp" class="whatsapp-btn" href="https://wa.me/5215513407872?text=Hola%2C%20quiero%20consultar%20un%20proyecto%20de%20BI" rel="noopener noreferrer" target="_blank" title="Contactar por WhatsApp">
+    <svg aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.009-.371-.011-.57-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479s1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.004 21.5h-.004a9.42 9.42 0 0 1-4.8-1.313l-.344-.204-3.569.936.953-3.479-.224-.357A9.43 9.43 0 0 1 2.571 12c0-5.198 4.229-9.426 9.433-9.426a9.37 9.37 0 0 1 6.668 2.762A9.37 9.37 0 0 1 21.429 12c-.002 5.199-4.23 9.429-9.425 9.5m8.027-17.027A11.27 11.27 0 0 0 12.008 1.15C5.77 1.15.695 6.225.693 12.463c0 1.995.52 3.943 1.508 5.66L.6 23.974l5.987-1.57a11.3 11.3 0 0 0 5.416 1.379h.005c6.237 0 11.313-5.076 11.316-11.314a11.24 11.24 0 0 0-3.293-7.996Z" fill="currentColor"></path>
+    </svg>
   </a>
 
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> b69997c7fb05c6e8105bd10597c9457d266d9098

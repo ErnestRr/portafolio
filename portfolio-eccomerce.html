@@ -15,16 +15,19 @@
           extend: {
             colors: {
               ieo: {
-                bg: '#0F172A',
-                card: '#1E293B',
-                text: '#E2E8F0',
-                primary: '#3B82F6',
-                accent: '#60A5FA',
-                dark_success: '#15803d',
+                bg: '#0a1628',
+                card: '#0d1c35',
+                text: '#ffffff',
+                primary: '#ff7420',
+                accent: '#ff5f00',
+                dark_success: '#0e8c6f',
+                muted: '#a7b4c9',
+                border: 'rgba(255,255,255,0.12)',
               }
             },
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
+              display: ['Manrope', 'sans-serif'],
             }
           }
         }
@@ -32,48 +35,96 @@
     </script>
 
     <style>
-      body { background-color: #0F172A; color: #E2E8F0; scroll-behavior: smooth; font-family: 'Inter', sans-serif; }
-      
+      :root {
+        --dark: #0a1628;
+        --dark-alt: #0f2043;
+        --dark-card: #0d1c35;
+        --accent: #ff7420;
+        --accent-hover: #ff5f00;
+        --accent-soft: rgba(255, 116, 32, 0.09);
+        --text-white: #ffffff;
+        --text-light: #dce4f2;
+        --text-muted: #a7b4c9;
+        --border: rgba(255, 255, 255, 0.085);
+        --border-strong: rgba(255, 255, 255, 0.14);
+        --border-accent: rgba(255, 116, 32, 0.30);
+      }
+
+      html { scroll-behavior: smooth; }
+      body {
+        background: var(--dark);
+        background-image: radial-gradient(140% 60% at 50% 0%, rgba(22,48,92,0.28) 0%, transparent 60%);
+        color: var(--text-white);
+        font-family: 'Inter', sans-serif;
+        line-height: 1.6;
+      }
+      h1, h2, h3, h4 { font-family: 'Manrope', sans-serif; letter-spacing: -0.02em; }
+      a { color: var(--accent); text-decoration: none; }
+      a:hover { color: var(--accent-hover); }
+
       .btn-primary-dark {
-        background: linear-gradient(135deg, #3B82F6 0%, #2563EB 100%);
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        background: linear-gradient(180deg, #ff8438 0%, var(--accent) 100%);
+        color: var(--dark);
+        transition: all 0.25s ease;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.32), 0 2px 10px -3px rgba(255,116,32,0.6);
       }
       .btn-primary-dark:hover {
-        background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+        background: linear-gradient(180deg, var(--accent) 0%, var(--accent-hover) 100%);
         transform: translateY(-2px);
+        color: var(--dark);
       }
-      
+
       .border-gradient-dark {
         position: relative;
-        background: #1E293B; 
-        border-radius: 1rem;
-        border: 1px solid #334155;
+        background: linear-gradient(180deg, rgba(255,255,255,0.045) 0%, rgba(255,255,255,0.012) 100%);
+        border: 1px solid var(--border);
+        border-radius: 1.2rem;
+        box-shadow: 0 1px 2px rgba(4,10,22,0.28), 0 6px 16px -10px rgba(4,10,22,0.5);
       }
       .border-gradient-dark::before {
         content: '';
         position: absolute;
-        top: 0; left: 0; right: 0; height: 4px;
-        background: linear-gradient(90deg, #3B82F6, #60A5FA);
-        border-radius: 1rem 1rem 0 0;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(90deg, var(--accent), rgba(255,116,32,0.35));
+        border-radius: 1.2rem 1.2rem 0 0;
       }
-      
+
       .shadow-elegant-dark {
-          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 1px 2px rgba(4,10,22,0.28), 0 18px 40px -22px rgba(4,10,22,0.68);
       }
-      
+
       .powerbi-container {
-        position: relative; 
+        position: relative;
         padding-bottom: 56.25%;
-        height: 0; 
-        overflow: hidden; 
-        border-radius: 1rem; 
-        background: #0F172A;
+        height: 0;
+        overflow: hidden;
+        border-radius: 1rem;
+        background: rgba(10,22,40,0.9);
+        border: 1px solid var(--border);
       }
       .powerbi-container iframe {
-        position: absolute; 
-        top: 0; left: 0; width: 100%; height: 100%; border: 0;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
       }
+
+      .text-ieo-primary { color: var(--accent) !important; }
+      .text-ieo-accent { color: var(--accent) !important; }
+      .text-ieo-text { color: var(--text-white) !important; }
+      .text-ieo-text\/80 { color: rgba(220,228,242,0.8) !important; }
+      .text-ieo-text\/70 { color: rgba(220,228,242,0.7) !important; }
+      .bg-ieo-bg { background: var(--dark) !important; }
+      .bg-ieo-card { background: var(--dark-card) !important; }
+      .border-slate-700 { border-color: var(--border) !important; }
+      .text-ieo-dark_success { color: #46c69b !important; }
+      .whatsapp-btn { position: fixed; right: max(20px, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom)); width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(180deg, #2ee06f 0%, #1eb955 100%); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 10px rgba(0,0,0,0.25), 0 14px 30px -10px rgba(0,0,0,0.5); z-index: 90; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+      .whatsapp-btn svg { width: 27px; height: 27px; }
+      .whatsapp-btn:hover { transform: translateY(-2px); color: #fff; box-shadow: 0 11px 26px rgba(0,0,0,0.36); }
     </style>
 </head>
 
@@ -211,6 +262,12 @@
       <p>&copy; 2025 IEO Analytics. Soluciones Profesionales de Business Intelligence e Ingeniería de Datos.</p>
     </div>
   </footer>
+
+  <a aria-label="Contactar por WhatsApp" class="whatsapp-btn" href="https://wa.me/5215513407872?text=Hola%2C%20quiero%20consultar%20un%20proyecto%20de%20BI" rel="noopener noreferrer" target="_blank" title="Contactar por WhatsApp">
+  <svg aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.15-.67.15-.197.297-.767.966-.94 1.164-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.009-.371-.011-.57-.011-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479s1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347M12.004 21.5h-.004a9.42 9.42 0 0 1-4.8-1.313l-.344-.204-3.569.936.953-3.479-.224-.357A9.43 9.43 0 0 1 2.571 12c0-5.198 4.229-9.426 9.433-9.426a9.37 9.37 0 0 1 6.668 2.762A9.37 9.37 0 0 1 21.429 12c-.002 5.199-4.23 9.429-9.425 9.5m8.027-17.027A11.27 11.27 0 0 0 12.008 1.15C5.77 1.15.695 6.225.693 12.463c0 1.995.52 3.943 1.508 5.66L.6 23.974l5.987-1.57a11.3 11.3 0 0 0 5.416 1.379h.005c6.237 0 11.313-5.076 11.316-11.314a11.24 11.24 0 0 0-3.293-7.996Z" fill="currentColor"></path>
+  </svg>
+  </a>
 
 </body>
 </html>
