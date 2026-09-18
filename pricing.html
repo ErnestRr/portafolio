@@ -17,15 +17,15 @@
 <meta content="Consultoría de precios y rentabilidad en México | IEO Analytics" property="og:title"/>
 <meta content="Cascada de precios, política de descuentos, costo de servir y rentabilidad por cliente. Consultor de pricing en CDMX, alcance cerrado." property="og:description"/>
 <meta content="IEO Analytics" property="og:site_name"/>
-<meta content="https://www.ieoanalytics.com/assets/img/portfolio/medallion_eccomerce.gif" property="og:image"/>
+<meta content="https://www.ieoanalytics.com/assets/img/og-ieo-analytics.jpg" property="og:image"/>
 <meta content="Tablero de rentabilidad y cascada de precios — IEO Analytics" property="og:image:alt"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="Consultoría de precios y rentabilidad en México | IEO Analytics" name="twitter:title"/>
 <meta content="Recuperación de margen, política de descuentos y rentabilidad por cliente. Hugo Ernesto Roldán, consultor de pricing en CDMX." name="twitter:description"/>
-<meta content="https://www.ieoanalytics.com/assets/img/portfolio/medallion_eccomerce.gif" name="twitter:image"/>
+<meta content="https://www.ieoanalytics.com/assets/img/og-ieo-analytics.jpg" name="twitter:image"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -40,7 +40,7 @@
       "telephone": "+52-55-1340-7872",
       "image": "https://www.ieoanalytics.com/assets/img/portfolio/medallion_eccomerce.gif",
       "description": "Consultoría de precios y rentabilidad para empresas medianas: recuperación de margen, política de descuentos, costo de servir y rentabilidad por cliente.",
-      "priceRange": "Proyectos por alcance cerrado",
+      "priceRange": "$$$",
       "founder": { "@id": "https://www.ieoanalytics.com/#hugo-ernesto-roldan" },
       "address": {
         "@type": "PostalAddress",
@@ -114,7 +114,6 @@
     font-family: 'Inter', system-ui, sans-serif;
     background: var(--dark);
     background-image: radial-gradient(140% 60% at 50% 0%, rgba(22,48,92,0.28) 0%, transparent 60%);
-    background-attachment: fixed;
     font-variant-numeric: tabular-nums;
     color: var(--text-white);
     line-height: 1.6;
@@ -133,7 +132,7 @@
   :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
   h1, h2, h3 { font-feature-settings: "ss01" 1; }
 
-  .container { width: 100%; max-width: 1600px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
+  .container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 clamp(1.5rem, 4vw, 4rem); }
   .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
 
   .skip-link {
@@ -167,14 +166,14 @@
   nav.main-nav a::after { content: ''; position: absolute; left: 0; right: 100%; bottom: 0.35rem; height: 1px; background: var(--accent); transition: right 0.3s var(--ease); }
   nav.main-nav a:hover { color: var(--text-white); }
   nav.main-nav a:hover::after { right: 0; }
-  .btn-header { background: linear-gradient(180deg, #ff8438 0%, var(--accent) 100%); color: var(--dark); padding: 0 1.4rem; min-height: 44px; display: inline-flex; align-items: center; border-radius: 0.45rem; font-weight: 700; font-size: 0.9rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 2px 10px -3px rgba(255,116,32,0.5); transition: all 0.25s var(--ease); }
-  .btn-header:hover { background: linear-gradient(180deg, var(--accent) 0%, var(--accent-hover) 100%); color: var(--dark); box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 18px -4px rgba(255,116,32,0.65); }
+  .btn-header { background: linear-gradient(180deg, #ff8438 0%, var(--accent) 100%); color: var(--dark); padding: 0 1.4rem; min-height: 44px; display: inline-flex; align-items: center; border-radius: 0.45rem; font-weight: 700; font-size: 0.9rem; box-shadow: inset 0 1px 0 rgba(255,255,255,0.3); transition: all 0.25s var(--ease); }
+  .btn-header:hover { background: linear-gradient(180deg, var(--accent) 0%, var(--accent-hover) 100%); color: var(--dark); box-shadow: inset 0 1px 0 rgba(255,255,255,0.3); }
 
   /* ---------- BOTONES ---------- */
   .btn { min-height: 50px; padding: 0 1.75rem; border-radius: 0.5rem; font-weight: 700; font-size: 0.95rem; display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; transition: all 0.25s var(--ease); border: none; cursor: pointer; letter-spacing: -0.005em; }
   .btn:active { transform: translateY(1px); }
-  .btn-primary { background: linear-gradient(180deg, #ff8438 0%, var(--accent) 100%); color: var(--dark); box-shadow: inset 0 1px 0 rgba(255,255,255,0.32), 0 2px 6px rgba(0,0,0,0.2), 0 10px 26px -12px rgba(255,116,32,0.55); }
-  .btn-primary:hover { background: linear-gradient(180deg, var(--accent) 0%, var(--accent-hover) 100%); color: var(--dark); box-shadow: inset 0 1px 0 rgba(255,255,255,0.32), 0 2px 6px rgba(0,0,0,0.2), 0 14px 34px -12px rgba(255,116,32,0.7); }
+  .btn-primary { background: linear-gradient(180deg, #ff8438 0%, var(--accent) 100%); color: var(--dark); box-shadow: inset 0 1px 0 rgba(255,255,255,0.32), 0 2px 6px rgba(0,0,0,0.2); }
+  .btn-primary:hover { background: linear-gradient(180deg, var(--accent) 0%, var(--accent-hover) 100%); color: var(--dark); box-shadow: inset 0 1px 0 rgba(255,255,255,0.32), 0 2px 6px rgba(0,0,0,0.2); }
   .btn-secondary { background: rgba(255,255,255,0.025); border: 1px solid var(--border-strong); color: var(--text-white); box-shadow: var(--hairline); }
   .btn-secondary:hover { border-color: var(--border-accent); background: var(--accent-soft); color: var(--text-white); }
   .btn-outline-dark { border: 1px solid var(--border-accent); color: var(--text-white); background: var(--accent-soft); box-shadow: var(--hairline); }
@@ -198,12 +197,9 @@
     background:
       radial-gradient(120% 90% at 10% -15%, rgba(22,48,92,0.86) 0%, rgba(10,22,40,0.94) 58%),
       linear-gradient(120deg, rgba(10,22,40,0.90) 0%, rgba(10,22,40,0.82) 45%, rgba(15,32,67,0.90) 100%),
-      url('assets/img/services/services-1.webp') center / cover no-repeat,
       var(--dark);
     border-bottom: 1px solid var(--border);
   }
-  .hero::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.028) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.028) 1px, transparent 1px); background-size: 72px 72px; -webkit-mask-image: radial-gradient(85% 70% at 25% 0%, #000 0%, transparent 75%); mask-image: radial-gradient(85% 70% at 25% 0%, #000 0%, transparent 75%); pointer-events: none; }
-  .hero::after { content: ''; position: absolute; top: -140px; right: -120px; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(255,116,32,0.12) 0%, transparent 70%); pointer-events: none; }
   .hero > .container::after { content: ''; position: absolute; left: 0; right: 0; bottom: calc(-1 * clamp(3rem, 5vw, 4.5rem) - 1px); height: 1px; background: linear-gradient(90deg, transparent, rgba(255,116,32,0.35), transparent); }
   .hero .container { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr); gap: clamp(2.4rem, 5vw, 5.5rem); align-items: start; }
 
@@ -250,11 +246,11 @@
   .servicios { background: linear-gradient(180deg, #0f2043 0%, #0d1c3a 100%); }
   .servicios-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.15rem, 1.6vw, 1.6rem); align-items: stretch; }
   .servicio-card { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 0.85rem; padding: clamp(1.5rem, 2.2vw, 2rem); display: flex; flex-direction: column; box-shadow: var(--shadow-sm), var(--hairline); transition: border-color 0.28s var(--ease), transform 0.28s var(--ease), box-shadow 0.28s var(--ease), background 0.28s var(--ease); }
-  .servicio-card:hover { border-color: var(--border-accent); background: var(--surface-hover); transform: translateY(-4px); box-shadow: var(--shadow-md), var(--hairline); }
+  .servicio-card:hover { border-color: var(--border-accent); background: var(--surface-hover); box-shadow: var(--shadow-md), var(--hairline); }
   .servicio-card.featured { background: linear-gradient(175deg, rgba(255,116,32,0.11) 0%, rgba(255,116,32,0.025) 55%, rgba(255,255,255,0.015) 100%); border-color: var(--border-accent); box-shadow: var(--shadow-md), var(--hairline), 0 0 0 1px rgba(255,116,32,0.08); }
   .servicio-card.featured::before { content: ''; position: absolute; left: -1px; right: -1px; top: -1px; height: 2px; border-radius: 2px 2px 0 0; background: linear-gradient(90deg, rgba(255,116,32,0.15), var(--accent) 50%, rgba(255,116,32,0.15)); }
   .servicio-card.featured:hover { border-color: var(--accent); }
-  .servicio-flag { position: absolute; top: 0; right: 1.4rem; transform: translateY(-50%); background: linear-gradient(180deg, #ff8438, var(--accent)); color: var(--dark); font-size: 0.66rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.36rem 0.75rem; border-radius: 999px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 4px 14px -5px rgba(255,116,32,0.7); }
+  .servicio-flag { position: absolute; top: 0; right: 1.4rem; transform: translateY(-50%); background: linear-gradient(180deg, #ff8438, var(--accent)); color: var(--dark); font-size: 0.66rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.36rem 0.75rem; border-radius: 999px; box-shadow: inset 0 1px 0 rgba(255,255,255,0.35); }
   .servicio-num { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); }
   .servicio-card h3 { font-size: clamp(1.15rem, 1.7vw, 1.38rem); font-weight: 800; margin: 0.7rem 0 0.55rem; letter-spacing: -0.025em; }
   .servicio-pitch { font-size: 0.93rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1.4rem; text-wrap: pretty; }
@@ -265,8 +261,8 @@
   .servicio-list { display: grid; gap: 0.65rem; flex: 1; margin-bottom: 1.6rem; }
   .servicio-list li { display: flex; gap: 0.65rem; font-size: 0.9rem; line-height: 1.55; color: var(--text-light); }
   .servicio-list li::before { content: ''; width: 5px; height: 5px; margin-top: 0.55rem; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px rgba(255,116,32,0.12); flex: none; }
-  .servicio-alcance { font-size: 0.76rem; line-height: 1.55; color: rgba(167,180,201,0.62); margin-bottom: 1.05rem; padding-top: 0.9rem; border-top: 1px solid var(--border); text-wrap: pretty; }
-  .aviso-legal { margin-top: 2.2rem; padding-top: 1.4rem; border-top: 1px solid var(--border); font-size: 0.76rem; line-height: 1.7; color: rgba(167,180,201,0.6); text-wrap: pretty; }
+  .servicio-alcance { font-size: 0.76rem; line-height: 1.55; color: rgba(167,180,201,0.85); margin-bottom: 1.05rem; padding-top: 0.9rem; border-top: 1px solid var(--border); text-wrap: pretty; }
+  .aviso-legal { margin-top: 2.2rem; padding-top: 1.4rem; border-top: 1px solid var(--border); font-size: 0.76rem; line-height: 1.7; color: rgba(167,180,201,0.85); text-wrap: pretty; }
   .servicio-precio { font-family: 'Manrope', sans-serif; font-size: 1.02rem; font-weight: 800; color: var(--accent); letter-spacing: -0.01em; margin-bottom: 1.1rem; }
   .servicio-card .btn { width: 100%; }
 
@@ -277,7 +273,6 @@
   .price-note { font-size: 0.8rem; color: var(--text-muted); margin-top: 1.1rem; line-height: 1.6; }
 
   .mensual { margin-top: 1.6rem; position: relative; overflow: hidden; background: linear-gradient(120deg, rgba(255,116,32,0.13) 0%, rgba(255,116,32,0.04) 46%, rgba(255,255,255,0.02) 100%); border: 1px solid var(--border-accent); border-radius: 1rem; box-shadow: var(--shadow-md), var(--hairline); padding: clamp(1.7rem, 3vw, 2.6rem) clamp(1.5rem, 3vw, 2.8rem); display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(240px, 0.85fr); gap: clamp(1.6rem, 3.5vw, 3.4rem); align-items: center; }
-  .mensual::after { content: ''; position: absolute; top: -90px; right: -60px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(255,116,32,0.14) 0%, transparent 68%); pointer-events: none; }
   .mensual-body { position: relative; z-index: 2; }
   .mensual-label { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--border-accent); background: rgba(255,116,32,0.08); padding: 0.42rem 0.8rem; border-radius: 999px; box-shadow: var(--hairline); margin-bottom: 1rem; }
   .mensual h3 { font-size: clamp(1.4rem, 2.4vw, 1.95rem); font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.7rem; }
@@ -291,12 +286,12 @@
 
   .cap-note { margin-top: 1.6rem; display: grid; gap: 0.55rem; }
   .cap-note p { font-size: 0.82rem; line-height: 1.65; color: var(--text-muted); max-width: 92ch; text-wrap: pretty; }
-  .cap-note p.stack-note { font-size: 0.78rem; color: rgba(167,180,201,0.72); letter-spacing: 0.02em; }
+  .cap-note p.stack-note { font-size: 0.78rem; color: rgba(167,180,201,0.85); letter-spacing: 0.02em; }
 
   /* ---------- PROCESO ---------- */
   .proceso-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(1.15rem, 1.6vw, 1.6rem); }
   .proceso-card { background: rgba(255,255,255,0.025); border: 1px solid var(--border); border-radius: 0.7rem; padding: clamp(1.3rem, 2vw, 1.7rem); transition: border-color 0.25s ease, transform 0.25s ease; }
-  .proceso-card:hover { border-color: var(--border-accent); transform: translateY(-3px); }
+  .proceso-card:hover { border-color: var(--border-accent); }
   .proceso-num { font-family: 'Manrope', sans-serif; font-size: 1.7rem; font-weight: 800; color: var(--accent); line-height: 1; margin-bottom: 0.9rem; }
   .proceso-card h3 { font-size: 1.04rem; font-weight: 800; margin-bottom: 0.5rem; }
   .proceso-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; text-wrap: pretty; }
@@ -304,7 +299,7 @@
   /* ---------- PROYECTOS ---------- */
   .casos-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(1rem, 1.5vw, 1.5rem); }
   .caso-card { background: var(--surface); border: 1px solid var(--border); border-radius: 0.9rem; overflow: hidden; color: inherit; display: flex; flex-direction: column; box-shadow: var(--shadow-sm), var(--hairline); transition: border-color 0.28s var(--ease), transform 0.28s var(--ease), box-shadow 0.28s var(--ease), background 0.28s var(--ease); }
-  .caso-card:hover { border-color: var(--border-accent); background: var(--surface-hover); transform: translateY(-5px); box-shadow: var(--shadow-lg), var(--hairline); color: inherit; }
+  .caso-card:hover { border-color: var(--border-accent); background: var(--surface-hover); box-shadow: var(--shadow-lg), var(--hairline); color: inherit; }
   .caso-image { position: relative; width: 100%; aspect-ratio: 16 / 10; background: linear-gradient(135deg, rgba(255,116,32,0.10), rgba(255,116,32,0.03)); border-bottom: 1px solid var(--border); overflow: hidden; }
   .caso-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(10,22,40,0.55) 100%); pointer-events: none; }
   .caso-image img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform 0.5s var(--ease); }
@@ -325,8 +320,8 @@
   .block-label { display: inline-flex; align-items: center; gap: 0.6rem; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); border: 1px solid var(--border); background: var(--surface); padding: 0.4rem 0.8rem; border-radius: 999px; box-shadow: var(--hairline); margin-bottom: 1rem; }
   .demo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.1rem, 1.6vw, 1.6rem); }
   .demo-card { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: 0.9rem; padding: clamp(1.4rem, 2.1vw, 1.9rem); display: flex; flex-direction: column; color: inherit; box-shadow: var(--shadow-sm), var(--hairline); transition: border-color 0.28s var(--ease), transform 0.28s var(--ease), box-shadow 0.28s var(--ease), background 0.28s var(--ease); }
-  .demo-card:hover { border-color: var(--border-accent); background: var(--surface-hover); transform: translateY(-4px); box-shadow: var(--shadow-md), var(--hairline); color: inherit; }
-  .demo-num { position: absolute; top: clamp(1.4rem, 2.1vw, 1.9rem); right: clamp(1.4rem, 2.1vw, 1.9rem); font-family: 'Manrope', sans-serif; font-size: 0.86rem; font-weight: 800; color: rgba(167,180,201,0.3); letter-spacing: 0.04em; }
+  .demo-card:hover { border-color: var(--border-accent); background: var(--surface-hover); box-shadow: var(--shadow-md), var(--hairline); color: inherit; }
+  .demo-num { position: absolute; top: clamp(1.4rem, 2.1vw, 1.9rem); right: clamp(1.4rem, 2.1vw, 1.9rem); font-family: 'Manrope', sans-serif; font-size: 0.86rem; font-weight: 800; color: rgba(167,180,201,0.5); letter-spacing: 0.04em; }
   .demo-kicker { font-size: 0.66rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.7rem; }
   .demo-card h3 { font-size: clamp(1.08rem, 1.45vw, 1.28rem); font-weight: 800; letter-spacing: -0.025em; line-height: 1.22; margin-bottom: 0.6rem; text-wrap: balance; padding-right: 2rem; }
   .demo-card p.demo-line { font-size: 0.88rem; color: var(--text-muted); line-height: 1.58; text-wrap: pretty; margin-bottom: 1.3rem; }
@@ -343,7 +338,7 @@
   .block-split > p.split-line { font-size: clamp(1.02rem, 1.4vw, 1.2rem); font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--text-white); letter-spacing: -0.02em; margin-bottom: 0.9rem; }
   .impl-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 1.5vw, 1.5rem); }
   .impl-card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 0.8rem; overflow: hidden; color: inherit; box-shadow: var(--shadow-sm), var(--hairline); transition: border-color 0.28s var(--ease), transform 0.28s var(--ease), box-shadow 0.28s var(--ease), background 0.28s var(--ease); }
-  .impl-card:hover { border-color: var(--border-accent); background: var(--surface-hover); transform: translateY(-3px); box-shadow: var(--shadow-md), var(--hairline); color: inherit; }
+  .impl-card:hover { border-color: var(--border-accent); background: var(--surface-hover); box-shadow: var(--shadow-md), var(--hairline); color: inherit; }
   .impl-image { position: relative; width: 100%; aspect-ratio: 16 / 6; border-bottom: 1px solid var(--border); overflow: hidden; background: linear-gradient(135deg, rgba(255,116,32,0.10), rgba(255,116,32,0.03)); }
   .impl-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(10,22,40,0.6) 100%); pointer-events: none; }
   .impl-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
@@ -354,9 +349,9 @@
   .impl-body .demo-link { margin-top: auto; }
 
   .stack-mini { margin-top: 1.8rem; padding-top: 1.4rem; border-top: 1px solid var(--border); }
-  .stack-mini p { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(167,180,201,0.62); margin-bottom: 0.6rem; }
+  .stack-mini p { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(167,180,201,0.85); margin-bottom: 0.6rem; }
   .stack-mini ul { display: flex; flex-wrap: wrap; gap: 0.35rem 0.85rem; }
-  .stack-mini li { font-size: 0.78rem; color: rgba(167,180,201,0.7); }
+  .stack-mini li { font-size: 0.78rem; color: rgba(167,180,201,0.85); }
   .stack-mini li:not(:last-child)::after { content: ' ·'; color: rgba(167,180,201,0.35); }
 
   /* ---------- PERFIL ---------- */
@@ -370,12 +365,12 @@
 
   .certs-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 0.7rem; align-items: stretch; }
   .cert-item { display: flex; align-items: center; gap: 0.9rem; background: var(--surface); border: 1px solid var(--border); border-radius: 0.7rem; padding: 0.95rem 1.15rem; color: inherit; box-shadow: var(--hairline); transition: all 0.25s var(--ease); }
-  .cert-item:hover { border-color: var(--border-accent); background: var(--surface-hover); transform: translateY(-2px); box-shadow: var(--shadow-sm), var(--hairline); color: inherit; }
+  .cert-item:hover { border-color: var(--border-accent); background: var(--surface-hover); box-shadow: var(--shadow-sm), var(--hairline); color: inherit; }
   .cert-item:hover .cert-go { color: var(--accent); }
   .cert-item img, .cert-item .cert-icon { width: 40px; height: 40px; flex: none; display: grid; place-items: center; }
   .cert-item .cert-name { font-size: 0.95rem; font-weight: 800; }
   .cert-item .cert-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.15rem; }
-  .cert-item .cert-go { margin-left: auto; font-size: 0.74rem; color: rgba(167,180,201,0.6); flex: none; transition: color 0.25s var(--ease); }
+  .cert-item .cert-go { margin-left: auto; font-size: 0.74rem; color: rgba(167,180,201,0.85); flex: none; transition: color 0.25s var(--ease); }
 
   /* ---------- CONTACTO ---------- */
   .contacto { position: relative; background: radial-gradient(100% 80% at 88% 0%, #16305c 0%, var(--dark) 62%); border-top: 1px solid var(--border); }
@@ -384,12 +379,12 @@
   .contact-datos { display: grid; gap: 1.3rem; border-top: 1px solid var(--border); padding-top: 1.6rem; margin-top: 1.8rem; }
   .contact-datos dt { font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.32rem; }
   .contact-datos dd { font-size: 1rem; color: var(--text-light); }
-  .contact-datos dd a { font-weight: 600; }
+  .contact-datos dd a { font-weight: 700; }
 
   .contact-form { background: linear-gradient(168deg, #162b51 0%, #0e1d36 62%, #0c1a30 100%); border: 1px solid var(--border-strong); border-radius: 1rem; padding: clamp(1.6rem, 2.6vw, 2.3rem); display: grid; gap: 1.05rem; box-shadow: var(--shadow-lg), var(--hairline); }
   .form-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.05rem; }
   .contact-form label { display: grid; gap: 0.45rem; }
-  .contact-form label > span { font-size: 0.84rem; font-weight: 600; color: var(--text-light); }
+  .contact-form label > span { font-size: 0.84rem; font-weight: 700; color: var(--text-light); }
   .contact-form input, .contact-form select, .contact-form textarea {
     width: 100%; min-height: 48px; padding: 0.75rem 0.9rem;
     background: rgba(4,10,22,0.35); border: 1px solid var(--border-strong);
@@ -402,8 +397,8 @@
   .contact-form select option { background: var(--dark-alt); color: var(--text-white); }
   .contact-form textarea { min-height: 108px; resize: vertical; line-height: 1.55; }
   .contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { outline: none; border-color: var(--accent); background: rgba(4,10,22,0.45); box-shadow: 0 0 0 3px rgba(255,116,32,0.16); }
-  .contact-form button { width: 100%; min-height: 52px; background: linear-gradient(180deg, #ff8438 0%, var(--accent) 100%); color: var(--dark); border: none; border-radius: 0.5rem; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 0.98rem; cursor: pointer; box-shadow: inset 0 1px 0 rgba(255,255,255,0.32), 0 10px 26px -12px rgba(255,116,32,0.55); transition: all 0.25s var(--ease); }
-  .contact-form button:hover { background: linear-gradient(180deg, var(--accent) 0%, var(--accent-hover) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.32), 0 14px 34px -12px rgba(255,116,32,0.7); }
+  .contact-form button { width: 100%; min-height: 52px; background: linear-gradient(180deg, #ff8438 0%, var(--accent) 100%); color: var(--dark); border: none; border-radius: 0.5rem; font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 0.98rem; cursor: pointer; box-shadow: inset 0 1px 0 rgba(255,255,255,0.32); transition: all 0.25s var(--ease); }
+  .contact-form button:hover { background: linear-gradient(180deg, var(--accent) 0%, var(--accent-hover) 100%); box-shadow: inset 0 1px 0 rgba(255,255,255,0.32); }
   .contact-form button:active { transform: translateY(1px); }
   .form-legal { font-size: 0.78rem; color: var(--text-muted); line-height: 1.55; }
 
@@ -417,7 +412,7 @@
   /* ---------- WHATSAPP ---------- */
   .whatsapp-btn { position: fixed; right: max(20px, env(safe-area-inset-right)); bottom: max(20px, env(safe-area-inset-bottom)); width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; background: linear-gradient(180deg, #2ee06f 0%, #1eb955 100%); color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 10px rgba(0,0,0,0.25), 0 14px 30px -10px rgba(0,0,0,0.5); z-index: 90; transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease); }
   .whatsapp-btn svg { width: 27px; height: 27px; }
-  .whatsapp-btn:hover { transform: translateY(-2px); color: #fff; box-shadow: 0 11px 26px rgba(0,0,0,0.36); }
+  .whatsapp-btn:hover { color: #fff; box-shadow: 0 11px 26px rgba(0,0,0,0.36); }
 
   /* ---------- RESPONSIVE ---------- */
   @media (max-width: 980px) {
@@ -549,7 +544,7 @@
 <div class="section-head">
 <p class="eyebrow">Servicios</p>
 <h2 class="section-title">Cuatro formas de resolverlo</h2>
-<p class="section-desc">Alcance cerrado, nunca por hora. Precio por escrito tras la llamada de diagnóstico.</p>
+<p class="section-desc">Alcance cerrado, nunca por hora. Precio cerrado por escrito tras la llamada de diagnóstico.</p>
 </div>
 
 <div class="servicios-grid">
@@ -633,9 +628,8 @@
 <div class="mensual-side">
 <ul class="mensual-detail">
 <li>Mínimo 3 meses</li>
-<li>Sujeto a disponibilidad</li>
 </ul>
-<a class="btn btn-primary" href="#contacto">Ver cómo funciona</a>
+<a class="btn btn-primary" href="#contacto">Consultar este esquema</a>
 </div>
 </div>
 
@@ -651,7 +645,7 @@
 <p class="eyebrow">Proyectos</p>
 <h2 class="section-title">Margen, precio y efectivo</h2>
 <p class="block-label">Proyectos demostrativos</p>
-<p class="section-desc">Seis análisis sobre una misma base de facturación.</p>
+<p class="section-desc">Tres análisis sobre una misma base de facturación.</p>
 </div>
 
 <div class="demo-grid">
@@ -709,60 +703,9 @@
 <span class="demo-link">Abrir demo de fuga por descuentos <span aria-hidden="true">↗</span></span>
 </a>
 
-<a class="demo-card" href="proyectos-pricing/punto_de_equilibrio.html" rel="noopener noreferrer" target="_blank">
-<p aria-hidden="true" class="demo-num">04</p>
-<p class="demo-kicker">Decisión de precio</p>
-<h3>Cuánto volumen puedes perder si subes el precio</h3>
-<p class="demo-line">El umbral real antes de ganar menos que hoy, por línea de producto.</p>
-<dl class="demo-figs">
-<div>
-<dd>20.8%</dd>
-<dt>de volumen tolerable con un alza de 5%</dt>
 </div>
-<div>
-<dd>13.6%</dd>
-<dt>con un alza de 3%</dt>
-</div>
-</dl>
-<span class="demo-link">Abrir demo de punto de equilibrio <span aria-hidden="true">↗</span></span>
-</a>
+<p class="price-note">Tres análisis más sobre la misma base: <a href="proyectos-pricing/punto_de_equilibrio.html" rel="noopener noreferrer" target="_blank">punto de equilibrio ante un alza</a>, <a href="proyectos-pricing/brecha_credito.html" rel="noopener noreferrer" target="_blank">brecha de crédito y flujo</a> y <a href="proyectos-pricing/sensibilidad_al_precio_elasticidad_sku.html" rel="noopener noreferrer" target="_blank">sensibilidad al precio por producto</a>.</p>
 
-<a class="demo-card" href="proyectos-pricing/brecha_credito.html" rel="noopener noreferrer" target="_blank">
-<p aria-hidden="true" class="demo-num">05</p>
-<p class="demo-kicker">Flujo de efectivo</p>
-<h3>Pactaste 30 días. Te pagan a 47.</h3>
-<p class="demo-line">La diferencia entre lo que cobras y lo que pagas, en pesos.</p>
-<dl class="demo-figs">
-<div>
-<dd>$836 mil</dd>
-<dt>al año de costo financiero</dt>
-</div>
-<div>
-<dd>$6 M</dd>
-<dt>de caja liberada al cerrar la mitad de la brecha</dt>
-</div>
-</dl>
-<span class="demo-link">Abrir demo de condiciones de crédito <span aria-hidden="true">↗</span></span>
-</a>
-
-<a class="demo-card" href="proyectos-pricing/sensibilidad_al_precio_elasticidad_sku.html" rel="noopener noreferrer" target="_blank">
-<p aria-hidden="true" class="demo-num">06</p>
-<p class="demo-kicker">Oportunidad</p>
-<h3>Diecisiete productos a los que sí les puedes subir</h3>
-<p class="demo-line">Qué productos aguantan un alza y cuáles no, con evidencia estadística.</p>
-<dl class="demo-figs">
-<div>
-<dd>+$685 mil</dd>
-<dt>de utilidad al año</dt>
-</div>
-<div>
-<dd>+5%</dd>
-<dt>de precio, sin invertir un peso</dt>
-</div>
-</dl>
-<span class="demo-link">Abrir demo de sensibilidad al precio <span aria-hidden="true">↗</span></span>
-</a>
-</div>
 
 <!-- BLOQUE B -->
 <div class="block-split">
@@ -851,9 +794,7 @@
 <li>SQL</li>
 <li>Power Apps</li>
 <li>Excel / Power Query</li>
-<li>n8n</li>
-<li>MCP</li>
-<li>Copilot Studio</li>
+<li>Automatización con IA</li>
 </ul>
 </div>
 </div>
