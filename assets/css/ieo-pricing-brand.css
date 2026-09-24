@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --ieo-ink: #0A1624;
+  --ieo-ink-soft: #334155;
+  --ieo-paper: #F3F2EE;
+  --ieo-surface: #FFFFFF;
+  --ieo-surface-soft: #F7F7F4;
+  --ieo-blue: #3D6BFF;
+  --ieo-blue-strong: #2F55D4;
+  --ieo-muted: #68717E;
+  --ieo-border: #E1E2DE;
+  --ieo-dark-border: rgba(255, 255, 255, 0.1);
+  --ieo-radius: 14px;
+  --ieo-shadow: 0 16px 36px -24px rgba(10, 22, 36, 0.28);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ieo-paper) !important;
+  background-image: none !important;
+  color: var(--ieo-ink) !important;
+  font-family: 'IBM Plex Sans', 'Inter', system-ui, sans-serif !important;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ieo-ink) !important;
+  font-family: 'IBM Plex Sans', 'Inter', system-ui, sans-serif !important;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+
+a { color: var(--ieo-ink); }
+a:hover { color: var(--ieo-blue-strong); }
+
+header,
+header.bg-ieo-bg {
+  background: rgba(10, 22, 36, 0.94) !important;
+  border-color: var(--ieo-dark-border) !important;
+  color: #FFFFFF !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+header a,
+header .text-ieo-text,
+header .text-ieo-text\/80,
+header .text-ieo-text\/70 { color: #FFFFFF !important; }
+
+header .text-ieo-primary,
+header .text-ieo-accent { color: #9AA3AE !important; }
+
+header .tracking-wider {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: -0.03em;
+}
+
+header .tracking-wider::before {
+  content: '';
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  background:
+    linear-gradient(#FFFFFF, #FFFFFF) 0 0 / 8px 8px no-repeat,
+    linear-gradient(#FFFFFF, #FFFFFF) 10px 0 / 8px 8px no-repeat,
+    linear-gradient(#FFFFFF, #FFFFFF) 0 10px / 8px 8px no-repeat,
+    linear-gradient(var(--ieo-blue), var(--ieo-blue)) 10px 10px / 8px 8px no-repeat;
+}
+
+main { color: var(--ieo-ink); }
+
+.bg-ieo-bg,
+.bg-ieo-card,
+.border-gradient-dark,
+.shadow-elegant-dark,
+figure.bg-ieo-card {
+  background: var(--ieo-surface) !important;
+  color: var(--ieo-ink) !important;
+  border-color: var(--ieo-border) !important;
+  box-shadow: var(--ieo-shadow) !important;
+}
+
+.border-gradient-dark {
+  border: 1px solid var(--ieo-border) !important;
+  border-radius: var(--ieo-radius) !important;
+}
+
+.border-gradient-dark::before { display: none; }
+
+.text-ieo-text,
+.text-ieo-text\/80,
+.text-ieo-text\/70,
+.text-ieo-text\/90,
+.text-ieo-dark_success,
+strong { color: var(--ieo-ink) !important; }
+
+.text-ieo-text\/80 { color: var(--ieo-ink-soft) !important; }
+.text-ieo-text\/70 { color: var(--ieo-muted) !important; }
+.text-ieo-primary,
+.text-ieo-accent { color: var(--ieo-blue-strong) !important; }
+.border-slate-700 { border-color: var(--ieo-border) !important; }
+
+.btn-primary-dark {
+  background: var(--ieo-blue-strong) !important;
+  border: 1px solid var(--ieo-blue-strong);
+  border-radius: 8px;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 18px -10px rgba(47, 85, 212, 0.7) !important;
+  transition: background .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+
+.btn-primary-dark:hover {
+  background: var(--ieo-blue) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+.powerbi-container,
+.video-container {
+  background: var(--ieo-surface-soft) !important;
+  border-color: var(--ieo-border) !important;
+  border-radius: 10px !important;
+}
+
+.meta-chip {
+  background: var(--ieo-surface-soft) !important;
+  border-color: var(--ieo-border) !important;
+  border-radius: 8px !important;
+  color: var(--ieo-muted) !important;
+  font-family: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+img { border-radius: 10px; }
+
+.whatsapp-btn { background: var(--ieo-blue-strong) !important; }
+
+::selection { background: var(--ieo-blue); color: #FFFFFF; }
+:focus-visible { outline: 2px solid var(--ieo-blue); outline-offset: 3px; }
+
+@media (max-width: 640px) {
+  header .tracking-wider { font-size: 1.15rem; }
+  main { padding-top: 2.5rem !important; padding-bottom: 3rem !important; }
+}
