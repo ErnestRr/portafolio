@@ -1,33 +1,34 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Distribuidora Región Centro · ventas</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#ececec;font-family:"Segoe UI",Arial,sans-serif;color:#1a1a1a;width:100%;min-height:100vh;overflow-x:hidden;overflow-y:auto;display:grid;grid-template-rows:auto auto auto auto auto}
-.hd{background:#8a8a8a;padding:10px 18px;display:flex;justify-content:space-between;align-items:flex-start;min-height:80px}
+*{box-sizing:border-box}body{margin:0;background:#ececec;font-family:"Segoe UI",Arial,sans-serif;color:#1a1a1a;width:100%;height:100vh;min-height:640px;overflow:hidden;display:grid;grid-template-rows:74px 105px minmax(0,1fr) 22px 20px}
+.hd{background:#8a8a8a;padding:8px 18px;display:flex;justify-content:space-between;align-items:flex-start;min-height:0}
 .hd h1{margin:0;color:#fff;font-size:22px;font-weight:700}.hd .sub{color:#f5c518;font-size:15px;margin-top:3px;font-weight:600}
 .big{color:#fff;text-align:right}.big b{font-size:36px;display:block;line-height:1}.big span{font-size:12px;display:block;max-width:300px}
-.slw{padding:6px 6px 0}.sl{background:#8a8a8a;border:1px solid #6f6f6f;padding:8px 14px 10px;display:flex;flex-wrap:wrap;column-gap:34px;row-gap:8px}
+.slw{padding:4px 8px 0}.sl{background:#8a8a8a;border:1px solid #6f6f6f;padding:6px 10px;display:flex;flex-wrap:wrap;column-gap:22px;row-gap:6px}
 .g{color:#fff;font-size:13px;font-weight:700}.g div{margin-top:4px;display:flex;flex-wrap:wrap;gap:4px}
 .b{background:#fff;color:#1a1a1a;border:1px solid #bdbdbd;font-size:13px;padding:2px 10px;font-weight:500;cursor:pointer;font-family:inherit;user-select:none}.b.on{background:#1a1a1a;color:#fff;font-weight:700;border-color:#1a1a1a}.b.d{min-width:28px;text-align:center;padding:2px 4px}.b.x{color:#aaa;cursor:default}
-.body{display:grid;grid-template-columns:400px 1fr;grid-template-rows:repeat(2,minmax(0,1fr));gap:8px;padding:8px 6px;min-height:0}
+.body{display:grid;grid-template-columns:360px minmax(0,1fr);grid-template-rows:58% minmax(0,1fr);gap:6px;padding:6px 8px;min-height:0}
 .p{border:1px solid #d6d6d6;background:#fff;display:flex;flex-direction:column;overflow:hidden}.p h3{margin:0;background:#fbf1d6;font-size:15px;text-align:center;padding:8px;font-weight:600;border-bottom:1px solid #eadfbf}
-.kp{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #e3e3e3}.k{padding:9px 14px;border-right:1px solid #e3e3e3}.k:last-child{border-right:0}.k .l{font-size:13px;color:#555}.k .v{font-size:24px;font-weight:700;margin-top:2px}.k .s{font-size:12px;color:#666}
+.kp{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #e3e3e3}.k{padding:6px 10px;border-right:1px solid #e3e3e3}.k:last-child{border-right:0}.k .l{font-size:12px;color:#555}.k .v{font-size:21px;font-weight:700;margin-top:2px}.k .s{font-size:11px;color:#666}
 .r{color:#c0171d}.gr{color:#1e7b34}
-.tw{padding:10px 12px}table{border-collapse:collapse;width:100%;font-size:13.5px}th{background:#fbf1d6;text-align:left;padding:4px 8px;font-weight:600;border:1px solid #d9d2bd}td{padding:3px 8px;border:1px solid #e1e1e1}td.n,th.n{text-align:right}tr.top td{background:#fdf8ea}tr.tot td{font-weight:700}
+.tw{padding:4px 8px}table{border-collapse:collapse;width:100%;font-size:12px;line-height:1.15}th{background:#fbf1d6;text-align:left;padding:3px 6px;font-weight:600;border:1px solid #d9d2bd}td{padding:1px 6px;border:1px solid #e1e1e1}td.n,th.n{text-align:right}tr.top td{background:#fdf8ea}tr.tot td{font-weight:700}
 .ft{font-size:12px;color:#555;padding:2px 10px 4px}
-.pbi{background:#fff;border:1px solid #c8c6c4;padding:6px 10px 8px;min-width:190px;position:relative;font-family:"Segoe UI",Arial,sans-serif}
-.pbi .t{font-size:12px;color:#252423;font-weight:600;margin-bottom:4px}
-.pbi .box{border:1px solid #8a8886;height:28px;display:flex;align-items:center;justify-content:space-between;padding:0 8px;font-size:13px;color:#252423;cursor:pointer;background:#fff}
+.pbi{background:#fff;border:1px solid #c8c6c4;padding:4px 8px;min-width:190px;position:relative;font-family:"Segoe UI",Arial,sans-serif}
+.pbi .t{font-size:12px;color:#252423;font-weight:600;margin-bottom:2px}
+.pbi .box{border:1px solid #8a8886;height:24px;display:flex;align-items:center;justify-content:space-between;padding:0 8px;font-size:13px;color:#252423;cursor:pointer;background:#fff}
 .pbi .box svg{width:12px;height:12px}
-.pbi .menu{display:none;position:absolute;left:10px;right:10px;top:58px;background:#fff;border:1px solid #c8c6c4;box-shadow:0 4px 10px rgba(0,0,0,.18);z-index:10;max-height:260px;overflow:auto}
+.pbi .menu{display:none;position:absolute;left:10px;right:10px;top:48px;background:#fff;border:1px solid #c8c6c4;box-shadow:0 4px 10px rgba(0,0,0,.18);z-index:10;max-height:260px;overflow:auto}
 .pbi.open .menu{display:block}
 .pbi .it{display:flex;align-items:center;gap:8px;padding:5px 10px;font-size:13px;cursor:pointer}.pbi .it:hover{background:#f3f2f1}
 .pbi .ck{width:13px;height:13px;border:1px solid #605e5c;display:inline-block;position:relative}.pbi .it.on .ck{background:#252423;border-color:#252423}.pbi .it.on .ck:after{content:"";position:absolute;left:3px;top:0;width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
-.pbi input[type=range]{width:100%;margin:10px 0 2px;-webkit-appearance:none;height:4px;background:#c8c6c4;outline:none}
+.pbi input[type=range]{width:100%;margin:4px 0 0;-webkit-appearance:none;height:4px;background:#c8c6c4;outline:none}
 .pbi input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:#252423;cursor:pointer}
 .pbi .rg{display:flex;justify-content:space-between;font-size:11px;color:#605e5c}
 .sl.pb{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start}
-.body{grid-template-columns:minmax(300px,400px) minmax(0,1fr);grid-template-rows:repeat(2,minmax(300px,auto))}
-.body svg{display:block;width:100%;height:auto;max-width:100%}
-@media(max-width:760px){.body{grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(4,minmax(280px,auto))}#sDia{min-width:0!important;width:100%}}
+.body{grid-template-columns:minmax(320px,360px) minmax(0,1fr);grid-template-rows:58% minmax(0,1fr)}
+.p>div[style*="flex:1"]{min-height:0;overflow:hidden;display:flex;justify-content:center}
+.body svg{display:block;width:100%;height:100%;max-width:100%;min-height:0}
+@media(max-width:760px){body{height:auto;min-height:100vh;overflow-y:auto;grid-template-rows:auto auto auto auto auto}.body{grid-template-columns:minmax(0,1fr);grid-template-rows:repeat(4,minmax(280px,auto))}#sDia{min-width:0!important;width:100%}}
 .sig{font-size:11px;color:#666;text-align:right;padding:0 10px 10px}
 </style></head><body>
 <div class="hd"><div><h1>Distribuidora Región Centro · ventas</h1><div class="sub">¿Vamos a llegar a la meta del mes?</div></div><div class="big"><b id="bigv">0%</b><span id="bigt">de la meta</span></div></div>
@@ -37,9 +38,9 @@
 </div></div>
 <div class="body">
 <div class="p"><h3>Venta por línea, mes a la fecha</h3><div class="tw"><table id="tLin"></table></div></div>
-<div class="p"><h3 id="tit">Ventas</h3><div class="kp" id="kp"></div><div style="padding:6px 8px;flex:1"><svg id="gDia" width="100%" viewBox="0 0 900 262"></svg></div></div>
+<div class="p"><h3 id="tit">Ventas</h3><div class="kp" id="kp"></div><div style="padding:6px 8px;flex:1"><svg id="gDia" width="100%" viewBox="0 0 900 182" preserveAspectRatio="none"></svg></div></div>
 <div class="p"><h3>¿Llegamos a la meta?</h3><div id="meta" style="padding:12px 16px;font-size:14px"></div></div>
-<div class="p"><h3 id="tPar">Pareto, mes a la fecha</h3><div style="padding:6px 8px;flex:1"><svg id="sPar" width="100%" viewBox="0 0 900 240"></svg></div></div>
+<div class="p"><h3 id="tPar">Pareto, mes a la fecha</h3><div style="padding:6px 8px;flex:1"><svg id="sPar" width="100%" viewBox="0 0 900 172" preserveAspectRatio="none"></svg></div></div>
 </div>
 <div class="ft">Promedio de la semana pasada: lunes a domingo de la semana anterior al día de corte. Faltan = puntos porcentuales de la meta que no se han vendido.</div>
 <div class="sig"><b>Ernesto Roldán</b> | Business Intelligence &amp; Analytics | Inteligencia económica aplicada a pricing y rentabilidad</div>
@@ -84,7 +85,7 @@ function render(){
  '<div class="k"><div class="l">Venta del mes</div><div class="v">'+M(mtd)+'</div><div class="s">'+S.dia+' de '+nd+' días</div></div>'+
  '<div class="k"><div class="l">Cumplimiento de meta</div><div class="v '+(meta&&cum<S.dia/nd?'r':'')+'">'+(meta?(cum*100).toFixed(1)+'%':'—')+'</div><div class="s">'+(meta?'meta '+M(meta):'meta solo a nivel total')+'</div></div>';
  // diaria (paletas)
- const mx=Math.max(...serie,prom,nec||0)*1.12, W=900,H=225,X0=50,X1=890,bw=(X1-X0)/nd; let s='<rect x="'+X0+'" y="10" width="'+(X1-X0)+'" height="'+H+'" fill="#EBEBEB"/>';
+ const mx=Math.max(...serie,prom,nec||0)*1.12, W=900,H=145,X0=50,X1=890,bw=(X1-X0)/nd; let s='<rect x="'+X0+'" y="10" width="'+(X1-X0)+'" height="'+H+'" fill="#EBEBEB"/>';
  [0,.25,.5,.75,1].forEach(t=>{const v=mx*t,yy=10+H-t*H;s+='<line x1="'+X0+'" y1="'+yy+'" x2="'+X1+'" y2="'+yy+'" stroke="#fff" stroke-width="1.4"/><text x="'+(X0-6)+'" y="'+(yy+4)+'" font-size="11" fill="#4d4d4d" text-anchor="end">'+(v/1e3).toFixed(0)+'K</text>'});
  for(let i=0;i<nd;i++){const x=X0+(i+0.5)*bw;s+='<line x1="'+x+'" y1="10" x2="'+x+'" y2="'+(10+H)+'" stroke="#fff" stroke-width="1"/>'}
  serie.forEach((v,i)=>{const h=v/mx*H,x=X0+(i+0.5)*bw,last=i===serie.length-1;s+='<line x1="'+x+'" y1="'+(10+H)+'" x2="'+x+'" y2="'+(10+H-h)+'" stroke="#BDBDBD" stroke-width="3"/><circle cx="'+x+'" cy="'+(10+H-h)+'" r="7" fill="'+(last?'#E07B39':'#1F94E8')+'" stroke="#1d3d57" stroke-width="0.8"/>';if((i+1)%5===0||i===0||last)s+='<text x="'+x+'" y="'+(H+26)+'" font-size="11" fill="#4d4d4d" text-anchor="middle">'+(i+1)+'</text>'});
@@ -95,11 +96,11 @@ function render(){
  const by={}; for(let d=1;d<=S.dia;d++){const mm=D.ventas[iso(y,m,d)]||{};for(const k in mm){const L=D.prod[k][1];if(S.lin!=='Todas'&&L!==S.lin)continue;const key=S.lin==='Todas'?L:D.prod[k][0];by[key]=(by[key]||0)+mm[k]}}
  const arr=Object.entries(by).sort((a,b)=>b[1]-a[1]), tot=arr.reduce((a,b)=>a+b[1],0);
  document.getElementById('tPar').textContent='Pareto por '+(S.lin==='Todas'?'línea':'producto de '+S.lin)+', mes a la fecha';
- let acc=0,sp='',pts=[],corte=0; const PX0=50,PX1=860, pw=(PX1-PX0)/arr.length, pm=arr[0][1]*1.1;
- sp+='<rect x="'+PX0+'" y="10" width="'+(PX1-PX0)+'" height="200" fill="#EBEBEB"/>';[0,.25,.5,.75,1].forEach(t=>{const yy=10+200-t*200;sp+='<line x1="'+PX0+'" y1="'+yy+'" x2="'+PX1+'" y2="'+yy+'" stroke="#fff" stroke-width="1.4"/><text x="'+(PX0-6)+'" y="'+(yy+4)+'" font-size="10" fill="#4d4d4d" text-anchor="end">'+(pm*t/1e6).toFixed(1)+'M</text><text x="'+(PX1+6)+'" y="'+(yy+4)+'" font-size="10" fill="#c0171d">'+(t*100).toFixed(0)+'%</text>'});
- arr.forEach(([n,v],i)=>{const prev=acc;acc+=v;if(prev/tot<0.8)corte=i+1;const h=v/pm*200,x=PX0+(i+0.5)*pw;sp+='<line x1="'+x+'" y1="10" x2="'+x+'" y2="210" stroke="#fff"/><line x1="'+x+'" y1="210" x2="'+x+'" y2="'+(210-h)+'" stroke="#BDBDBD" stroke-width="3"/><circle cx="'+x+'" cy="'+(210-h)+'" r="7" fill="'+(prev/tot<0.8?'#1F94E8':'#9FC9EE')+'" stroke="#1d3d57" stroke-width="0.8"/><text x="'+x+'" y="228" font-size="10" fill="#4d4d4d" text-anchor="middle">'+n.slice(0,11)+'</text>';pts.push([x,10+200-acc/tot*200])});
+ let acc=0,sp='',pts=[],corte=0; const PX0=50,PX1=890,PH=130,PY1=10+PH,pw=(PX1-PX0)/arr.length,pm=arr[0][1]*1.1;
+ sp+='<rect x="'+PX0+'" y="10" width="'+(PX1-PX0)+'" height="'+PH+'" fill="#EBEBEB"/>';[0,.25,.5,.75,1].forEach(t=>{const yy=PY1-t*PH;sp+='<line x1="'+PX0+'" y1="'+yy+'" x2="'+PX1+'" y2="'+yy+'" stroke="#fff" stroke-width="1.4"/><text x="'+(PX0-6)+'" y="'+(yy+4)+'" font-size="10" fill="#4d4d4d" text-anchor="end">'+(pm*t/1e6).toFixed(1)+'M</text><text x="'+(PX1-4)+'" y="'+(yy+4)+'" font-size="10" fill="#c0171d" text-anchor="end">'+(t*100).toFixed(0)+'%</text>'});
+ arr.forEach(([n,v],i)=>{const prev=acc;acc+=v;if(prev/tot<0.8)corte=i+1;const h=v/pm*PH,x=PX0+(i+0.5)*pw;sp+='<line x1="'+x+'" y1="10" x2="'+x+'" y2="'+PY1+'" stroke="#fff"/><line x1="'+x+'" y1="'+PY1+'" x2="'+x+'" y2="'+(PY1-h)+'" stroke="#BDBDBD" stroke-width="3"/><circle cx="'+x+'" cy="'+(PY1-h)+'" r="7" fill="'+(prev/tot<0.8?'#1F94E8':'#9FC9EE')+'" stroke="#1d3d57" stroke-width="0.8"/><text x="'+x+'" y="'+(PY1+18)+'" font-size="10" fill="#4d4d4d" text-anchor="middle">'+n.slice(0,11)+'</text>';pts.push([x,PY1-acc/tot*PH])});
  sp+='<polyline points="'+pts.map(p=>p.join(',')).join(' ')+'" fill="none" stroke="#c0171d" stroke-width="2"/>'+pts.map(p=>'<circle cx="'+p[0]+'" cy="'+p[1]+'" r="2.5" fill="#c0171d"/>').join('');
- const y80=10+200-0.8*200; sp+='<line x1="'+PX0+'" y1="'+y80+'" x2="'+PX1+'" y2="'+y80+'" stroke="#777" stroke-dasharray="4 3"/><text x="'+(PX1-4)+'" y="'+(y80-4)+'" font-size="10" text-anchor="end" fill="#555">80%</text>';
+ const y80=PY1-0.8*PH; sp+='<line x1="'+PX0+'" y1="'+y80+'" x2="'+PX1+'" y2="'+y80+'" stroke="#777" stroke-dasharray="4 3"/><text x="'+(PX1-4)+'" y="'+(y80-4)+'" font-size="10" text-anchor="end" fill="#555">80%</text>';
  document.getElementById('sPar').innerHTML=sp;
  // tabla
  let tb='<tr><th>'+(S.lin==='Todas'?'Línea':'Producto')+'</th><th class="n">Venta</th><th class="n">% part.</th><th class="n">% acum.</th></tr>'; acc=0;
